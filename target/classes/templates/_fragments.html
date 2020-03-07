@@ -45,13 +45,23 @@
 <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
   <div class="ui center aligned container">
     <div class="ui inverted divided stackable grid">
-      <div class="three wide column">
+      <div class="two wide column">
         <div class="ui inverted link list">
           <div class="item">
             <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}"  class="ui rounded image" alt="" style="width: 110px">
           </div>
         </div>
       </div>
+
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin m-text-spaced ">备案号，域名证书</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item m-text-thin" >正在备案中...</a>
+          <br>
+          <a href="#" th:href="@{/license}" class="item m-text-thin" >ICANN域名证书</a>
+        </div>
+      </div>
+
       <div class="three wide column" >
         <h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>
         <div id="newblog-container">
@@ -67,17 +77,18 @@
       <div class="three wide column">
         <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
         <div class="ui inverted link list">
-          <a href="#" class="item m-text-thin" th:text="#{index.email}">Email：lirenmi@163.com</a>
-          <a href="#" class="item m-text-thin" th:text="#{index.qq}">QQ：865729312</a>
+          <a href="#" class="item m-text-thin" th:text="#{index.qq}">QQ：1836942145</a>
+          <br>
+          <a href="#" class="item m-text-thin" th:text="#{index.email}">Email：xxmlp980123@163.com</a>
         </div>
       </div>
-      <div class="seven wide column">
+      <div class="five wide column">
         <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
         <p class="m-text-thin m-text-spaced m-opacity-mini" th:text="#{index.blogDescription}">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
       </div>
     </div>
     <div class="ui inverted section divider"></div>
-    <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2016 - <span th:text="${#dates.year(#dates.createNow())}">2017</span> Lirenmi Designed by Lirenmi</p>
+    <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2019 - <span th:text="${#dates.year(#dates.createNow())}">2020</span>  by MinLiPeng</p>
   </div>
 
 </footer>
