@@ -41,8 +41,8 @@
   <div  class="m-container-small m-padded-tb-big">
     <div class="ui container">
       <div class="ui success large  message">
-        <h3>Hi,</h3>
-        <p>闵利鹏，欢迎登录！</p>
+        <h3>Hi,<span th:text="${session.user.nickname}"></span></h3>
+        <p>欢迎登录！</p>
       </div>
 
       <img src="https://unsplash.it/1000/400?image=1005" alt="" class="ui rounded bordered fluid image">
