@@ -6,14 +6,14 @@ mkdir -p $DOCKER_DIR
 cd $DOCKER_DIR
 
 #如果存在旧的blog文档，则删除
-if [ -d "blog" ];
+if [ -d "blog2" ];
 then
-    echo "rm dir blog"
-	rm -rf blog
+    echo "rm dir blog2"
+	rm -rf blog2
 	sleep 10
 	echo "rm over"
 else
-    echo "dir blog not exit"
+    echo "dir blog2 not exit"
 fi
 
 #下载源码
@@ -21,7 +21,7 @@ git clone https://github.com/XXMLP/blog2.git
 
 echo "git clone over"
 #打包
-cd $DOCKER_DIR/blog
+cd $DOCKER_DIR/blog2
 mvn package
 
 sleep 10
@@ -32,8 +32,8 @@ cd $DOCKER_DIR
 rm -f Dockerfile
 rm -f blog-0.0.1-SNAPSHOT.jar
 
-mv $DOCKER_DIR/blog/target/blog-0.0.1-SNAPSHOT.jar .
-mv $DOCKER_DIR/blog/Dockerfile .
+mv $DOCKER_DIR/blog2/target/blog-0.0.1-SNAPSHOT.jar .
+mv $DOCKER_DIR/blog2/Dockerfile .
 
 #删除旧的镜像和容器
 docker stop blog
