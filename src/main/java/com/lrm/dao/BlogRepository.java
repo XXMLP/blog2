@@ -11,9 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by limi on 2017/10/20.
- */
 public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificationExecutor<Blog> {
 
     @Query("select b from Blog b where b.recommend = true")

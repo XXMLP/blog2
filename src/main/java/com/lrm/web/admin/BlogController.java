@@ -20,10 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
-
-/**
- * Created by limi on 2017/10/15.
- */
 @Controller
 @RequestMapping("/admin")
 public class BlogController {

@@ -15,9 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by limi on 2017/10/16.
- */
 @Service
 public class TagServiceImpl implements TagService {
 
