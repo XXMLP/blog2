@@ -46,7 +46,7 @@ public class DruidConfig {
         //initParams.put("allow", "")：为空或者为null时，表示允许所有访问
         initParams.put("allow", "");
         //deny：Druid 后台拒绝谁访问
-        //initParams.put("kuangshen", "ip地址");表示禁止此ip访问
+        //initParams.put("kuangshen", "192.168.1.20");表示禁止此ip访问
 
         //设置初始化参数
         bean.setInitParameters(initParams);

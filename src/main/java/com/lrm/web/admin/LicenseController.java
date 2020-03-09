@@ -9,7 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LicenseController {
 
     @GetMapping("/license")
-    public String about() {
+    public String certificate() {
         return "admin/license";
+    }
+
+    //备案号接口
+    @GetMapping("/Registered NO")
+    public String RegisteredNO() {
+        return "admin/Registered NO";
     }
 }
