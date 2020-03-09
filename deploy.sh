@@ -17,7 +17,7 @@ else
 fi
 
 #下载源码
-git clone https://github.com/XXMLP/blog2.git
+git clone git@github.com:XXMLP/blog2.git
 
 echo "git clone over"
 #打包
