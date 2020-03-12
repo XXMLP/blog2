@@ -2,8 +2,11 @@ package com.lrm.service;
 
 import com.lrm.dao.CommentRepository;
 import com.lrm.po.Comment;
+import com.lrm.po.Tag;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +21,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private CommentRepository commentRepository;
+
 
     @Override
     public List<Comment> listCommentByBlogId(Long blogId) {
@@ -95,5 +99,17 @@ public class CommentServiceImpl implements CommentService {
                 }
             }
         }
+    }
+
+    @Transactional
+    @Override
+    public Page<Comment> listComment(Pageable pageable) {
+        return commentRepository.findAll(pageable);
+    }
+
+    @Transactional
+    @Override
+    public void deleteComment(Long id) {
+        commentRepository.delete(id);
     }
 }

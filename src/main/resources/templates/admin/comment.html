@@ -3,14 +3,14 @@
 <head th:replace="admin/_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>博客管理</title>
+  <title>评论管理</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/css/me.css">
 </head>
 <body>
 
   <!--导航-->
-  <nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+  <nav th:replace="admin/_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
     <div class="ui container">
       <div class="ui inverted secondary stackable menu">
         <h2 class="ui teal header item">管理后台</h2>
@@ -28,7 +28,7 @@
             </div>
             <i class="dropdown icon"></i>
             <div class="menu">
-              <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+              <a href="#" class="item">注销</a>
             </div>
           </div>
         </div>
@@ -38,42 +38,63 @@
       <i class="sidebar icon"></i>
     </a>
   </nav>
-
+  <div class="ui attached pointing menu">
+    <div class="ui container">
+      <div class="right menu">
+        <a href="#" th:href="@{/admin/comment}" class="teal active item">列表</a>
+      </div>
+    </div>
+  </div>
 
   <!--中间内容-->
   <div  class="m-container-small m-padded-tb-big">
-    <div class="ui success large  message">
     <div class="ui container">
-      <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{${session.user.avatar}}">
-       <p>用户名： <span th:text="${session.user.username}"></span></p>
+      <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+        <i class="close icon"></i>
+        <div class="header">提示：</div>
+        <p th:text="${message}">恭喜，操作成功！</p>
+      </div>
+      <table class="ui compact teal table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>评论内容</th>
+            <th>评论者</th>
+            <th>评论时间</th>
+<!--            <th>博客</th>-->
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="comment,iterStat : ${page.content}">
+            <td th:text="${iterStat.count}">1</td>
+            <td th:text="${comment.content}">评论内容</td>
+            <td th:text="${comment.nickname}">评论者
+              <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
+            </td>
+            <td th:text="${comment.createTime}">评论时间</td>
+<!--            <td th:text="${comment.blogId}">博客</td>-->
+            <td>
+              <a href="#" th:href="@{/admin/comment/{id}/delete(id=${comment.id})}" class="ui mini red basic button">删除</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6" >
+              <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                <a th:href="@{/admin/comment(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
+                <a th:href="@{/admin/comment(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
     </div>
-      <br>
-    <div class="ui container">
-      <p>昵称：<span th:text="${session.user.nickname}"></span></p>
-    </div>
-      <br>
-    <div class="ui container">
-      <p>邮箱：<span th:text="${session.user.email}"></span></p>
-    </div>
-      <br>
-<!--    <div class="ui container">-->
-<!--      <p>密码：<span th:text="${session.user.password}"></span></p>-->
-<!--    </div>-->
-<!--      <br>-->
-    <div class="ui container">
-      <p>创建时间： <span th:text="${session.user.createTime}"></span></p>
-    </div>
-      <br>
-<!--      <div class="ui container">-->
-<!--        <p>博客：<span th:text="${session.user.email}"></span></p>-->
-<!--      </div>-->
-<!--      <br>-->
-  </div>
   </div>
 
   <br>
   <br>
-
   <!--底部footer-->
   <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
 
@@ -90,6 +111,13 @@
       on : 'hover'
     });
 
+    //消息提示关闭初始化
+    $('.message .close')
+      .on('click', function () {
+        $(this)
+          .closest('.message')
+          .transition('fade');
+      });
   </script>
 </body>
 </html>
