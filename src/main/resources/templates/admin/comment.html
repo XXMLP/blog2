@@ -69,9 +69,7 @@
           <tr th:each="comment,iterStat : ${page.content}">
             <td th:text="${iterStat.count}">1</td>
             <td th:text="${comment.content}">评论内容</td>
-            <td th:text="${comment.nickname}">评论者
-              <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
-            </td>
+            <td th:text="${comment.nickname}">评论者</td>
             <td th:text="${comment.createTime}">评论时间</td>
 <!--            <td th:text="${comment.blogId}">博客</td>-->
             <td>

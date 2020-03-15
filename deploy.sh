@@ -1,4 +1,4 @@
-    #!/bin/sh
+        #!/bin/sh
 
 
     DOCKER_DIR=/root/docker
