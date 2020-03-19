@@ -69,19 +69,19 @@
           <br>
           <div class="ui left labeled input">
             <label class="ui teal basic label">昵称</label>
-            <input type="text" name="nickname" placeholder="用户昵称" th:value="*{nickname}" >
+            <input type="search" name="nickname" placeholder="用户昵称" th:value="*{nickname}" >
           </div>
           <br>
           <br>
           <div class="ui left labeled input">
             <label class="ui teal basic label">密码</label>
-            <input type="text" name="password" placeholder="用户密码" th:value="*{password}" >
+            <input type="password" name="password" placeholder="用户密码" th:value="*{password}" >
           </div>
           <br>
           <br>
           <div class="ui left labeled input">
             <label class="ui teal basic label">邮箱</label>
-            <input type="text" name="email" placeholder="用户邮箱" th:value="*{email}" >
+            <input type="email" name="email" placeholder="用户邮箱" th:value="*{email}" >
           </div>
           <br>
           <br>
@@ -165,8 +165,8 @@
         email : {
           identifier: 'email',
           rules: [{
-            type : 'empty',
-            prompt: '标题：请输入邮箱'
+            type : 'email',
+            prompt: '标题：请填写正确的邮箱地址'
           }]
         }
       }
