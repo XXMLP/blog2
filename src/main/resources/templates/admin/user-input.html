@@ -75,8 +75,15 @@
           <br>
           <div class="ui left labeled input">
             <label class="ui teal basic label">密码</label>
-            <input type="password" name="password" placeholder="用户密码" th:value="*{password}" >
+            <input type="password" name="password" placeholder="用户密码" th:value="*{password}" id="pwd" >
           </div>
+          <br>
+          <br>
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">确认密码</label>
+            <input type="password" name="password1" placeholder="确认密码" th:value="*{password}" id="pwd1" onkeyup="validate()">
+          </div>
+          <span id="tishi"></span>
           <br>
           <br>
           <div class="ui left labeled input">
@@ -155,7 +162,7 @@
             prompt: '标题：请输入昵称'
           }]
         },
-        nickname : {
+        password : {
           identifier: 'password',
           rules: [{
             type : 'empty',
@@ -172,7 +179,20 @@
       }
     });
 
+    function validate() {
 
+      var pwd1 = document.getElementById("pwd").value;
+      var pwd2 = document.getElementById("pwd1").value;
+      <!-- 对比两次输入的密码 -->
+      if(pwd1 == pwd2){
+        document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+        document.getElementById("button").disabled = false;
+      }
+      else {
+        document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+        document.getElementById("button").disabled = true;
+      }
+    }
   </script>
 </body>
 </html>
