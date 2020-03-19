@@ -42,13 +42,13 @@ public class DruidConfig {
         initParams.put("loginPassword", "123456"); //后台管理界面的登录密码
 
         //后台允许谁可以访问
-        //initParams.put("allow", "localhost")：表示只有本机可以访问
-        //initParams.put("allow", "")：为空或者为null时，表示允许所有访问
+      //  initParams.put("allow", "localhost");//：表示只有本机可以访问
+        initParams.put("allow", "");//：为空或者为null时，表示允许所有访问
         //公司公网
-        initParams.put("allow", "125.121.60.132");
-        initParams.put("allow", "125.121.239.166");
+        //initParams.put("allow", "125.121.60.132");
+        //initParams.put("allow", "125.121.239.166");
         //手机公网
-        initParams.put("allow", "223.104.160.40");
+        //initParams.put("allow", "223.104.160.40");
 
         //设置初始化参数
         bean.setInitParameters(initParams);
