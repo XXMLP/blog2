@@ -46,6 +46,7 @@ public class DruidConfig {
         //initParams.put("allow", "")：为空或者为null时，表示允许所有访问
         //公司公网
         initParams.put("allow", "125.121.60.132");
+        initParams.put("allow", "125.121.239.166");
         //手机公网
         initParams.put("allow", "223.104.160.40");
 
