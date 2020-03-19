@@ -1,7 +1,6 @@
 package com.lrm.web.admin;
 
 import com.lrm.po.User;
-import com.lrm.po.User;
 import com.lrm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

@@ -4,6 +4,7 @@ import com.lrm.NotFoundException;
 import com.lrm.dao.UserRepository;
 import com.lrm.po.User;
 import com.lrm.util.MD5Utils;
+import com.lrm.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 
 
 @Service
@@ -48,7 +50,9 @@ public class UserServiceImpl implements UserService {
         if (u == null) {
             throw new NotFoundException("不存在该用户");
         }
-        BeanUtils.copyProperties(user,u);
+        BeanUtils.copyProperties(user,u,MyBeanUtils.getNullPropertyNames(user));
+        u.setUpdateTime(new Date());
+        u.setPassword(MD5Utils.code(user.getPassword()));
         return userRepository.save(u);
     }
 

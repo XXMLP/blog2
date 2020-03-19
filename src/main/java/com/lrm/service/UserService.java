@@ -1,6 +1,5 @@
 package com.lrm.service;
 
-import com.lrm.po.Type;
 import com.lrm.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

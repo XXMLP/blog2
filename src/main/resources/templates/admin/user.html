@@ -42,7 +42,6 @@
   <div class="ui attached pointing menu">
     <div class="ui container">
       <div class="right menu">
-<!--        <a href="#" th:href="@{/admin/types/input}" class="item">新增</a>-->
         <a href="#" th:href="@{/admin/user}" class="teal active item">详情</a>
       </div>
     </div>
@@ -71,7 +70,9 @@
         <tbody>
           <tr th:each="user,iterStat : ${page.content}">
             <td th:text="${iterStat.count}">1</td>
-            <td th:text="${user.avatar}"></td>
+            <td><div class="text">
+              <img class="ui avatar image" th:src="@{${session.user.avatar}}">
+            </div></td>
             <td th:text="${user.username}">刻意练习清单</td>
             <td th:text="${user.nickname}">刻意练习清单</td>
             <td th:text="${user.email}">刻意练习清单</td>

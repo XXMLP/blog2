@@ -55,21 +55,36 @@
         <input type="hidden" name="id" th:value="*{id}">
         <div class=" field">
           <div class="ui left labeled input">
-            <label class="ui teal basic label">头像</label>
-            <input type="text" name="avatar" placeholder="用户头像" th:value="*{avatar}" >
-          </div>
-          <div class="ui left labeled input">
             <label class="ui teal basic label">用户名</label>
             <input type="text" name="username" placeholder="用户名" th:value="*{username}" >
           </div>
+          <br>
+          <br>
+
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">头像</label>
+            <input type="text" name="avatar" placeholder="用户头像" th:value="*{avatar}" >
+          </div>
+          <br>
+          <br>
           <div class="ui left labeled input">
             <label class="ui teal basic label">昵称</label>
             <input type="text" name="nickname" placeholder="用户昵称" th:value="*{nickname}" >
           </div>
+          <br>
+          <br>
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">密码</label>
+            <input type="text" name="password" placeholder="用户密码" th:value="*{password}" >
+          </div>
+          <br>
+          <br>
           <div class="ui left labeled input">
             <label class="ui teal basic label">邮箱</label>
             <input type="text" name="email" placeholder="用户邮箱" th:value="*{email}" >
           </div>
+          <br>
+          <br>
 
         </div>
 
@@ -138,6 +153,13 @@
           rules: [{
             type : 'empty',
             prompt: '标题：请输入昵称'
+          }]
+        },
+        nickname : {
+          identifier: 'password',
+          rules: [{
+            type : 'empty',
+            prompt: '标题：请输入密码'
           }]
         },
         email : {
