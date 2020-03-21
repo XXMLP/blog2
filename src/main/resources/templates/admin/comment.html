@@ -60,6 +60,7 @@
             <th></th>
             <th>评论内容</th>
             <th>评论者</th>
+            <th>博客</th>
             <th>评论时间</th>
 <!--            <th>博客</th>-->
             <th>操作</th>
@@ -70,6 +71,7 @@
             <td th:text="${iterStat.count}">1</td>
             <td th:text="${comment.content}">评论内容</td>
             <td th:text="${comment.nickname}">评论者</td>
+            <td th:text="${comment.blog.title}">评论者</td>
             <td th:text="${comment.createTime}">评论时间</td>
 <!--            <td th:text="${comment.blogId}">博客</td>-->
             <td>
