@@ -104,8 +104,20 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional
     @Override
-    public Page<Comment> listComment(Pageable pageable) {
-        return commentRepository.findByCommentId(pageable);
+    public Page<Comment> listNewComment(Pageable pageable) {
+        return commentRepository.findByNewComment(pageable);
+    }
+
+    @Transactional
+    @Override
+    public Page<Comment> listOldComment(Pageable pageable) {
+        return commentRepository.findByOldComment(pageable);
+    }
+
+    @Transactional
+    @Override
+    public Page<Comment> listAllComment(Pageable pageable) {
+        return commentRepository.findAll(pageable);
     }
 
     @Transactional

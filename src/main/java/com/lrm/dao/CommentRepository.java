@@ -18,7 +18,9 @@ public interface CommentRepository extends JpaRepository<Comment,Long>{
     List<Comment> findByBlogIdAndParentCommentNull(Long blogId, Sort sort);
 
     @Query("select b from Comment b where b.checkComment = false")
-    Page<Comment> findByCommentId(Pageable pageable);
+    Page<Comment> findByNewComment(Pageable pageable);
+    @Query("select b from Comment b where b.checkComment = true")
+    Page<Comment> findByOldComment(Pageable pageable);
 
     @Transactional
     @Modifying

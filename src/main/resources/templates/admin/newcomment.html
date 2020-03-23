@@ -41,7 +41,11 @@
   <div class="ui attached pointing menu">
     <div class="ui container">
       <div class="right menu">
-        <a href="#" th:href="@{/admin/comment}" class="teal active item">列表</a>
+
+        <a href="#" th:href="@{/admin/newcomment}" class="teal active item">未审核</a>
+        <a href="#" th:href="@{/admin/oldcomment}" class="item">已审核</a>
+        <a href="#" th:href="@{/admin/allcomment}" class="item">全部</a>
+
       </div>
     </div>
   </div>

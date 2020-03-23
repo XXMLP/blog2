@@ -14,7 +14,9 @@ public interface CommentService {
 
     Comment saveComment(Comment comment);
 
-    Page<Comment> listComment(Pageable pageable);
+    Page<Comment> listNewComment(Pageable pageable);
+    Page<Comment> listOldComment(Pageable pageable);
+    Page<Comment> listAllComment(Pageable pageable);
 
     void checkComment(Long id);
 
