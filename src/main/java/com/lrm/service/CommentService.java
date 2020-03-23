@@ -1,5 +1,6 @@
 package com.lrm.service;
 
+import com.lrm.po.Blog;
 import com.lrm.po.Comment;
 import com.lrm.po.Tag;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,9 @@ public interface CommentService {
     Comment saveComment(Comment comment);
 
     Page<Comment> listComment(Pageable pageable);
+
+    void checkComment(Long id);
+
 
     void deleteComment(Long id);
 }

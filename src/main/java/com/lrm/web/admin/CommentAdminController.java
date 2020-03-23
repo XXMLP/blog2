@@ -1,6 +1,8 @@
 package com.lrm.web.admin;
 
+import com.lrm.po.Comment;
 import com.lrm.po.Tag;
+import com.lrm.po.User;
 import com.lrm.service.CommentService;
 import com.lrm.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,17 @@ public class CommentAdminController {
                                     Pageable pageable, Model model) {
         model.addAttribute("page",commentService.listComment(pageable));
         return "admin/comment";
+    }
+
+    @GetMapping("/comment/{id}/check")
+    public String check(@PathVariable Long id, RedirectAttributes attributes){
+
+
+    commentService.checkComment(id);
+
+            attributes.addFlashAttribute("message","审核通过");
+
+    return "redirect:/admin/comment";
     }
 
 

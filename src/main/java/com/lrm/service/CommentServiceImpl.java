@@ -1,8 +1,9 @@
 package com.lrm.service;
 
+import com.lrm.NotFoundException;
 import com.lrm.dao.CommentRepository;
 import com.lrm.po.Comment;
-import com.lrm.po.Tag;
+import com.lrm.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -104,8 +105,16 @@ public class CommentServiceImpl implements CommentService {
     @Transactional
     @Override
     public Page<Comment> listComment(Pageable pageable) {
-        return commentRepository.findAll(pageable);
+        return commentRepository.findByCommentId(pageable);
     }
+
+    @Transactional
+    @Override
+    public void checkComment(Long id){
+        commentRepository.check(id);
+    }
+
+
 
     @Transactional
     @Override

@@ -75,6 +75,7 @@
             <td th:text="${comment.createTime}">评论时间</td>
 <!--            <td th:text="${comment.blogId}">博客</td>-->
             <td>
+              <a href="#" th:href="@{/admin/comment/{id}/check(id=${comment.id})}" class="ui mini green basic button">审核</a>
               <a href="#" th:href="@{/admin/comment/{id}/delete(id=${comment.id})}" class="ui mini red basic button">删除</a>
             </td>
           </tr>
