@@ -29,6 +29,16 @@ public class Comment {
 
     private boolean adminComment;
 
+    private boolean checkComment;
+
+    public boolean isCheckComment() {
+        return checkComment;
+    }
+
+    public void setCheckComment(boolean checkComment) {
+        this.checkComment = checkComment;
+    }
+
     public Comment() {
     }
 
