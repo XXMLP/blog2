@@ -75,7 +75,7 @@
             <td th:text="${comment.nickname}">评论者</td>
             <td th:text="${comment.blog.title}">博客</td>
             <td th:text="${comment.createTime}">评论时间</td>
-            <td th:text="${comment.checkComment}">审核</td>
+            <td th:text="${comment.checkComment}? '已审核':'未审核'">审核</td>
             <td>
               <a href="#" th:href="@{/admin/comment/{id}/delete(id=${comment.id})}" class="ui mini red basic button">删除</a>
             </td>

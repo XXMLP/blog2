@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @Controller
 @RequestMapping("/admin")
@@ -47,17 +49,21 @@ public class CommentAdminController {
 
             attributes.addFlashAttribute("message","审核通过");
 
-    return "redirect:/admin/comment";
+    return "redirect:/admin/newcomment";
     }
 
 
 
 
     @GetMapping("/comment/{id}/delete")
-    public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+    public String delete(@PathVariable Long id, RedirectAttributes attributes, HttpServletRequest request) {
         commentService.deleteComment(id);
         attributes.addFlashAttribute("message", "删除成功");
-        return "redirect:/admin/comment";
+        //获取当前页面的url地址
+        String url = request.getHeader("referer");
+        //System.out.println(url);
+        //重定向到当前页面
+        return "redirect:" + url;
     }
 
 
