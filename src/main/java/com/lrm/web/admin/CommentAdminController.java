@@ -26,19 +26,19 @@ public class CommentAdminController {
     public String comment_new(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)
                                     Pageable pageable, Model model) {
         model.addAttribute("page",commentService.listNewComment(pageable));
-        return "/admin/newcomment";
+        return "admin/newcomment";
     }
     @GetMapping("/oldcomment")
     public String comment_old(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)
                                     Pageable pageable, Model model) {
         model.addAttribute("page",commentService.listOldComment(pageable));
-        return "/admin/oldcomment";
+        return "admin/oldcomment";
     }
     @GetMapping("/allcomment")
     public String comment_all(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)
                                     Pageable pageable, Model model) {
         model.addAttribute("page",commentService.listAllComment(pageable));
-        return "/admin/allcomment";
+        return "admin/allcomment";
     }
 
     @GetMapping("/comment/{id}/check")
