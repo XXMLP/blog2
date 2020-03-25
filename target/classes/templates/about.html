@@ -66,11 +66,14 @@
           <div class="ui bottom attached segment">
             <a href="#" class="ui github circular icon button" data-content="github.com/XXMLP" data-position="bottom center"><i class="github icon"></i></a>
             <a href="#" class="ui wechat circular icon button" data-position="bottom center"><i class="weixin icon"></i></a>
-            <a href="#" class="ui qq circular icon button" data-content="1836942145" data-position="bottom center"><i class="qq icon"></i></a>
+            <a href="#" class="ui qq circular icon button" data-position="bottom center"><i class="qq icon"></i></a>
           </div>
 
           <div class="ui wechat-qr flowing popup transition hidden">
             <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 110px">
+          </div>
+          <div class="ui qq-qr flowing popup transition hidden">
+            <img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}" alt="" class="ui rounded image" style="width: 110px">
           </div>
           </div>
       </div>
@@ -98,7 +101,9 @@
     });
 
 
-    $('.qq').popup();
+    $('.qq').popup({
+      popup : $('.qq-qr.popup')
+    });
 
     $('.wechat').popup({
       popup : $('.wechat-qr.popup')
