@@ -68,12 +68,40 @@
           </div>
           <div class="ui bottom attached segment">
             <a href="#" class="ui github circular icon button" data-content="github.com/XXMLP" data-position="bottom center"><i class="github icon"></i></a>
-            <a href="#" class="ui wechat circular icon button" data-content="15170212308" data-position="bottom center"><i class="weixin icon"></i></a>
-            <a href="#" class="ui qq circular icon button" data-content="1836942145" data-position="bottom center"><i class="qq icon"></i></a>
+            <a href="#" class="ui wechat circular icon button" id="wechatButton" data-position="bottom center"><i class="weixin icon"></i></a>
+
+            <div class="ui wechatQR flowing popup transition hidden">
+              <div class="ui black basic label">
+                <div class="ui images" style="font-size: inherit !important;">
+                  <div class="image">
+<!--                    <div>关注我</div>-->
+                    <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded bordered image" style="width: 120px">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="ui qq circular icon button" id="qqButton" data-position="bottom center"><i class="qq icon"></i></a>
+
+            <div class="ui qqQR flowing popup transition hidden">
+              <div class="ui black basic label">
+                <div class="ui images" style="font-size: inherit !important;">
+                  <div class="image">
+                    <!--                    <div>关注我</div>-->
+                    <img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}" alt="" class="ui rounded bordered image" style="width: 120px">
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="ui wechat-qr flowing popup transition hidden">
             <img src="../static/images/wechat.jpg" alt="" class="ui rounded image" style="width: 110px">
+          </div>
+          <div class="ui qq-qr flowing popup transition hidden">
+            <img src="../static/images/qq.jpg" alt="" class="ui rounded image" style="width: 110px">
           </div>
           </div>
       </div>
@@ -96,9 +124,17 @@
       $('.m-item').toggleClass('m-mobile-hide');
     });
 
+    $('#qqButton').popup({
+      popup : $('.qqQR.popup'),
+      position: 'bottom center'
+    });
+    $('#wechatButton').popup({
+      popup : $('.wechatQR.popup'),
+      position: 'bottom center'
+    });
 
-    $('.qq').popup();
-    $('.wechat').popup();
+
+
     $('.github').popup();
 
   </script>
