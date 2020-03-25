@@ -79,6 +79,12 @@
             </div>
           </div>
           <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" id="published" name="published">
+              <label for="published">发布</label>
+            </div>
+          </div>
+          <div class="field">
             <button  type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
           </div>
         </div>
@@ -182,6 +188,7 @@
         title : $("[name='title']").val(),
         typeId : $("[name='typeId']").val(),
         recommend : $("[name='recommend']").prop('checked'),
+        published : $("[name='published']").prop('checked'),
         page : $("[name='page']").val()
       });
     }

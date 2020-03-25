@@ -66,8 +66,7 @@
             <th>评论者</th>
             <th>博客</th>
             <th>评论时间</th>
-<!--            <th>博客</th>-->
-            <th>操作</th>
+            <th>审核</th>
           </tr>
         </thead>
         <tbody>
@@ -77,9 +76,8 @@
             <td th:text="${comment.nickname}">评论者</td>
             <td th:text="${comment.blog.title}">评论者</td>
             <td th:text="${comment.createTime}">评论时间</td>
-<!--            <td th:text="${comment.blogId}">博客</td>-->
             <td>
-              <a href="#" th:href="@{/admin/comment/{id}/check(id=${comment.id})}" class="ui mini green basic button">审核</a>
+              <a href="#" th:href="@{/admin/comment/{id}/check(id=${comment.id})}" class="ui mini green basic button">通过</a>
               <a href="#" th:href="@{/admin/comment/{id}/delete(id=${comment.id})}" class="ui mini red basic button">删除</a>
             </td>
           </tr>
