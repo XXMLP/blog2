@@ -79,6 +79,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public Page<Blog> listSearchBlog(String content,Pageable pageable) {
+        return blogRepository.findBySearch(content,pageable);
+    }
+
+    @Override
     public Page<Blog> listTypeBlog(Pageable pageable,Long typeId) {
         return blogRepository.findBlogByType(pageable,typeId);
     }
