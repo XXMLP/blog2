@@ -23,6 +23,9 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
     @Query("select b from Blog b where b.published = true")
     Page<Blog> findAll(Pageable pageable);
 
+    @Query("select b from Blog b where b.published = true and b.type.id = ?1")
+    Page<Blog> findBlogByType(Pageable pageable,Long typeId);
+
 
 
     @Query("select b from Blog b where b.title like ?1 or b.content like ?1")

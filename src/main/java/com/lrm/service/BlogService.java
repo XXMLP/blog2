@@ -16,6 +16,8 @@ public interface BlogService {
 
     Page<Blog> listBlog(Pageable pageable,BlogQuery blog);
 
+    Page<Blog> listTypeBlog(Pageable pageable,Long typeId);
+
     Page<Blog> listBlog(Pageable pageable);
 
     Page<Blog> listBlog(Long tagId,Pageable pageable);
