@@ -66,7 +66,7 @@ public class UserController {
     @PostMapping("/user/{id}")
     public String editPost(@Valid User user, BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
         User user1 = userService.getUserByName(user.getUsername());
-        if (user1 != null) {
+        if (user1 != null && user1.getId()!=user.getId()) {
             result.rejectValue("username","nameError","用户名已存在");
         }
         if (result.hasErrors()) {
