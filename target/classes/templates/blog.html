@@ -596,6 +596,9 @@ h5,h6{font-size:1em;}
     $('.menu.toggle').click(function () {
       $('.m-item').toggleClass('m-mobile-hide');
     });
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
 
     $('#payButton').popup({
       popup : $('.payQR.popup'),
