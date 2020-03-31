@@ -78,6 +78,7 @@
             <td th:text="${user.updateTime}">刻意练习清单</td>
             <td>
               <a href="#" th:href="@{/admin/user/{id}/input(id=${user.id})}" class="ui mini teal basic button">修改</a>
+              <a href="#" th:href="@{/admin/user/{id}/delete(id=${user.id})}" class="ui mini red basic button">删除</a>
             </td>
           </tr>
         </tbody>
@@ -88,7 +89,7 @@
                 <a th:href="@{/admin/user(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
                 <a th:href="@{/admin/user(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
               </div>
-<!--              <a href="#" th:href="@{/admin/user/input}"  class="ui mini right floated teal basic button">新增</a>-->
+              <a href="#" th:href="@{/admin/user/input}"  class="ui mini right floated teal basic button">新增</a>
             </th>
           </tr>
         </tfoot>

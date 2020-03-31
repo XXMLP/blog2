@@ -73,10 +73,7 @@ public class UserLoginController {
                 user.setAvatar(avatar);
                 user.setEmail(email);
                 user.setNickname(nickname);
-                user.setPassword(MD5Utils.code(password));
-                user.setCreateTime(new Date());
-                user.setUpdateTime(new Date());
-                user.setType(0);
+                user.setPassword(password);
                 userService.saveUser(user);
                 return "user/login";
             } else {

@@ -24,7 +24,14 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public User saveUser(User user){
-
+        if (user.getId()==null){
+            user.setCreateTime(new Date());
+            user.setUpdateTime(new Date());
+            user.setPassword(MD5Utils.code(user.getPassword()));
+            user.setType(0);
+        }else{
+            user.setUpdateTime(new Date());
+        }
         return userRepository.save(user);
 
     }
@@ -70,4 +77,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(u);
     }
 
+    @Transactional
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.delete(id);
+    }
 }

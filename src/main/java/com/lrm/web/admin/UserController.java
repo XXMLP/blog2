@@ -1,5 +1,6 @@
 package com.lrm.web.admin;
 
+import com.lrm.po.Type;
 import com.lrm.po.User;
 import com.lrm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,12 +45,30 @@ public class UserController {
         return "admin/user-input";
     }
 
+    @PostMapping("/user")
+    public String post(@Valid User user, BindingResult result, RedirectAttributes attributes) {
+        User user1 = userService.getUserByName(user.getUsername());
+        if (user1 != null) {
+            result.rejectValue("username","nameError","用户名已存在");
+        }
+        if (result.hasErrors()) {
+            return "admin/user-input";
+        }
+        User t = userService.saveUser(user);
+        if (t == null ) {
+            attributes.addFlashAttribute("message", "新增失败");
+        } else {
+            attributes.addFlashAttribute("message", "新增成功");
+        }
+        return "redirect:/admin/user";
+    }
+
     @PostMapping("/user/{id}")
     public String editPost(@Valid User user, BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
-//        User user1 = userService.getUserByName(user.getUsername());
-//        if (user1 != null) {
-//            result.rejectValue("name","nameError","不能重复的分类");
-//        }
+        User user1 = userService.getUserByName(user.getUsername());
+        if (user1 != null) {
+            result.rejectValue("username","nameError","用户名已存在");
+        }
         if (result.hasErrors()) {
             return "admin/user-input";
         }
@@ -59,6 +78,13 @@ public class UserController {
         } else {
             attributes.addFlashAttribute("message", "更新成功");
         }
+        return "redirect:/admin/user";
+    }
+
+    @GetMapping("/user/{id}/delete")
+    public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+        userService.deleteUser(id);
+        attributes.addFlashAttribute("message", "删除成功");
         return "redirect:/admin/user";
     }
 }
