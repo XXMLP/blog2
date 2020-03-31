@@ -15,13 +15,12 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   <div class="ui container">
     <div class="ui inverted secondary stackable menu">
-      <h2 class="ui teal header item">管理后台</h2>
-      <a href="#" th:href="@{/admin/blogs}" class=" m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>博客</a>
-      <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
-      <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>标签</a>
-      <a href="#" th:href="@{/admin/newcomment}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini comments icon"></i>评论</a>
+      <h2 class="ui teal header item">用户后台</h2>
+      <a href="#" th:href="@{/user/homepage}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="mini tags icon"></i>主页</a>
+      <a href="#" th:href="@{/user/blogs}" class=" m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>博客</a>
+      <a href="#" th:href="@{/user/types}" class=" m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
+      <a href="#" th:href="@{/user/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>标签</a>
       <a href="http://pic.xxmlp.top" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="mini image outline icon"></i>图床</a>
-      <a href="/druid/*"  class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="mini setting icon"></i>系统监控</a>
       <div class="right m-item m-mobile-hide menu">
         <div class="ui dropdown  item">
           <div class="text">
@@ -30,8 +29,8 @@
           </div>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <a href="#" th:href="@{/admin/user}" class="item"><i class="mini user secret icon"></i>个人信息</a>
-            <a href="#" th:href="@{/admin/logout}" class="item"><i class="mini power off icon"></i>安全退出</a>
+            <a href="#" th:href="@{/user/information}" class="item"><i class="mini user secret icon"></i>个人信息</a>
+            <a href="#" th:href="@{/user/logout}" class="item"><i class="mini power off icon"></i>安全退出</a>
           </div>
         </div>
       </div>

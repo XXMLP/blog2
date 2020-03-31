@@ -21,6 +21,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional
+    @Override
+    public User saveUser(User user){
+
+        return userRepository.save(user);
+
+    }
+
     @Override
     public User checkUser(String username, String password) {
         User user = userRepository.findByUsernameAndPassword(username, MD5Utils.code(password));
@@ -32,6 +40,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(Long id) {
         return userRepository.findOne(id);
+    }
+
+    @Transactional
+    @Override
+    public User getUserByName(String username) {
+        return userRepository.findByUsername(username);
     }
 
 

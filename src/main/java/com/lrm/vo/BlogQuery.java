@@ -3,11 +3,20 @@ package com.lrm.vo;
 public class BlogQuery {
 
     private String title;
+    private Long userId;
     private Long typeId;
     private boolean recommend;
     private boolean published;
 
     public BlogQuery() {
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
