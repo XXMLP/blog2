@@ -62,6 +62,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll(pageable);
     }
 
+    @Transactional
+    @Override
+    public Page<User> listUserInformation(Pageable pageable,Long id) {
+        return userRepository.findUserInformation(pageable,id);
+    }
+
 
 
     @Transactional
