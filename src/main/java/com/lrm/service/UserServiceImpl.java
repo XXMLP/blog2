@@ -78,7 +78,6 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundException("不存在该用户");
         }
         BeanUtils.copyProperties(user,u,MyBeanUtils.getNullPropertyNames(user));
-        u.setUpdateTime(new Date());
         u.setPassword(MD5Utils.code(user.getPassword()));
         return userRepository.save(u);
     }

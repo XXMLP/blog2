@@ -75,13 +75,13 @@
           <br>
           <div class="ui left labeled input">
             <label class="ui teal basic label">密码</label>
-            <input type="password" name="password" placeholder="用户密码" th:value="*{password}" id="pwd" >
+            <input type="password" name="password" placeholder="用户密码" id="pwd" >
           </div>
           <br>
           <br>
           <div class="ui left labeled input">
             <label class="ui teal basic label">确认密码</label>
-            <input type="password" name="password1" placeholder="确认密码" th:value="*{password}" id="pwd1" onkeyup="validate()">
+            <input type="password" name="password1" placeholder="确认密码" id="pwd1" onkeyup="validate()">
           </div>
           <span id="tishi"></span>
           <br>
@@ -138,7 +138,6 @@
     $('.ui.dropdown').dropdown({
       on : 'hover'
     });
-
     $('.ui.form').form({
       fields : {
         avatar : {
@@ -178,6 +177,7 @@
         }
       }
     });
+
 
     function validate() {
 
