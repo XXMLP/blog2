@@ -83,6 +83,7 @@
             <th>标题</th>
             <th>类型</th>
             <th>博主</th>
+            <th>标志</th>
             <th>推荐</th>
             <th>状态</th>
             <th>更新时间</th>
@@ -95,6 +96,7 @@
             <td th:text="${blog.title}">刻意练习清单</td>
             <td th:text="${blog.type.name}">认知升级</td>
             <td th:text="${blog.user.username}">认知升级</td>
+            <td th:text="${blog.flag}">认知升级</td>
             <td th:text="${blog.recommend} ? '是':'否'">是</td>
             <td th:text="${blog.published} ? '发布':'草稿'">草稿</td>
             <td th:text="${blog.updateTime}">2017-10-02 09:45</td>

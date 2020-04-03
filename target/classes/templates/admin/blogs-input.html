@@ -11,35 +11,7 @@
 <body>
 
   <!--导航-->
-  <nav th:replace="admin/_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
-    <div class="ui container">
-      <div class="ui inverted secondary stackable menu">
-        <h2 class="ui teal header item">管理后台</h2>
-        <a href="#" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
-        <a href="#" class=" m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
-        <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-        <a href="#" class="m-item item m-mobile-hide"><i class="mini comments icon"></i>评论</a>
-
-        <a href="#" class="m-item item m-mobile-hide"><i class="mini setting icon"></i>系统监控</a>
-
-        <div class="right m-item m-mobile-hide menu">
-          <div class="ui dropdown  item">
-            <div class="text">
-              <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005">
-              闵利鹏
-            </div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <a href="#" class="item">注销</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
-      <i class="sidebar icon"></i>
-    </a>
-  </nav>
+  <nav th:replace="admin/_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" ></nav>
   <div class="ui attached pointing menu">
     <div class="ui container">
       <div class="right menu">
@@ -58,7 +30,7 @@
         <div class="required field">
           <div class="ui left labeled input">
             <div class="ui selection compact teal basic dropdown label">
-              <input type="hidden" value="原创" name="flag" th:value="*{flag}" >
+              <input type="hidden" value="标志" name="flag" th:value="*{flag}" >
               <i class="dropdown icon"></i>
               <div class="text">原创</div>
               <div class="menu">
@@ -204,39 +176,46 @@
 
     $('.ui.form').form({
       fields : {
+        flag : {
+          identifier: 'flag',
+          rules: [{
+            type : 'empty',
+            prompt: '提醒：请选择博客标志'
+          }]
+        },
         title : {
           identifier: 'title',
           rules: [{
             type : 'empty',
-            prompt: '标题：请输入博客标题'
+            prompt: '提醒：请输入博客标题'
           }]
         },
         content : {
           identifier: 'content',
           rules: [{
             type : 'empty',
-            prompt: '标题：请输入博客内容'
+            prompt: '提醒：请输入博客内容'
           }]
         },
         typeId : {
           identifier: 'type.id',
           rules: [{
             type : 'empty',
-            prompt: '标题：请输入博客分类'
+            prompt: '提醒：请输入博客分类'
           }]
         },
         firstPicture : {
           identifier: 'firstPicture',
           rules: [{
             type : 'empty',
-            prompt: '标题：请输入博客首图'
+            prompt: '提醒：请输入博客首图'
           }]
         },
         description : {
           identifier: 'description',
           rules: [{
             type : 'empty',
-            prompt: '标题：请输入博客描述'
+            prompt: '提醒：请输入博客描述'
           }]
         }
       }
