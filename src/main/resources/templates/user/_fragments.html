@@ -20,7 +20,7 @@
       <a href="#" th:href="@{/user/blogs}" class=" m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>博客</a>
       <a href="#" th:href="@{/user/types}" class=" m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
       <a href="#" th:href="@{/user/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>标签</a>
-      <a href="http://pic.xxmlp.top" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="mini image outline icon"></i>图床</a>
+      <a href="http://pic.xxmlp.top" class="m-item item m-mobile-hide" target="_blank" th:classappend="${n==6} ? 'active'"><i class="mini image outline icon"></i>图床</a>
       <div class="right m-item m-mobile-hide menu">
         <div class="ui dropdown  item">
           <div class="text">
@@ -61,20 +61,16 @@
         <h4 class="ui inverted header m-text-thin m-text-spaced ">备案信息</h4>
         <div class="ui inverted link list">
 
-          <a href="#" th:href="@{/user/license}" class="item m-text-thin" >ICANN域名证书</a>
           <br>
           <a href="http://beian.miit.gov.cn" class="item m-text-thin" >赣ICP备20002401号</a>
-          <br>
-          <a href="#" class="item m-text-thin" >公安备案号 备案中...</a>
 
         </div>
       </div>
       <div class="three wide column">
         <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
         <div class="ui inverted link list">
-          <a href="#" class="item m-text-thin">QQ：1836942145</a>
           <br>
-          <a href="#" class="item m-text-thin">xxmlp980123@163.com</a>
+          <a href="#" class="item m-text-thin" ><span th:text="${session.user.email}"></span></a>
         </div>
       </div>
       <div class="seven wide column">
