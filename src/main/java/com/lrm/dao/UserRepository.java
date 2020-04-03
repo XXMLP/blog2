@@ -18,4 +18,9 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     @Query("select sum(b.views) from Blog b where b.published = true and b.user = ?1")
     Integer totalView(User user);
+
+    @Query("select count(b) from Blog b where b.user = ?1")
+    Integer totalBlogs(User user);
+
+
 }

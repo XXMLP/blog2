@@ -99,5 +99,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.totalView(user);
     }
 
+    @Override
+    public Integer totalBlogs(User user){
+        return userRepository.totalBlogs(user);
+    }
+
 
 }

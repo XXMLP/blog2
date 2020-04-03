@@ -29,6 +29,8 @@ public interface UserService {
 
     Integer totalView(User user);
 
+    Integer totalBlogs(User user);
+
     void deleteUser(Long id);
 
 }
