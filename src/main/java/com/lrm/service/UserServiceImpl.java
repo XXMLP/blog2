@@ -2,6 +2,7 @@ package com.lrm.service;
 
 import com.lrm.NotFoundException;
 import com.lrm.dao.UserRepository;
+import com.lrm.po.Type;
 import com.lrm.po.User;
 import com.lrm.util.MD5Utils;
 import com.lrm.util.MyBeanUtils;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -68,6 +70,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findUserInformation(pageable,id);
     }
 
+    @Override
+    public List<User> listUser() {
+        return userRepository.findAll();
+    }
 
 
     @Transactional
@@ -87,4 +93,11 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
         userRepository.delete(id);
     }
+
+    @Override
+    public Integer totalView(User user){
+        return userRepository.totalView(user);
+    }
+
+
 }

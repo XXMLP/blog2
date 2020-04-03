@@ -4,6 +4,7 @@ import com.lrm.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 
 
 public interface UserService {
@@ -19,10 +20,14 @@ public interface UserService {
 
     Page<User> listUser(Pageable pageable);
 
+    List<User> listUser();
+
     Page<User> listUserInformation(Pageable pageable,Long id);
 
 
     User updateUser(Long id,User user);
+
+    Integer totalView(User user);
 
     void deleteUser(Long id);
 

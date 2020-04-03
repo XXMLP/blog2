@@ -1,6 +1,7 @@
 package com.lrm.service;
 
 import com.lrm.po.Blog;
+import com.lrm.po.User;
 import com.lrm.vo.BlogQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,14 +21,23 @@ public interface BlogService {
 
     Page<Blog> listBlog(Pageable pageable);
 
+    Page<Blog> listUserBlog(Pageable pageable, User user);
+
     Page<Blog> listBlog(Long tagId,Pageable pageable);
 
     Page<Blog> listBlog(String query,Pageable pageable);
 
     Page<Blog> listSearchBlog(String content,Pageable pageable);
 
+    Page<Blog> listUserSearchBlog(String content,Pageable pageable,User user);
+
     List<Blog> listRecommendBlogTop(Integer size);
+
+    List<Blog> listUserRecommendBlogTop(Integer size,User user);
+
     List<Blog> listNewBlogTop(Integer size);
+
+    List<Blog> listUserNewBlogTop(Integer size,User user);
 
     Map<String,List<Blog>> archiveBlog();
 
@@ -36,6 +46,7 @@ public interface BlogService {
     Blog saveBlog(Blog blog);
 
     Blog updateBlog(Long id,Blog blog);
+
 
     void deleteBlog(Long id);
 }
