@@ -47,7 +47,7 @@
   </div>
 
   <!--中间内容-->
-  <div  class="m-container-small m-padded-tb-big">
+  <div  class="m-container-big m-padded-tb-big">
     <div class="ui container">
       <div  class="ui secondary segment form">
         <input type="hidden" name="page" >
@@ -63,6 +63,18 @@
                 <div class="default text">分类</div>
                 <div class="menu">
                   <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
+                  <!--/*-->
+                  <div class="item" data-value="2">开发者手册</div>
+                  <!--*/-->
+                </div>
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="ui type selection dropdown">
+                <input type="hidden" name="userId">
+                <i class="dropdown icon"></i>
+                <div class="default text">博主</div>
+                <div class="menu">
+                  <div th:each="user : ${users}" class="item" data-value="1" th:data-value="${user.id}" th:text="${user.username}">错误日志</div>
                   <!--/*-->
                   <div class="item" data-value="2">开发者手册</div>
                   <!--*/-->
@@ -96,6 +108,7 @@
             <th></th>
             <th>标题</th>
             <th>类型</th>
+            <th>博主</th>
             <th>推荐</th>
             <th>状态</th>
             <th>更新时间</th>
@@ -107,6 +120,7 @@
             <td th:text="${iterStat.count}">1</td>
             <td th:text="${blog.title}">刻意练习清单</td>
             <td th:text="${blog.type.name}">认知升级</td>
+            <td th:text="${blog.user.username}">认知升级</td>
             <td th:text="${blog.recommend} ? '是':'否'">是</td>
             <td th:text="${blog.published} ? '发布':'草稿'">草稿</td>
             <td th:text="${blog.updateTime}">2017-10-02 09:45</td>
@@ -187,6 +201,7 @@
       $("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
         title : $("[name='title']").val(),
         typeId : $("[name='typeId']").val(),
+        userId : $("[name='userId']").val(),
         recommend : $("[name='recommend']").prop('checked'),
         published : $("[name='published']").prop('checked'),
         page : $("[name='page']").val()

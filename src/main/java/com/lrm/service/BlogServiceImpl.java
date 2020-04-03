@@ -4,6 +4,7 @@ import com.lrm.NotFoundException;
 import com.lrm.dao.BlogRepository;
 import com.lrm.po.Blog;
 import com.lrm.po.Type;
+import com.lrm.po.User;
 import com.lrm.util.MarkdownUtils;
 import com.lrm.util.MyBeanUtils;
 import com.lrm.vo.BlogQuery;
@@ -61,6 +62,9 @@ public class BlogServiceImpl implements BlogService {
                 if (blog.getTypeId() != null) {
                     predicates.add(cb.equal(root.<Type>get("type").get("id"), blog.getTypeId()));
                 }
+                if (blog.getUserId() != null) {
+                    predicates.add(cb.equal(root.<User>get("user").get("id"), blog.getUserId()));
+                }
                 if (blog.isRecommend()) {
                     predicates.add(cb.equal(root.<Boolean>get("recommend"), blog.isRecommend()));
                 }
@@ -79,8 +83,17 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public Page<Blog> listUserBlog(Pageable pageable, User user) {
+        return blogRepository.findUserAll(pageable,user);
+    }
+
+    @Override
     public Page<Blog> listSearchBlog(String content,Pageable pageable) {
         return blogRepository.findBySearch(content,pageable);
+    }
+    @Override
+    public Page<Blog> listUserSearchBlog(String content,Pageable pageable,User user) {
+        return blogRepository.findByUserSearch(content,pageable,user);
     }
 
     @Override
@@ -110,11 +123,25 @@ public class BlogServiceImpl implements BlogService {
         Pageable pageable = new PageRequest(0, size, sort);
         return blogRepository.findTop(pageable);
     }
+
+    @Override
+    public List<Blog> listUserRecommendBlogTop(Integer size,User user) {
+        Sort sort = new Sort(Sort.Direction.DESC,"updateTime");
+        Pageable pageable = new PageRequest(0, size, sort);
+        return blogRepository.findUserTop(pageable,user);
+    }
     @Override
     public List<Blog> listNewBlogTop(Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC,"updateTime");
         Pageable pageable = new PageRequest(0, size, sort);
         return blogRepository.findNewAll(pageable);
+    }
+
+    @Override
+    public List<Blog> listUserNewBlogTop(Integer size,User user) {
+        Sort sort = new Sort(Sort.Direction.DESC,"updateTime");
+        Pageable pageable = new PageRequest(0, size, sort);
+        return blogRepository.findUserNewAll(pageable,user);
     }
 
     @Override
