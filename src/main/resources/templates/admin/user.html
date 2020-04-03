@@ -10,37 +10,11 @@
 <body>
 
   <!--导航-->
-  <nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
-    <div class="ui container">
-      <div class="ui inverted secondary stackable menu">
-        <h2 class="ui teal header item">管理后台</h2>
-        <a href="#" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
-        <a href="#" class=" m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
-        <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-        <a href="#" class="m-item item m-mobile-hide"><i class="mini comments icon"></i>评论</a>
-        <a href="#" class="m-item item m-mobile-hide"><i class="mini setting icon"></i>系统监控</a>
-
-        <div class="right m-item m-mobile-hide menu">
-          <div class="ui dropdown  item">
-            <div class="text">
-              <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005">
-              闵利鹏
-            </div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <a href="#" class="item">注销</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
-      <i class="sidebar icon"></i>
-    </a>
-  </nav>
+  <nav th:replace="admin/_fragments :: menu(7)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" ></nav>
   <div class="ui attached pointing menu">
     <div class="ui container">
       <div class="right menu">
+        <a href="#" th:href="@{/admin/user/input}" class="item">新增</a>
         <a href="#" th:href="@{/admin/user}" class="teal active item">详情</a>
       </div>
     </div>
@@ -78,6 +52,7 @@
             <td th:text="${user.updateTime}">刻意练习清单</td>
             <td>
               <a href="#" th:href="@{/admin/user/{id}/input(id=${user.id})}" class="ui mini teal basic button">修改</a>
+              <a href="#" th:href="@{/admin/user/{id}/delete(id=${user.id})}" class="ui mini red basic button">删除</a>
             </td>
           </tr>
         </tbody>
@@ -88,7 +63,7 @@
                 <a th:href="@{/admin/user(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
                 <a th:href="@{/admin/user(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
               </div>
-<!--              <a href="#" th:href="@{/admin/user/input}"  class="ui mini right floated teal basic button">新增</a>-->
+              <a href="#" th:href="@{/admin/user/input}"  class="ui mini right floated teal basic button">新增</a>
             </th>
           </tr>
         </tfoot>

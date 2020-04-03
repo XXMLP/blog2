@@ -1,7 +1,9 @@
 package com.lrm.web.admin;
 
+import com.lrm.po.Type;
 import com.lrm.po.User;
 import com.lrm.service.UserService;
+import com.lrm.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -44,21 +47,60 @@ public class UserController {
         return "admin/user-input";
     }
 
-    @PostMapping("/user/{id}")
-    public String editPost(@Valid User user, BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
-//        User user1 = userService.getUserByName(user.getUsername());
-//        if (user1 != null) {
-//            result.rejectValue("name","nameError","不能重复的分类");
-//        }
+    @PostMapping("/user")
+    public String post(@Valid User user, BindingResult result, RedirectAttributes attributes, HttpServletRequest request) {
+        User user1 = userService.getUserByName(user.getUsername());
+        if (user1 != null) {
+            result.rejectValue("username","nameError","用户名已存在");
+        }
         if (result.hasErrors()) {
             return "admin/user-input";
         }
-        User u = userService.updateUser(id,user);
-        if (u == null ) {
-            attributes.addFlashAttribute("message", "更新失败");
+        String pwd=request.getParameter("password");
+        String pwd1=request.getParameter("password1");
+        if (pwd.equals(pwd1)) {
+        User t = userService.saveUser(user);
+        if (t == null ) {
+            attributes.addFlashAttribute("message", "新增失败");
         } else {
-            attributes.addFlashAttribute("message", "更新成功");
+            attributes.addFlashAttribute("message", "新增成功");
         }
+        }else {
+            attributes.addFlashAttribute("message","两次密码输入不相同");
+            return "admin/user-input";
+        }
+        return "redirect:/admin/user";
+    }
+
+    @PostMapping("/user/{id}")
+    public String editPost(@Valid User user, BindingResult result, @PathVariable Long id, RedirectAttributes attributes, HttpServletRequest request) {
+        User user1 = userService.getUserByName(user.getUsername());
+        if (user1 != null && user1.getId()!=user.getId()) {
+            result.rejectValue("username","nameError","用户名已存在");
+        }
+        if (result.hasErrors()) {
+            return "admin/user-input";
+        }
+        String pwd=request.getParameter("password");
+        String pwd1=request.getParameter("password1");
+        if (pwd.equals(pwd1)) {
+            User u = userService.updateUser(id, user);
+            if (u == null) {
+                attributes.addFlashAttribute("message", "更新失败");
+            } else {
+                attributes.addFlashAttribute("message", "更新成功");
+            }
+        }else {
+            attributes.addFlashAttribute("message","两次密码输入不相同");
+            return "admin/user-input";
+        }
+        return "redirect:/admin/user";
+    }
+
+    @GetMapping("/user/{id}/delete")
+    public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+        userService.deleteUser(id);
+        attributes.addFlashAttribute("message", "删除成功");
         return "redirect:/admin/user";
     }
 }

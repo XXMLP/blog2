@@ -1,9 +1,11 @@
 package com.lrm.web;
 
 import com.lrm.NotFoundException;
+import com.lrm.po.User;
 import com.lrm.service.BlogService;
 import com.lrm.service.TagService;
 import com.lrm.service.TypeService;
+import com.lrm.service.UserService;
 import com.lrm.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +30,9 @@ public class IndexController {
     @Autowired
     private TagService tagService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/")
     public String index(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model) {
@@ -51,6 +56,19 @@ public class IndexController {
     public String blog(@PathVariable Long id,Model model) {
         model.addAttribute("blog", blogService.getAndConvert(id));
         return "blog";
+    }
+    @GetMapping("/users/{id}")
+    public String homepage(@PathVariable Long id,Model model,User user,
+                           @PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable) {
+        user=userService.getUser(id);
+        model.addAttribute("user", user);
+        model.addAttribute("page",blogService.listUserBlog(pageable,user));
+        model.addAttribute("types", typeService.listTypeTop(6));
+        model.addAttribute("tags", tagService.listTagTop(10));
+        model.addAttribute("recommendBlogs", blogService.listUserRecommendBlogTop(8,user));
+        model.addAttribute("totalView",userService.totalView(user));
+
+        return "homepage";
     }
 
     @GetMapping("/footer/newblog")

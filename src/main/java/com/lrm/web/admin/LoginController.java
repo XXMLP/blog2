@@ -33,12 +33,15 @@ public class LoginController {
                         HttpSession session,
                         RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
-        if (user != null) {
+        if (user != null && user.getType() == 1) {
             user.setPassword(null);
             session.setAttribute("user",user);
             return "admin/index";
-        } else {
-            attributes.addFlashAttribute("message", "用户名和密码错误");
+        }else if (user != null && user.getType() == 0){
+            attributes.addFlashAttribute("message","你不是管理员，已切换至用户登录页面");
+            return "redirect:/user";
+        }else{
+            attributes.addFlashAttribute("message", "用户名或密码错误");
             return "redirect:/admin";
         }
     }
