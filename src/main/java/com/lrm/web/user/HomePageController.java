@@ -37,6 +37,7 @@ public class HomePageController {
                         Model model, User user, HttpSession session) {
         user=(User) session.getAttribute("user");
         model.addAttribute("page",blogService.listUserBlog(pageable,user));
+        model.addAttribute("totalBlogs",userService.totalBlogs(user));
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
         model.addAttribute("recommendBlogs", blogService.listUserRecommendBlogTop(8,user));

@@ -44,7 +44,7 @@
           <tr th:each="user,iterStat : ${page.content}">
             <td th:text="${iterStat.count}">1</td>
             <td><div class="text">
-              <img class="ui avatar image" th:src="@{${session.user.avatar}}">
+              <img class="ui avatar image" th:src="@{${user.avatar}}">
             </div></td>
             <td th:text="${user.username}">刻意练习清单</td>
             <td th:text="${user.nickname}">刻意练习清单</td>

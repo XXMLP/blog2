@@ -62,6 +62,7 @@ public class IndexController {
                            @PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable) {
         user=userService.getUser(id);
         model.addAttribute("user", user);
+        model.addAttribute("totalBlogs", userService.totalBlogs(user));
         model.addAttribute("page",blogService.listUserBlog(pageable,user));
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
