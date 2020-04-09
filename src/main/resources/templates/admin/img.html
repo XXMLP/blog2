@@ -14,7 +14,7 @@
   <div class="ui attached pointing menu">
     <div class="ui container">
       <div class="right menu">
-        <a href="#" th:href="@{/admin/img/input}" class="item">新增</a>
+        <a href="#" th:href="@{/admin/img/input}" class="item">上传</a>
         <a href="#" th:href="@{/admin/img}" class="teal active item">列表</a>
       </div>
     </div>
@@ -40,7 +40,7 @@
               <div class="ui type selection dropdown">
                 <input type="hidden" name="type">
                 <i class="dropdown icon"></i>
-                <div class="default text">格式</div>
+                <div class="default text">类型</div>
                 <div class="menu">
                   <div class="item" data-value="图片">图片</div>
                   <div class="item" data-value="视频">视频</div>
@@ -79,7 +79,6 @@
             <th>大小</th>
             <th>类型</th>
             <th>描述</th>
-            <th>地址</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -91,8 +90,8 @@
             <td th:text="${img.size}">刻意练习清单</td>
             <td th:text="${img.type}">刻意练习清单</td>
             <td th:text="${img.descript}">刻意练习清单</td>
-            <td th:text="${img.path}">刻意练习清单</td>
             <td>
+              <a href="#" th:href="${img.path}"  th:download="${img.name}" class="ui mini green basic button">下载</a>
               <a href="#" th:href="@{/admin/img/{id}/delete(id=${img.id})}" class="ui mini red basic button">删除</a>
             </td>
           </tr>
@@ -104,7 +103,7 @@
                 <a th:href="@{/admin/img(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
                 <a th:href="@{/admin/img(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
               </div>
-              <a href="#" th:href="@{/admin/img/input}"  class="ui mini right floated teal basic button">新增</a>
+              <a href="#" th:href="@{/admin/img/input}"  class="ui mini right floated teal basic button">上传</a>
             </th>
           </tr>
         </tfoot>

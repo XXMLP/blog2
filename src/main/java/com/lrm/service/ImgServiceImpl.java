@@ -2,7 +2,6 @@ package com.lrm.service;
 
 import com.lrm.dao.ImgRepository;
 import com.lrm.po.Img;
-import com.lrm.po.Type;
 import com.lrm.po.User;
 import com.lrm.vo.ImgQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,12 +41,6 @@ public class ImgServiceImpl implements ImgService {
     @Override
     public Img getImg(Long id) {
         return imgRepository.findOne(id);
-    }
-
-    @Transactional
-    @Override
-    public Page<Img> listImg(Pageable pageable) {
-        return imgRepository.findAll(pageable);
     }
 
     @Transactional

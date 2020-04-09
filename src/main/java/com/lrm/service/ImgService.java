@@ -13,8 +13,6 @@ public interface ImgService {
     Img getImg(Long id);
 
 
-    Page<Img> listImg(Pageable pageable);
-
     Page<Img> listImg(Pageable pageable, ImgQuery img);
 
 
