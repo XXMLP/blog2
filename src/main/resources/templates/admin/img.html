@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云盘</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+  <!--导航-->
+  <nav th:replace="admin/_fragments :: menu(8)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" ></nav>
+  <div class="ui attached pointing menu">
+    <div class="ui container">
+      <div class="right menu">
+        <a href="#" th:href="@{/admin/img/input}" class="item">新增</a>
+        <a href="#" th:href="@{/admin/img}" class="teal active item">列表</a>
+      </div>
+    </div>
+  </div>
+
+  <!--中间内容-->
+  <div  class="m-container-big m-padded-tb-big">
+    <div class="ui container">
+      <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+        <i class="close icon"></i>
+        <div class="header">提示：</div>
+        <p th:text="${message}">恭喜，操作成功！</p>
+      </div>
+
+      <div  class="ui secondary segment form">
+        <input type="hidden" name="page" >
+        <div class="inline fields">
+          <div class="field">
+            <input type="text" name="descript" placeholder="描述">
+          </div>
+          <div class="field">
+            <div class="ui labeled action input">
+              <div class="ui type selection dropdown">
+                <input type="hidden" name="type">
+                <i class="dropdown icon"></i>
+                <div class="default text">格式</div>
+                <div class="menu">
+                  <div class="item" data-value="图片">图片</div>
+                  <div class="item" data-value="视频">视频</div>
+                  <div class="item" data-value="音频">音频</div>
+                  <div class="item" data-value="其他">其他</div>
+                </div>
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="ui type selection dropdown">
+                <input type="hidden" name="userId">
+                <i class="dropdown icon"></i>
+                <div class="default text">上传者</div>
+                <div class="menu">
+                  <div th:each="user : ${users}" class="item" data-value="1" th:data-value="${user.id}" th:text="${user.username}">错误日志</div>
+                  <!--/*-->
+                  <div class="item" data-value="2">开发者手册</div>
+                  <!--*/-->
+                </div>
+              </div>
+              <button id="clear-btn" class="ui compact button">clear</button>
+            </div>
+
+          </div>
+          <div class="field">
+            <button  type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+          </div>
+        </div>
+      </div>
+      <div id="table-container">
+      <table th:fragment="imgList" class="ui compact teal table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>文件名</th>
+            <th>上传者</th>
+            <th>大小</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>地址</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="img,iterStat : ${page.content}">
+            <td th:text="${iterStat.count}">1</td>
+            <td th:text="${img.name}"></td>
+            <td th:text="${img.user.username}">刻意练习清单</td>
+            <td th:text="${img.size}">刻意练习清单</td>
+            <td th:text="${img.type}">刻意练习清单</td>
+            <td th:text="${img.descript}">刻意练习清单</td>
+            <td th:text="${img.path}">刻意练习清单</td>
+            <td>
+              <a href="#" th:href="@{/admin/img/{id}/delete(id=${img.id})}" class="ui mini red basic button">删除</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6" >
+              <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                <a th:href="@{/admin/img(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
+                <a th:href="@{/admin/img(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
+              </div>
+              <a href="#" th:href="@{/admin/img/input}"  class="ui mini right floated teal basic button">新增</a>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  </div>
+
+  <br>
+  <br>
+  <!--底部footer-->
+  <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
+
+  <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+  <!--/*/</th:block>/*/-->
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+
+    //消息提示关闭初始化
+    $('.message .close')
+            .on('click', function () {
+              $(this)
+                      .closest('.message')
+                      .transition('fade');
+            });
+    $('#clear-btn')
+            .on('click', function() {
+              $('.ui.type.dropdown')
+                      .dropdown('clear')
+              ;
+            })
+    ;
+
+    function page(obj) {
+      $("[name='page']").val($(obj).data("page"));
+      loaddata();
+    }
+
+    $("#search-btn").click(function () {
+      $("[name='page']").val(0);
+      loaddata();
+    });
+    function loaddata() {
+      $("#table-container").load(/*[[@{/admin/img/search}]]*/"/admin/img/search",{
+        descript : $("[name='descript']").val(),
+        type : $("[name='type']").val(),
+        userId : $("[name='userId']").val(),
+        page : $("[name='page']").val()
+      });
+    }
+  </script>
+</body>
+</html>

@@ -25,7 +25,18 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Blog> blogs = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Img> imgs = new ArrayList<>();
+
     public User() {
+    }
+
+    public List<Img> getImgs() {
+        return imgs;
+    }
+
+    public void setImgs(List<Img> imgs) {
+        this.imgs = imgs;
     }
 
     public Long getId() {
