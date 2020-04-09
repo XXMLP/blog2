@@ -81,6 +81,10 @@ public class ImgController {
             attributes.addFlashAttribute("message","文件为空");
             return "admin/img-input";
         }
+        if (file.getSize()>1024*1024*100) {
+            attributes.addFlashAttribute("message","文件过大，上传失败，请选择不超过100MB的文件");
+            return "admin/img-input";
+        }
         String fileName = file.getOriginalFilename();  // 文件名
         String filePath = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/uploadFile/"+file.getContentType(); // 上传后的路径
         File path = new File(filePath + "/"+ fileName);
@@ -98,10 +102,10 @@ public class ImgController {
             img.setSize(file.getSize()+"B");
         }
         if (file.getSize()>=1024){
-            img.setSize(file.getSize()/1024+"K");
+            img.setSize(file.getSize()/1024+"KB");
         }
         if (file.getSize()>1024*1024){
-            img.setSize(file.getSize()/1024/1024+"M");
+            img.setSize(file.getSize()/1024/1024+"MB");
         }
         img.setUser((User) session.getAttribute("user"));
         Img i = imgService.saveImg(img);
