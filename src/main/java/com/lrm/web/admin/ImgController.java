@@ -22,8 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.Date;
 import java.util.UUID;
 
@@ -86,8 +85,12 @@ public class ImgController {
             return "admin/img-input";
         }
         String fileName = file.getOriginalFilename();  // 文件名
-        String filePath = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/uploadFile/"+file.getContentType(); // 上传后的路径
-        File path = new File(filePath + "/"+ fileName);
+        //String filePath = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/uploadFile/"+file.getContentType(); // 上传后的路径
+        InputStream inputStream = ClassUtils.getDefaultClassLoader().getResourceAsStream("static"+File.separator+"uploadFile" + File.separator + file.getContentType()+File.separator+fileName); // 上传后的路径
+        InputStreamReader reader=new InputStreamReader(inputStream);
+        BufferedReader bufferedReader=new BufferedReader(reader);
+        String filePath=bufferedReader.readLine();
+        File path = new File(filePath);
         if (!path.getParentFile().exists()) {
             path.getParentFile().mkdirs();
         }
