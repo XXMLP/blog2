@@ -18,7 +18,9 @@ public class BlogApplication {
 	@Bean
 	public MultipartConfigElement multipartConfigElement(){
 		MultipartConfigFactory factory=new MultipartConfigFactory();
+		//最大上传文件
 		factory.setMaxFileSize("100MB");
+		//最大请求文件
 		factory.setMaxRequestSize("100MB");
 		return factory.createMultipartConfig();
 	}
