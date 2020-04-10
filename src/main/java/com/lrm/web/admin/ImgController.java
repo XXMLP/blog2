@@ -85,12 +85,9 @@ public class ImgController {
             return "admin/img-input";
         }
         String fileName = file.getOriginalFilename();  // 文件名
-        //String filePath = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/uploadFile/"+file.getContentType(); // 上传后的路径
-        InputStream inputStream = ClassUtils.getDefaultClassLoader().getResourceAsStream("static"+File.separator+"uploadFile" + File.separator + file.getContentType()+File.separator+fileName); // 上传后的路径
-        InputStreamReader reader=new InputStreamReader(inputStream);
-        BufferedReader bufferedReader=new BufferedReader(reader);
-        String filePath=bufferedReader.readLine();
-        File path = new File(filePath);
+        //file.Transto 来保存上传的文件
+        String filePath = ClassUtils.getDefaultClassLoader().getResource(File.separator).getPath() + "static"+File.separator+"uploadFile"+File.separator+file.getContentType(); // 上传后的路径
+        File path = new File(filePath+File.separator+fileName);
         if (!path.getParentFile().exists()) {
             path.getParentFile().mkdirs();
         }
@@ -99,6 +96,7 @@ public class ImgController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         img.setPath("/uploadFile/"+file.getContentType()+"/"+fileName);
         img.setName(file.getOriginalFilename());
         if (file.getSize()<1024){
