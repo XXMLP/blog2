@@ -127,7 +127,7 @@ public class UserImgController {
 
 
     @RequestMapping( value = "/img/{id}/download", method = RequestMethod.GET )
-    public void Download(@PathVariable Long id, HttpServletResponse res ,RedirectAttributes attributes) {
+    public String Download(@PathVariable Long id, HttpServletResponse res ,RedirectAttributes attributes) {
         String fileName = imgService.getImg(id).getName();
 
         res.setHeader("content-type", "application/octet-stream");
@@ -160,6 +160,7 @@ public class UserImgController {
             }
         }
         attributes.addFlashAttribute("message", "下载完成");
+        return "redirect:/user/img";
     }
 
 }
