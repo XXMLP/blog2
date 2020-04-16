@@ -65,8 +65,15 @@ public class UserImgController {
 
     @GetMapping("/img/{id}/delete")
     public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+            File file = new File(imgService.getImg(id).getPath());
+            if (file.exists()){
+                file.delete();
+                attributes.addFlashAttribute("message", "删除成功");
+            }else {
+                attributes.addFlashAttribute("message","文件不存在");
+            }
         imgService.deleteImg(id);
-        attributes.addFlashAttribute("message", "删除成功");
+
         return "redirect:/user/img";
     }
 
@@ -120,7 +127,7 @@ public class UserImgController {
 
 
     @RequestMapping( value = "/img/{id}/download", method = RequestMethod.GET )
-    public void Download(@PathVariable Long id, HttpServletResponse res ,RedirectAttributes attributes) {
+    public String Download(@PathVariable Long id, HttpServletResponse res ,RedirectAttributes attributes) {
         String fileName = imgService.getImg(id).getName();
 
         res.setHeader("content-type", "application/octet-stream");
@@ -153,7 +160,7 @@ public class UserImgController {
             }
         }
         attributes.addFlashAttribute("message", "下载完成");
-        System.out.println("export file finish");
+        return "redirect:/user/img";
     }
 
 }
