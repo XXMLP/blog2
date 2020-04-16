@@ -85,7 +85,7 @@ public class UserImgController {
         String fileName = file.getOriginalFilename();  // 文件名
         //file.Transto 来保存上传的文件
         //String filePath = ClassUtils.getDefaultClassLoader().getResource(File.separator).getRPath() + "static"+File.separator+"uploadFile"+File.separator+file.getContentType(); // 上传后的路径
-        //linux绝对路径 
+        //linux绝对路径
         String filePath=File.separator+"uploadFile"+File.separator+file.getContentType()+File.separator+fileName;
         File path = new File(filePath);
         if (!path.getParentFile().exists()) {
