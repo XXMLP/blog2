@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.*;
@@ -119,5 +120,43 @@ public class ImgController {
         }
         return "redirect:/admin/img";
     }
+
+
+    @RequestMapping( value = "/img/{id}/download", method = RequestMethod.GET )
+    public void Download(@PathVariable Long id, HttpServletResponse res ) {
+        String fileName = imgService.getImg(id).getName();
+
+        res.setHeader("content-type", "application/octet-stream");
+        res.setContentType("application/octet-stream");
+        res.setHeader("Content-Disposition", "attachment; filename=" + fileName);
+        byte[] buff = new byte[1024];
+        BufferedInputStream bis = null;
+        OutputStream os = null;
+
+        try {
+            os = res.getOutputStream();
+            bis = new BufferedInputStream(new FileInputStream(
+                    new File(imgService.getImg(id).getPath() + fileName )));
+            int i = bis.read(buff);
+
+            while (i != -1) {
+                os.write(buff, 0, buff.length);
+                os.flush();
+                i = bis.read(buff);
+            }
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if (bis != null) {
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        System.out.println("export file finish");
+    }
+
 
 }
