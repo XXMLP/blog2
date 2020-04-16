@@ -123,7 +123,7 @@ public class ImgController {
 
 
     @RequestMapping( value = "/img/{id}/download", method = RequestMethod.GET )
-    public void Download(@PathVariable Long id, HttpServletResponse res ) {
+    public void Download(@PathVariable Long id, HttpServletResponse res ,RedirectAttributes attributes) {
         String fileName = imgService.getImg(id).getName();
 
         res.setHeader("content-type", "application/octet-stream");
@@ -136,7 +136,7 @@ public class ImgController {
         try {
             os = res.getOutputStream();
             bis = new BufferedInputStream(new FileInputStream(
-                    new File(imgService.getImg(id).getPath() + fileName )));
+                    new File(imgService.getImg(id).getPath())));
             int i = bis.read(buff);
 
             while (i != -1) {
@@ -155,6 +155,7 @@ public class ImgController {
                 }
             }
         }
+        attributes.addFlashAttribute("message", "下载完成");
         System.out.println("export file finish");
     }
 

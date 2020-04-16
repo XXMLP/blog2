@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 
 @Controller
@@ -116,6 +116,44 @@ public class UserImgController {
             attributes.addFlashAttribute("message", "上传成功");
         }
         return "redirect:/user/img";
+    }
+
+
+    @RequestMapping( value = "/img/{id}/download", method = RequestMethod.GET )
+    public void Download(@PathVariable Long id, HttpServletResponse res ,RedirectAttributes attributes) {
+        String fileName = imgService.getImg(id).getName();
+
+        res.setHeader("content-type", "application/octet-stream");
+        res.setContentType("application/octet-stream");
+        res.setHeader("Content-Disposition", "attachment; filename=" + fileName);
+        byte[] buff = new byte[1024];
+        BufferedInputStream bis = null;
+        OutputStream os = null;
+
+        try {
+            os = res.getOutputStream();
+            bis = new BufferedInputStream(new FileInputStream(
+                    new File(imgService.getImg(id).getPath())));
+            int i = bis.read(buff);
+
+            while (i != -1) {
+                os.write(buff, 0, buff.length);
+                os.flush();
+                i = bis.read(buff);
+            }
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if (bis != null) {
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        attributes.addFlashAttribute("message", "下载完成");
+        System.out.println("export file finish");
     }
 
 }
