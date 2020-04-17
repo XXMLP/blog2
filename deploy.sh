@@ -49,7 +49,7 @@
     #若之前Dockerfile不在步骤一的文件夹中 则需要指定到对应的地址
     docker build -t blog:1.0 .
     #启动容器，前提是已开放这个端口
-    docker run --name blog -d -p 80:8080 blog:1.0
+    docker run --name blog -d -p 80:8080 -v /uploadFile:/uploadFile blog:1.0
     #单元测试，动态代码覆盖率的获取
     #mvn clean verify -f pom_cc.xml
     #jar -xvf blog-0.0.1-SNAPSHOT.jar
