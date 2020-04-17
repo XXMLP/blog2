@@ -67,6 +67,7 @@
             <th>大小</th>
             <th>类型</th>
             <th>描述</th>
+            <th>地址</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -77,6 +78,7 @@
             <td th:text="${img.size}">刻意练习清单</td>
             <td th:text="${img.type}">刻意练习清单</td>
             <td th:text="${img.descript}">刻意练习清单</td>
+            <td th:text="${img.path}">刻意练习清单</td>
             <td>
               <a href="#" th:href="@{/user/img/{id}/download(id=${img.id})}" class="ui mini green basic button">下载</a>
               <a href="#" th:href="@{/user/img/{id}/delete(id=${img.id})}" class="ui mini red basic button">删除</a>
