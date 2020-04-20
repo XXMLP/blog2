@@ -7,7 +7,7 @@ FROM java:8
 #   /blog.jar：这是自定义的名称。但是注意要有之前的/
 ADD blog-2.0.0.jar /blog-2.0.0.jar
 #COPY jacocoagent.jar $APP_DIR
-ADD
+
 #MAINTAINER  作者名称。可以删除不写。
 MAINTAINER xxmlp
 
