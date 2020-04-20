@@ -30,15 +30,15 @@
     cd $DOCKER_DIR
     #删除原有的文件
     rm -f Dockerfile
-    rm -f blog-0.0.1-SNAPSHOT.jar
+    rm -f blog-2.0.0.jar
 
-    mv $DOCKER_DIR/$1/target/blog-0.0.1-SNAPSHOT.jar .
+    mv $DOCKER_DIR/$1/target/blog-2.0.0.jar .
     mv $DOCKER_DIR/$1/Dockerfile .
 
     #删除旧的镜像和容器
     docker stop blog
     docker rm blog
-    docker rmi blog:1.0
+    docker rmi blog:2.0
     sleep 10
     #打包成镜像
     #说明:
@@ -47,9 +47,9 @@
     #  .    代表为当前目录。这就是为什么一直在步骤一文件夹中进行操作,并且Dockerfile在此文件夹中的原因。
     #
     #若之前Dockerfile不在步骤一的文件夹中 则需要指定到对应的地址
-    docker build -t blog:1.0 .
+    docker build -t blog:2.0 .
     #启动容器，前提是已开放这个端口
-    docker run --name blog -d -p 80:8080 -v /uploadFile:/uploadFile blog:1.0
+    docker run --name blog -d -p 80:8080 -v /uploadFile:/uploadFile blog:2.0
     #单元测试，动态代码覆盖率的获取
     #mvn clean verify -f pom_cc.xml
     #jar -xvf blog-0.0.1-SNAPSHOT.jar
