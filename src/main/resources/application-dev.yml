@@ -35,7 +35,7 @@ spring:
 logging:
   level:
     root: info
-    com.lrm: debug
+    com.xxmlp: debug
   file: log/blog-dev.log
 
 
