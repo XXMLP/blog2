@@ -21,6 +21,9 @@ public class Comment {
     @ManyToOne
     private Blog blog;
 
+    @ManyToOne
+    private User user;
+
     @OneToMany(mappedBy = "parentComment")
     private List<Comment> replyComments = new ArrayList<>();
 
@@ -122,6 +125,14 @@ public class Comment {
         this.adminComment = adminComment;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Comment{" +
@@ -132,6 +143,7 @@ public class Comment {
                 ", avatar='" + avatar + '\'' +
                 ", createTime=" + createTime +
                 ", blog=" + blog +
+                ", user=" + user +
                 ", replyComments=" + replyComments +
                 ", parentComment=" + parentComment +
                 ", adminComment=" + adminComment +

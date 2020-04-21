@@ -29,6 +29,13 @@ public class CommentServiceImpl implements CommentService {
         return eachComment(comments);
     }
 
+    @Override
+    public List<Comment> listCommentByUserId(Long userId) {
+        Sort sort = new Sort("createTime");
+        List<Comment> comments = commentRepository.findByUserIdAndParentCommentNull(userId,sort);
+        return eachComment(comments);
+    }
+
     @Transactional
     @Override
     public Comment saveComment(Comment comment) {
