@@ -9,6 +9,7 @@ import java.util.List;
 public interface CommentService {
 
     List<Comment> listCommentByBlogId(Long blogId);
+    List<Comment> listCommentByUserId(Long userId);
 
     Comment saveComment(Comment comment);
 

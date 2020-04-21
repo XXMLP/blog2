@@ -14,6 +14,8 @@ public class User {
     private String nickname;
     private String username;
     private String password;
+    private boolean commentabled;
+
     private String email;
     private String avatar;
     private Integer type;
@@ -118,6 +120,14 @@ public class User {
 
     public void setBlogs(List<Blog> blogs) {
         this.blogs = blogs;
+    }
+
+    public boolean isCommentabled() {
+        return commentabled;
+    }
+
+    public void setCommentabled(boolean commentabled) {
+        this.commentabled = commentabled;
     }
 
     @Override
