@@ -66,8 +66,13 @@ public class IndexController {
         model.addAttribute("tags", tagService.listTagTop(10));
         model.addAttribute("recommendBlogs", blogService.listUserRecommendBlogTop(8,user));
         model.addAttribute("totalView",userService.totalView(user));
-
         return "homepage";
+    }
+
+    @GetMapping("/users/messages/{id}")
+    public String usersMessages(@PathVariable Long id,Model model){
+        model.addAttribute("user",userService.getUser(id));
+        return "messages";
     }
 
     @GetMapping("/footer/newblog")

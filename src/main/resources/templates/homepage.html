@@ -429,6 +429,10 @@
                                 <span >联系方式</span>
                                 <div class="ui teal basic left pointing label" th:text="${user.email}">13</div>
                             </a>
+                            <a class="item" th:href="@{/users/messages/{id}(id=${user.id})}">
+                                <span >留言板</span>
+                                <div  class="ui teal basic left pointing label" >留言</div>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
         }else{
             user.setUpdateTime(new Date());
         }
+        user.setCommentabled(true);
         return userRepository.save(user);
 
     }

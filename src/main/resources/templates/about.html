@@ -19,10 +19,6 @@
 
       <div class="ui stackable grid">
         <div class="eleven wide column">
-          <div class="ui segment">
-            <img alt="lADPD0P8NXcZY8vNBDjNB4A_1920_1080.jpg" src="http://pic.xxmlp.top/uploadImages/49/232/25/149/2020/03/18/02/28/5ca8e2b3-c60b-4ac3-bb44-221e80934264.jpg" class="ui rounded image">
-<!--            <img src="https://raw.githubusercontent.com/XXMLP/Images/master/share1.jpg" alt="" class="ui rounded image">-->
-          </div>
 
           <div  class="ui bottom attached segment" th:if="${user.commentabled}">
           <!--留言区域列表-->
@@ -82,7 +78,7 @@
             <input type="hidden" name="user.id" th:value="${user.id}">
             <input type="hidden" name="parentComment.id" value="-1">
             <div class="field">
-              <textarea name="content" placeholder="请输入评论信息..."></textarea>
+              <textarea name="content" placeholder="请输入留言内容..."></textarea>
             </div>
             <div class="fields">
               <div class="field m-mobile-wide m-margin-bottom-small">
@@ -184,7 +180,7 @@
           identifier: 'content',
           rules: [{
             type: 'empty',
-            prompt: '请输入评论内容'
+            prompt: '请输入留言内容'
           }
           ]
         },
@@ -238,7 +234,7 @@
     function clearContent() {
       $("[name='content']").val('');
       $("[name='parentComment.id']").val(-1);
-      $("[name='content']").attr("placeholder", "请输入评论信息...");
+      $("[name='content']").attr("placeholder", "请输入留言内容...");
     }
 
 
