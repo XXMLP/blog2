@@ -32,7 +32,7 @@ public class IndexController {
     private UserService userService;
 
     @GetMapping("/")
-    public String index(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model) {
         model.addAttribute("page",blogService.listBlog(pageable));
         model.addAttribute("types", typeService.listTypeTop(6));
@@ -57,7 +57,7 @@ public class IndexController {
     }
     @GetMapping("/users/{id}")
     public String homepage(@PathVariable Long id, Model model, User user,
-                           @PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable) {
+                           @PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable) {
         user=userService.getUser(id);
         model.addAttribute("user", user);
         model.addAttribute("totalBlogs", userService.totalBlogs(user));
