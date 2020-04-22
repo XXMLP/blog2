@@ -115,7 +115,7 @@ body {
 /*-----container*/
 
 .m-container {
-    max-width: 72em !important;
+    max-width: 96em !important;
     margin: auto !important;
 }
 .m-container-small {
