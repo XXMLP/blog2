@@ -3,14 +3,14 @@
 <head  th:replace="_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>关于我</title>
+  <title>留言</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../static/css/me.css">
 </head>
 <body>
 
   <!--导航-->
-  <nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+  <nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   </nav>
 
   <!--中间内容-->
@@ -18,14 +18,14 @@
     <div class="ui container">
 
       <div class="ui stackable grid">
-        <div class="eleven wide column">
+        <div class="fifteen wide column">
 
           <div  class="ui bottom attached segment" th:if="${user.commentabled}">
           <!--留言区域列表-->
           <div id="comment-container"  class="ui teal segment">
             <div th:fragment="commentList">
               <div class="ui threaded comments" style="max-width: 100%;">
-                <h3 class="ui dividing header">留言板</h3>
+                <h3 class="ui dividing header"><span th:text="${user.nickname}"></span>的留言板</h3>
                 <div class="comment" th:each="comment : ${comments}">
                   <a class="avatar">
                     <img  th:src="@{${comment.avatar}}">
@@ -53,7 +53,7 @@
                       <div class="content">
                         <a class="author" >
                           <span th:text="${reply.nickname}">小红</span>
-                          <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.adminComment}">站长</div>
+                          <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.adminComment}">博主</div>
                           &nbsp;<span th:text="|@ ${reply.parentComment.nickname}|" class="m-teal">@ 小白</span>
                         </a>
                         <div class="metadata">
@@ -100,39 +100,6 @@
           </div>
           </div>
         </div>
-        <div class="five wide column">
-          <div class="ui top attached segment">
-            <div class="ui header">关于我</div>
-          </div>
-          <div class="ui attached segment">
-            <p class="m-text">Hi，大家好，欢迎大家拜访本站</p>
-            <p class="m-text">如果大家对本网站有什么建设意见或者发现bug可以通过下方的联系方式联系站长:)</p>
-          </div>
-          <div class="ui attached segment">
-            <div class="ui orange basic left pointing label">博客</div>
-            <div class="ui orange basic left pointing label">云盘</div>
-            <div class="ui orange basic left pointing label">图床</div>
-            <div class="ui orange basic left pointing label">...</div>
-          </div>
-          <div class="ui attached segment">
-            <div class="ui teal basic left pointing label m-margin-tb-tiny">写作</div>
-            <div class="ui teal basic left pointing label m-margin-tb-tiny">社交</div>
-            <div class="ui teal basic left pointing label m-margin-tb-tiny">存储</div>
-            <div class="ui teal basic left pointing label m-margin-tb-tiny">...</div>
-          </div>
-          <div class="ui bottom attached segment">
-            <a href="#" class="ui github circular icon button" data-content="github.com/XXMLP" data-position="bottom center"><i class="github icon"></i></a>
-            <a href="#" class="ui wechat circular icon button" data-position="bottom center"><i class="weixin icon"></i></a>
-            <a href="#" class="ui qq circular icon button" data-position="bottom center"><i class="qq icon"></i></a>
-          </div>
-
-          <div class="ui wechat-qr flowing popup transition hidden">
-            <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 110px">
-          </div>
-          <div class="ui qq-qr flowing popup transition hidden">
-            <img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}" alt="" class="ui rounded image" style="width: 110px">
-          </div>
-          </div>
       </div>
 
     </div>
@@ -159,18 +126,6 @@
     $('.ui.dropdown').dropdown({
       on : 'hover'
     });
-
-
-    $('.qq').popup({
-      popup : $('.qq-qr.popup')
-    });
-
-    $('.wechat').popup({
-      popup : $('.wechat-qr.popup')
-    });
-
-      $('.github').popup();
-
 
 
     //评论表单验证
@@ -202,7 +157,7 @@
     });
 
     $(function () {
-      $("#comment-container").load(/*[[@{/messages/{id}(id=${user.id})}]]*/"messages/1");
+       $("#comment-container").load(/*[[@{/usersmessages/{id}(id=${user.id})}]]*/"/usersmessages/[[${user.id}]]");
     });
 
 

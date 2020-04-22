@@ -43,6 +43,13 @@ public class CommentController {
         return "about :: commentList";
     }
 
+    @GetMapping("/usersmessages/{userId}")
+    public String usersMessage(@PathVariable Long userId,Model model) {
+        model.addAttribute("comments", commentService.listCommentByUserId(userId));
+        model.addAttribute("user",userService.getUser(userId));
+        return "messages :: commentList";
+    }
+
 
     @PostMapping("/messages")
     public String postMessage(Comment comment, HttpSession session) {
