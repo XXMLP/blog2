@@ -516,8 +516,8 @@ h5,h6{font-size:1em;}
 
   <div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
     <div class="ui vertical icon buttons ">
-      <button type="button" class="ui toc teal button" >目录</button>
       <a href="#comment-container" class="ui teal button" >留言</a>
+      <button class="ui wechat icon button"><i class="weixin icon"></i></button>
       <div id="toTop-button" class="ui icon button" ><i class="chevron up icon"></i></div>
     </div>
   </div>
@@ -586,7 +586,7 @@ h5,h6{font-size:1em;}
       position: 'left center'
     });
 
-    var serurl = /*[[#{blog.serurl}]]*/"127.0.0.1:8080";
+    var serurl = /*[[#{blog.serurl}]]*/"xxmlp.top";
     var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
     var qrcode = new QRCode("qrcode", {
       text: serurl+url,
