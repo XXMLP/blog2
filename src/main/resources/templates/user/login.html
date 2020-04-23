@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="../../static/css/me.css">
 </head>
 <body>
-
+<!--导航-->
+<nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+</nav>
 <br>
 <br>
 <br>
@@ -48,6 +50,14 @@
      </div>
    </div>
  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
 
 <!--/*/<th:block th:replace="_fragments :: script">/*/-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>

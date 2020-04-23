@@ -33,7 +33,7 @@
           </div>
         </form>
       </div>
-      <div class="ui dropdown  item">
+      <div class="ui dropdown item" th:if="${session.user} == null">
         <div class="text">
           <span><i class="middle user icon"></i>登录</span>
         </div>
@@ -42,6 +42,18 @@
         <a th:href="@{/user}" class="item"><i class="small user icon"></i>用户登录</a>
         <a th:href="@{/admin}" class="item"><i class="small user icon"></i>管理员登录</a>
       </div>
+      </div>
+
+      <div class="ui dropdown item" th:if="${session.user} != null">
+        <div class="text">
+          <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{${session.user.avatar}}">
+          <span text="${session.user.nickname}">闵利鹏</span>
+        </div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a href="#" th:href="@{/user/homepage}" class="item"><i class="mini server off icon"></i>后台管理</a>
+          <a href="#" th:href="@{/user/logout}" class="item"><i class="mini power off icon"></i>安全退出</a>
+        </div>
       </div>
     </div>
   </div>
@@ -112,6 +124,7 @@
   <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
   <script>
     $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+
   </script>
 </th:block>
 
