@@ -3,6 +3,7 @@ package com.xxmlp.service;
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.BlogRepository;
 import com.xxmlp.po.Blog;
+import com.xxmlp.po.Tag;
 import com.xxmlp.po.Type;
 import com.xxmlp.po.User;
 import com.xxmlp.util.MarkdownUtils;
@@ -106,8 +107,14 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.findAll(new Specification<Blog>() {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
+                List<Predicate> predicates = new ArrayList<>();
                 Join join = root.join("tags");
-                return cb.equal(join.get("id"),tagId);
+                predicates.add(cb.equal(join.get("id"),tagId));
+                predicates.add(cb.equal(root.<Boolean>get("published"), true));
+                cq.where(predicates.toArray(new Predicate[predicates.size()]));
+                return null;
+//                Predicate[] p = new Predicate[predicates.size()];
+//                return cb.and(predicates.toArray(p));
             }
         },pageable);
     }
