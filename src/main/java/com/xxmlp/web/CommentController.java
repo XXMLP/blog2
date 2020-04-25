@@ -56,7 +56,7 @@ public class CommentController {
         Long userId = comment.getUser().getId();
         comment.setUser(userService.getUser(userId));
         User user = (User) session.getAttribute("user");
-        if (user == userService.getUser(userId)) {
+        if (user.getId() == userId) {
             comment.setAvatar(user.getAvatar());
             comment.setAdminComment(true);
         } else {
@@ -72,7 +72,7 @@ public class CommentController {
         Long blogId = comment.getBlog().getId();
         comment.setBlog(blogService.getBlog(blogId));
         User user = (User) session.getAttribute("user");
-        if (user == blogService.getBlog(blogId).getUser()) {
+        if (user.getId() == blogService.getBlog(blogId).getUser().getId()) {
             comment.setAvatar(user.getAvatar());
             comment.setAdminComment(true);
         } else {

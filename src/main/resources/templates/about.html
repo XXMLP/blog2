@@ -33,7 +33,7 @@
                   <div class="content">
                     <a class="author" >
                       <span th:text="${comment.nickname}">Matt</span>
-                      <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
+                      <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${comment.adminComment}">站长</div>
                     </a>
                     <div class="metadata">
                       <span class="date" th:text="${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
