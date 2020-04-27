@@ -47,5 +47,17 @@ public class RelationshipController {
     return "user/fans";
     }
 
+    @GetMapping("/remove/{id}")
+    public String remove(@PathVariable Long id,HttpSession session){
+        User user=(User) session.getAttribute("user");
+        relationshipService.removeRelationship(new Relationship(user.getId(), id));
+        return "redirect:/user/follows";
+    }
+    @GetMapping("/attention/{id}")
+    public String attention(@PathVariable Long id,HttpSession session){
+        User user=(User) session.getAttribute("user");
+        relationshipService.saveRelationship(new Relationship(user.getId(), id));
+        return "redirect:/user/fans";
+    }
 
 }
