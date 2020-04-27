@@ -30,7 +30,37 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Img> imgs = new ArrayList<>();
 
+    private Integer followSize = 0;//关注数
+    private Integer fanSize = 0; //粉丝数
+    @Transient
+    private Integer isFriend = 0;//关系，0表示没有关系，2表示互相关注
+
+
     public User() {
+    }
+
+    public Integer getFollowSize() {
+        return followSize;
+    }
+
+    public void setFollowSize(Integer followSize) {
+        this.followSize = followSize;
+    }
+
+    public Integer getFanSize() {
+        return fanSize;
+    }
+
+    public void setFanSize(Integer fanSize) {
+        this.fanSize = fanSize;
+    }
+
+    public Integer getIsFriend() {
+        return isFriend;
+    }
+
+    public void setIsFriend(Integer isFriend) {
+        this.isFriend = isFriend;
     }
 
     public List<Img> getImgs() {

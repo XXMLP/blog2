@@ -1,31 +1,22 @@
 package com.xxmlp.po;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import java.io.Serializable;
 
-@Entity
-@IdClass(RelationshipPK.class)
-public class Relationship {
+public class RelationshipPK implements Serializable {
     private Long fromUserId;
     private Long toUserId;
-    public Relationship() {
-    }
-    public Relationship(Long fromUserId, Long toUserId) {
-        this.fromUserId = fromUserId;
-        this.toUserId = toUserId;
-    }
-    @Id
     @Column(name = "from_user_id", nullable = false)
+    @Id
     public Long getFromUserId() {
         return fromUserId;
     }
     public void setFromUserId(Long fromUserId) {
         this.fromUserId = fromUserId;
     }
-    @Id
     @Column(name = "to_user_id", nullable = false)
+    @Id
     public Long getToUserId() {
         return toUserId;
     }
@@ -36,7 +27,7 @@ public class Relationship {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Relationship that = (Relationship) o;
+        RelationshipPK that = (RelationshipPK) o;
         if (fromUserId != null ? !fromUserId.equals(that.fromUserId) : that.fromUserId != null) return false;
         if (toUserId != null ? !toUserId.equals(that.toUserId) : that.toUserId != null) return false;
         return true;
