@@ -476,10 +476,6 @@
                                 <span >联系方式</span>
                                 <div class="ui teal basic left pointing label" th:text="${user.email}">13</div>
                             </a>
-                            <a class="item" th:href="@{/users/messages/{id}(id=${user.id})}">
-                                <span >留言板</span>
-                                <div  class="ui teal basic left pointing label" >留言</div>
-                            </a>
                             <a class="item" >
                                 <span >关注</span>
                                 <div  class="ui teal basic left pointing label" th:text="${user.followSize}">1</div>
@@ -488,17 +484,13 @@
                                 <span >粉丝</span>
                                 <div  class="ui teal basic left pointing label" th:text="${user.fanSize}">1</div>
                             </a>
-                            <a class="item" th:href="@{/attention/{id}(id=${user.id})}" th:if="${session.user} == null">
-                                <span >关注我</span>
-                                <div  class="ui teal basic left pointing label" >关注</div>
+                            <a class="item" th:href="@{/attention/{id}(id=${user.id})}">
+                                <span th:text="${guanzhu}">关注我</span>
+                                <div  class="ui teal basic left pointing label" th:text="${relationship}">关注</div>
                             </a>
-                            <a class="item" th:href="@{/attention/{id}(id=${user.id})}" th:if="${relationship == null&&session.user != null}">
-                                <span >关注我</span>
-                                <div  class="ui teal basic left pointing label" >关注</div>
-                            </a>
-                            <a class="item" th:href="@{/attention/{id}(id=${user.id})}" th:if="${relationship} != null">
-                                <span >已关注</span>
-                                <div  class="ui teal basic left pointing label" >取消关注</div>
+                            <a class="item" th:href="@{/users/messages/{id}(id=${user.id})}">
+                                <span >留言板</span>
+                                <div  class="ui teal basic left pointing label" >留言</div>
                             </a>
                         </div>
                     </div>

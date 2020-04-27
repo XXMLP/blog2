@@ -26,7 +26,7 @@ public interface RelationshipService {
      * @param userId
      * @return
      */
-    List<Integer> listFriends(Long userId);
+    Page<User> listFriends(Long userId,Pageable pageable);
     /**
      * 添加关系
      *

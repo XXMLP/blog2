@@ -47,6 +47,14 @@ public class RelationshipController {
     return "user/fans";
     }
 
+    @GetMapping("/friends")
+    public String friends(@PageableDefault(size = 8, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
+    HttpSession session,Model model){
+    User user = (User) session.getAttribute("user");
+    model.addAttribute("page",relationshipService.listFriends(user.getId(),pageable));
+    return "user/friends";
+    }
+
     @GetMapping("/remove/{id}")
     public String remove(@PathVariable Long id,HttpSession session){
         User user=(User) session.getAttribute("user");
@@ -56,7 +64,10 @@ public class RelationshipController {
     @GetMapping("/attention/{id}")
     public String attention(@PathVariable Long id,HttpSession session){
         User user=(User) session.getAttribute("user");
-        relationshipService.saveRelationship(new Relationship(user.getId(), id));
+        if (relationshipService.isAttention(user.getId(),id) == null) {
+            relationshipService.saveRelationship(new Relationship(user.getId(), id));
+            return "redirect:/user/fans";
+        }
         return "redirect:/user/fans";
     }
 

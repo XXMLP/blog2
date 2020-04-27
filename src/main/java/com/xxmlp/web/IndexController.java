@@ -63,6 +63,7 @@ public class IndexController {
     public String homepage(@PathVariable Long id, Model model, User user,HttpSession session,
                            @PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable) {
         user=userService.getUser(id);
+        User fans= (User) session.getAttribute("user");
         model.addAttribute("user", user);
         model.addAttribute("totalBlogs", userService.totalBlogs(user));
         model.addAttribute("page",blogService.listUserBlog(pageable,user));
@@ -70,9 +71,18 @@ public class IndexController {
         model.addAttribute("tags", tagService.listTagTop(10));
         model.addAttribute("recommendBlogs", blogService.listUserRecommendBlogTop(8,user));
         model.addAttribute("totalView",userService.totalView(user));
-        if (session.getAttribute("user")!=null){
-            User  fans= (User) session.getAttribute("user");
-            model.addAttribute("relationship",relationshipService.isAttention(fans.getId(),id));
+        if (session.getAttribute("user")!=null &&  relationshipService.isAttention(fans.getId(),id)!=null){
+            model.addAttribute("relationship","取消关注");
+            model.addAttribute("guanzhu","已关注");
+        }if (session.getAttribute("user")==null){
+            model.addAttribute("relationship","关注");
+            model.addAttribute("guanzhu","加关注");
+        } if (session.getAttribute("user")!=null &&  relationshipService.isAttention(fans.getId(),id)==null){
+            model.addAttribute("relationship","关注");
+            model.addAttribute("guanzhu","加关注");
+        } if (session.getAttribute("user")!=null &&  relationshipService.isAttention(fans.getId(),id)!=null && relationshipService.isAttention(id,fans.getId())!=null){
+            model.addAttribute("relationship","互相关注");
+            model.addAttribute("guanzhu","已关注");
         }
         return "homepage";
     }

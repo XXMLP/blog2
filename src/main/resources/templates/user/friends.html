@@ -15,8 +15,8 @@
     <div class="ui container">
       <div class="right menu">
         <a href="#" th:href="@{/user/follows}" class="item">关注</a>
-        <a href="#" th:href="@{/user/fans}" class="teal active item">粉丝</a>
-<!--        <a href="#" th:href="@{/user/friends}" class="item">互粉</a>-->
+        <a href="#" th:href="@{/user/fans}" class="item">粉丝</a>
+        <a href="#" th:href="@{/user/friends}" class="teal active item">互粉</a>
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@
             <td th:text="${iterStat.count}">1</td>
             <td th:text="${user.nickname}">刻意练习清单</td>
             <td>
-              <a href="#" th:href="@{/user/attention/{id}(id=${user.id})}" class="ui mini red basic button">关注</a>
+              <a href="#" th:href="@{/user/remove/{id}(id=${user.id})}" class="ui mini red basic button">取消关注</a>
               <a href="#" th:href="@{/users/{id}(id=${user.id})}" class="ui mini teal basic button">详情</a>
             </td>
           </tr>

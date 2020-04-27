@@ -30,10 +30,10 @@ public class RelationshipServiceImpl implements RelationshipService {
         return userPage;
     }
     @Override
-    public List<Integer> listFriends(Long userId) {
+    public Page<User> listFriends(Long userId,Pageable pageable) {
         List<Integer> relationshipList = relationshipRepository.findFriendsByUserId(userId);
-//        List<User> userList = userRepository.findByIdIn(relationshipList);
-        return relationshipList;
+        Page<User> userPage = userRepository.findByIdIn(relationshipList, pageable);
+        return userPage;
     }
     @Override
     public void saveRelationship(Relationship relationship) {
