@@ -454,11 +454,11 @@
                         <div class="ui fluid vertical menu" >
                             <a class="item">
                                 <span >头像</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <img class="ui avatar image" th:src="@{${user.avatar}}">
+                                <div class="ui teal basic left pointing label" >
+                                    <img class="ui avatar image" th:src="${user.avatar}">
+                                </div>
+                                <br>
+                                <br>
                             </a>
                             <a class="item">
                                 <span >博主</span>
