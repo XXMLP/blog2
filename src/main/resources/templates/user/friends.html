@@ -33,6 +33,7 @@
         <thead>
           <tr>
             <th></th>
+            <th>头像</th>
             <th>昵称</th>
             <th>操作</th>
           </tr>
@@ -40,6 +41,9 @@
         <tbody>
           <tr th:each="user,iterStat : ${page.content}">
             <td th:text="${iterStat.count}">1</td>
+            <td><div class="text">
+              <img class="ui avatar image" th:src="${user.avatar}">
+            </div></td>
             <td th:text="${user.nickname}">刻意练习清单</td>
             <td>
               <a href="#" th:href="@{/user/remove/{id}(id=${user.id})}" class="ui mini red basic button">取消关注</a>
