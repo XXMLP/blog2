@@ -32,7 +32,7 @@ public class RelationshipController {
     private UserRepository userRepository;
 
     @GetMapping("/follows")
-    public String follows(@PageableDefault(size = 8, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String follows(@PageableDefault(size = 8, sort = {"fanSize"}, direction = Sort.Direction.DESC) Pageable pageable,
     HttpSession session,Model model){
     User user = (User) session.getAttribute("user");
     model.addAttribute("page",relationshipService.listFollows(user.getId(),pageable));
@@ -40,7 +40,7 @@ public class RelationshipController {
     }
 
     @GetMapping("/fans")
-    public String fans(@PageableDefault(size = 8, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String fans(@PageableDefault(size = 8, sort = {"fanSize"}, direction = Sort.Direction.DESC) Pageable pageable,
     HttpSession session,Model model){
     User user = (User) session.getAttribute("user");
     model.addAttribute("page",relationshipService.listFans(user.getId(),pageable));
@@ -48,7 +48,7 @@ public class RelationshipController {
     }
 
     @GetMapping("/friends")
-    public String friends(@PageableDefault(size = 8, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String friends(@PageableDefault(size = 8, sort = {"fanSize"}, direction = Sort.Direction.DESC) Pageable pageable,
     HttpSession session,Model model){
     User user = (User) session.getAttribute("user");
     model.addAttribute("page",relationshipService.listFriends(user.getId(),pageable));
@@ -56,19 +56,23 @@ public class RelationshipController {
     }
 
     @GetMapping("/remove/{id}")
-    public String remove(@PathVariable Long id,HttpSession session){
+    public String remove(@PathVariable Long id,HttpSession session,RedirectAttributes attributes){
         User user=(User) session.getAttribute("user");
         relationshipService.removeRelationship(new Relationship(user.getId(), id));
+        attributes.addFlashAttribute("message", "已取消关注");
         return "redirect:/user/follows";
     }
     @GetMapping("/attention/{id}")
-    public String attention(@PathVariable Long id,HttpSession session){
-        User user=(User) session.getAttribute("user");
-        if (relationshipService.isAttention(user.getId(),id) == null) {
+    public String attention(@PathVariable Long id,HttpSession session,RedirectAttributes attributes) {
+        User user = (User) session.getAttribute("user");
+        if (relationshipService.isAttention(user.getId(), id) == null) {
             relationshipService.saveRelationship(new Relationship(user.getId(), id));
+            attributes.addFlashAttribute("message", "关注成功");
+            return "redirect:/user/fans";
+        } else {
+            attributes.addFlashAttribute("message", "已关注，通过关注列表可以查看");
             return "redirect:/user/fans";
         }
-        return "redirect:/user/fans";
     }
 
 }

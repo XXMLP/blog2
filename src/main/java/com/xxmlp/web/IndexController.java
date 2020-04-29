@@ -1,5 +1,6 @@
 package com.xxmlp.web;
 
+import com.xxmlp.po.Collection;
 import com.xxmlp.po.Relationship;
 import com.xxmlp.po.User;
 import com.xxmlp.service.*;
@@ -35,6 +36,9 @@ public class IndexController {
     @Autowired
     private RelationshipService relationshipService;
 
+    @Autowired
+    private CollectionService collectionService;
+
     @GetMapping("/")
     public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model) {
@@ -55,8 +59,14 @@ public class IndexController {
     }
 
     @GetMapping("/blog/{id}")
-    public String blog(@PathVariable Long id,Model model) {
+    public String blog(@PathVariable Long id,Model model,HttpSession session) {
+        User user=(User) session.getAttribute("user");
         model.addAttribute("blog", blogService.getAndConvert(id));
+        if (session.getAttribute("user")==null){
+            model.addAttribute("collected",null);
+        }if (session.getAttribute("user")!=null){
+            model.addAttribute("collected",collectionService.isCollected(id,user.getId()));
+        }
         return "blog";
     }
     @GetMapping("/users/{id}")
@@ -114,4 +124,21 @@ public class IndexController {
         }
         return "redirect:/users/"+ id;
     }
+    @GetMapping("/collection/{id}")
+    public String collection(@PathVariable Long id, HttpSession session, RedirectAttributes attributes){
+        User user=(User) session.getAttribute("user");
+        if (session.getAttribute("user")  == null){
+            attributes.addFlashAttribute("message", "登录之后才能收藏哦");
+            return "redirect:/user";
+        }else if (session.getAttribute("user") != null && collectionService.isCollected(id,user.getId()) == null){
+            collectionService.saveCollection(new Collection(user.getId(), id));
+            return "redirect:/blog/"+ id;
+        }else if (session.getAttribute("user") != null && relationshipService.isAttention(user.getId(),id) != null){
+            collectionService.removeCollection(new Collection(user.getId(), id));
+            return "redirect:/blog/"+ id;
+        }
+        return "redirect:/blog/"+ id;
+    }
+
+
 }

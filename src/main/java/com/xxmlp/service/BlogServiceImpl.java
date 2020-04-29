@@ -29,6 +29,9 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogRepository blogRepository;
 
+    @Autowired
+    private CollectionService collectionService;
+
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.findOne(id);
@@ -49,6 +52,7 @@ public class BlogServiceImpl implements BlogService {
         blogRepository.updateViews(id);
         return b;
     }
+
 
 
     @Override
@@ -102,6 +106,8 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.findBlogByType(pageable,typeId);
     }
 
+
+
     @Override
     public Page<Blog> listBlog(Long tagId, Pageable pageable) {
         return blogRepository.findAll(new Specification<Blog>() {
@@ -119,10 +125,7 @@ public class BlogServiceImpl implements BlogService {
         },pageable);
     }
 
-    @Override
-    public Page<Blog> listBlog(String query, Pageable pageable) {
-        return blogRepository.findByQuery(query,pageable);
-    }
+
 
     @Override
     public List<Blog> listRecommendBlogTop(Integer size) {

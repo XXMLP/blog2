@@ -49,7 +49,17 @@ public class Blog {
 
     private String description;
 
+    private Integer collected = 0; //被收藏数
+
     public Blog() {
+    }
+
+    public Integer getCollected() {
+        return collected;
+    }
+
+    public void setCollected(Integer collected) {
+        this.collected = collected;
     }
 
     public Long getId() {
