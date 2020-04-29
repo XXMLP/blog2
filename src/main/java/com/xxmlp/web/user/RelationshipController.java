@@ -32,7 +32,7 @@ public class RelationshipController {
     private UserRepository userRepository;
 
     @GetMapping("/follows")
-    public String follows(@PageableDefault(size = 8, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String follows(@PageableDefault(size = 8, sort = {"fanSize"}, direction = Sort.Direction.DESC) Pageable pageable,
     HttpSession session,Model model){
     User user = (User) session.getAttribute("user");
     model.addAttribute("page",relationshipService.listFollows(user.getId(),pageable));
@@ -40,7 +40,7 @@ public class RelationshipController {
     }
 
     @GetMapping("/fans")
-    public String fans(@PageableDefault(size = 8, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String fans(@PageableDefault(size = 8, sort = {"fanSize"}, direction = Sort.Direction.DESC) Pageable pageable,
     HttpSession session,Model model){
     User user = (User) session.getAttribute("user");
     model.addAttribute("page",relationshipService.listFans(user.getId(),pageable));
@@ -48,7 +48,7 @@ public class RelationshipController {
     }
 
     @GetMapping("/friends")
-    public String friends(@PageableDefault(size = 8, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String friends(@PageableDefault(size = 8, sort = {"fanSize"}, direction = Sort.Direction.DESC) Pageable pageable,
     HttpSession session,Model model){
     User user = (User) session.getAttribute("user");
     model.addAttribute("page",relationshipService.listFriends(user.getId(),pageable));

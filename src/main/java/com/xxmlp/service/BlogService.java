@@ -25,8 +25,6 @@ public interface BlogService {
 
     Page<Blog> listBlog(Long tagId,Pageable pageable);
 
-    Page<Blog> listBlog(String query,Pageable pageable);
-
     Page<Blog> listSearchBlog(String content,Pageable pageable);
 
     Page<Blog> listUserSearchBlog(String content,Pageable pageable,User user);
