@@ -56,19 +56,23 @@ public class RelationshipController {
     }
 
     @GetMapping("/remove/{id}")
-    public String remove(@PathVariable Long id,HttpSession session){
+    public String remove(@PathVariable Long id,HttpSession session,RedirectAttributes attributes){
         User user=(User) session.getAttribute("user");
         relationshipService.removeRelationship(new Relationship(user.getId(), id));
+        attributes.addFlashAttribute("message", "已取消关注");
         return "redirect:/user/follows";
     }
     @GetMapping("/attention/{id}")
-    public String attention(@PathVariable Long id,HttpSession session){
-        User user=(User) session.getAttribute("user");
-        if (relationshipService.isAttention(user.getId(),id) == null) {
+    public String attention(@PathVariable Long id,HttpSession session,RedirectAttributes attributes) {
+        User user = (User) session.getAttribute("user");
+        if (relationshipService.isAttention(user.getId(), id) == null) {
             relationshipService.saveRelationship(new Relationship(user.getId(), id));
+            attributes.addFlashAttribute("message", "关注成功");
+            return "redirect:/user/fans";
+        } else {
+            attributes.addFlashAttribute("message", "已关注，通过关注列表可以查看");
             return "redirect:/user/fans";
         }
-        return "redirect:/user/fans";
     }
 
 }
