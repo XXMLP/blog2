@@ -50,8 +50,17 @@ public class Blog {
     private String description;
 
     private Integer collected = 0; //被收藏数
+    private Integer thumbs = 0;
 
     public Blog() {
+    }
+
+    public Integer getThumbs() {
+        return thumbs;
+    }
+
+    public void setThumbs(Integer thumbs) {
+        this.thumbs = thumbs;
     }
 
     public Integer getCollected() {

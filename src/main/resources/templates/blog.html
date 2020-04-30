@@ -39,6 +39,16 @@
             <i class="heart icon"></i> <span th:text="${blog.collected}">2342</span>
             </a>
           </div>
+          <div class="item" th:if="${thumbs} == null">
+            <a th:href="@{/thumbs/{id}(id=${blog.id})}">
+            <i class="thumbs up outline icon"></i> <span th:text="${blog.thumbs}">2342</span>
+            </a>
+          </div>
+          <div class="item" th:if="${thumbs} != null">
+            <a th:href="@{/thumbs/{id}(id=${blog.id})}">
+            <i class="thumbs up icon"></i> <span th:text="${blog.thumbs}">2342</span>
+            </a>
+          </div>
           <div class="item">
             <i class="eye icon"></i> <span th:text="${blog.views}">2342</span>
           </div>

@@ -3,6 +3,7 @@ package com.xxmlp.web;
 import com.xxmlp.dao.BlogRepository;
 import com.xxmlp.po.Collection;
 import com.xxmlp.po.Relationship;
+import com.xxmlp.po.Thumbs;
 import com.xxmlp.po.User;
 import com.xxmlp.service.*;
 import org.apache.catalina.connector.Request;
@@ -42,6 +43,9 @@ public class IndexController {
     private CollectionService collectionService;
 
     @Autowired
+    private ThumbsService thumbsService;
+
+    @Autowired
     private BlogRepository blogRepository;
 
     @GetMapping("/")
@@ -72,8 +76,10 @@ public class IndexController {
         }
         if (session.getAttribute("user")==null){
             model.addAttribute("collected",null);
+            model.addAttribute("thumbs",null);
         }if (session.getAttribute("user")!=null){
             model.addAttribute("collected",collectionService.isCollected(id,user.getId()));
+            model.addAttribute("thumbs",thumbsService.isThumbed(id,user.getId()));
         }
         return "blog";
     }
@@ -141,8 +147,23 @@ public class IndexController {
         }else if (session.getAttribute("user") != null && collectionService.isCollected(id,user.getId()) == null){
             collectionService.saveCollection(new Collection(user.getId(), id));
             return "redirect:/blog/"+ id;
-        }else if (session.getAttribute("user") != null && relationshipService.isAttention(user.getId(),id) != null){
+        }else if (session.getAttribute("user") != null && collectionService.isCollected(id,user.getId()) != null){
             collectionService.removeCollection(new Collection(user.getId(), id));
+            return "redirect:/blog/"+ id;
+        }
+        return "redirect:/blog/"+ id;
+    }
+    @GetMapping("/thumbs/{id}")
+    public String thumbs(@PathVariable Long id, HttpSession session, RedirectAttributes attributes){
+        User user=(User) session.getAttribute("user");
+        if (session.getAttribute("user")  == null){
+            attributes.addFlashAttribute("message", "登录之后才能点赞哦");
+            return "redirect:/user";
+        }else if (session.getAttribute("user") != null && thumbsService.isThumbed(id,user.getId()) == null){
+            thumbsService.saveThumbs(new Thumbs(user.getId(), id));
+            return "redirect:/blog/"+ id;
+        }else if (session.getAttribute("user") != null && thumbsService.isThumbed(id,user.getId()) != null){
+            thumbsService.removeThumbs(new Thumbs(user.getId(), id));
             return "redirect:/blog/"+ id;
         }
         return "redirect:/blog/"+ id;
