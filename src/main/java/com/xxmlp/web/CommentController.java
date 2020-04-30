@@ -56,11 +56,13 @@ public class CommentController {
         Long userId = comment.getUser().getId();
         comment.setUser(userService.getUser(userId));
         User user = (User) session.getAttribute("user");
-        if (user.getId() == userId) {
+        if (user==null) {
+            comment.setAvatar(avatar);
+        }else if (user.getId()!=userId){
+            comment.setAvatar(avatar);
+        }else if (user.getId() == userId) {
             comment.setAvatar(user.getAvatar());
             comment.setAdminComment(true);
-        } else {
-            comment.setAvatar(avatar);
         }
         commentService.saveComment(comment);
         return "redirect:/messages/" + userId;
@@ -72,11 +74,13 @@ public class CommentController {
         Long blogId = comment.getBlog().getId();
         comment.setBlog(blogService.getBlog(blogId));
         User user = (User) session.getAttribute("user");
-        if (user.getId() == blogService.getBlog(blogId).getUser().getId()) {
+        if (user==null){
+            comment.setAvatar(avatar);
+        } else if (user.getId() != blogService.getBlog(blogId).getUser().getId()){
+            comment.setAvatar(avatar);
+        }else if (user.getId() == blogService.getBlog(blogId).getUser().getId()) {
             comment.setAvatar(user.getAvatar());
             comment.setAdminComment(true);
-        } else {
-            comment.setAvatar(avatar);
         }
         commentService.saveComment(comment);
         return "redirect:/comments/" + blogId;
