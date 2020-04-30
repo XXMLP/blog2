@@ -38,6 +38,5 @@ logging:
     com.xxmlp: debug
   file: log/blog-dev.log
 
-server:
-  session:
-    timeout: 86400s
+session:
+  timeout: 86400s
