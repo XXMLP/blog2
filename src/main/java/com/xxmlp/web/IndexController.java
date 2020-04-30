@@ -1,9 +1,11 @@
 package com.xxmlp.web;
 
+import com.xxmlp.dao.BlogRepository;
 import com.xxmlp.po.Collection;
 import com.xxmlp.po.Relationship;
 import com.xxmlp.po.User;
 import com.xxmlp.service.*;
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -39,6 +41,9 @@ public class IndexController {
     @Autowired
     private CollectionService collectionService;
 
+    @Autowired
+    private BlogRepository blogRepository;
+
     @GetMapping("/")
     public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model) {
@@ -62,6 +67,9 @@ public class IndexController {
     public String blog(@PathVariable Long id,Model model,HttpSession session) {
         User user=(User) session.getAttribute("user");
         model.addAttribute("blog", blogService.getAndConvert(id));
+        if (session.isNew()){
+            blogRepository.updateViews(id);
+        }
         if (session.getAttribute("user")==null){
             model.addAttribute("collected",null);
         }if (session.getAttribute("user")!=null){
