@@ -49,7 +49,10 @@ public class UserBlogController {
 
     @PostMapping("/blogs/search")
     public String search(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                         BlogQuery blog, Model model) {
+                         BlogQuery blog, Model model,HttpSession session) {
+        User user=(User) session.getAttribute("user");
+        blog.setUserId(user.getId());
+        model.addAttribute("userId",user.getId());
         model.addAttribute("page", blogService.listBlog(pageable, blog));
         return "user/blogs :: blogList";
     }
