@@ -34,7 +34,10 @@ public interface RelationshipRepository extends JpaRepository<Relationship, Rela
      * @param userId
      * @return
      */
-    @Query(value = "SELECT DISTINCT t1.from_user_id FROM (SELECT * FROM relationship WHERE to_user_id = ?1)  AS t1 INNER JOIN relationship t2 ON t1.from_user_id = t2.to_user_id", nativeQuery = true)
+                @Query("select a.toUserId from Relationship a,Relationship b\n" +
+            "where a.fromUserId = b.toUserId\n" +
+            "and a.toUserId = b.fromUserId\n" +
+            "and a.fromUserId = ?1")
     List<Integer> findFriendsByUserId(Long userId);
     /**
      * 查询关注数

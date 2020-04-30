@@ -35,6 +35,8 @@
             <th></th>
             <th>头像</th>
             <th>昵称</th>
+            <th>关注</th>
+            <th>粉丝</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -45,6 +47,8 @@
               <img class="ui avatar image" th:src="${user.avatar}">
             </div></td>
             <td th:text="${user.nickname}">刻意练习清单</td>
+            <td th:text="${user.followSize}">刻意练习清单</td>
+            <td th:text="${user.fanSize}">刻意练习清单</td>
             <td>
               <a href="#" th:href="@{/user/remove/{id}(id=${user.id})}" class="ui mini red basic button">取消关注</a>
               <a href="#" th:href="@{/users/{id}(id=${user.id})}" class="ui mini teal basic button">用户详情</a>
