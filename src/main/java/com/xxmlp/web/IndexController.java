@@ -129,6 +129,8 @@ public class IndexController {
         if (session.getAttribute("user")  == null){
             attributes.addFlashAttribute("message", "登录之后才能关注哦");
             return "redirect:/user";
+        }else if (session.getAttribute("user") != null && user.getId()==id){
+            return "redirect:/users/"+ id;
         }else if (session.getAttribute("user") != null && relationshipService.isAttention(user.getId(),id) == null){
             relationshipService.saveRelationship(new Relationship(user.getId(), id));
             return "redirect:/users/"+ id;
