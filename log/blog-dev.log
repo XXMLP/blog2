@@ -4828,3 +4828,775 @@ Update your application's configuration
 2020-04-30 17:55:41.543  INFO 13056 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'druidDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=druidDataSource,type=DruidDataSource]
 2020-04-30 17:55:41.576  INFO 13056 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
 2020-04-30 17:55:41.579  INFO 13056 --- [restartedMain] com.xxmlp.BlogApplication                : Started BlogApplication in 17.773 seconds (JVM running for 18.678)
+2020-04-30 18:02:18.133  INFO 4580 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 4580 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-04-30 18:02:18.134 DEBUG 4580 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-04-30 18:02:18.134  INFO 4580 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-04-30 18:02:18.294  INFO 4580 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@76847618: startup date [Thu Apr 30 18:02:18 CST 2020]; root of context hierarchy
+2020-04-30 18:02:19.895  INFO 4580 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-04-30 18:02:19.902  INFO 4580 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-30 18:02:19.903  INFO 4580 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-04-30 18:02:19.989  INFO 4580 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-30 18:02:19.990  INFO 4580 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1696 ms
+2020-04-30 18:02:20.133  INFO 4580 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-04-30 18:02:20.134  INFO 4580 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-30 18:02:20.136  INFO 4580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-30 18:02:20.136  INFO 4580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-30 18:02:20.136  INFO 4580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-30 18:02:20.137  INFO 4580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-30 18:02:20.137  INFO 4580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-04-30 18:02:23.636  INFO 4580 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-04-30 18:02:23.710  INFO 4580 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-04-30 18:02:23.720  INFO 4580 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-04-30 18:02:23.762  INFO 4580 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-04-30 18:02:23.763  INFO 4580 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-04-30 18:02:23.764  INFO 4580 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-04-30 18:02:23.790  INFO 4580 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-04-30 18:02:23.940  INFO 4580 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-04-30 18:02:24.287  INFO 4580 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-04-30 18:02:33.893  INFO 4580 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-30 18:02:34.104  INFO 4580 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-04-30 18:02:35.014  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@76847618: startup date [Thu Apr 30 18:02:18 CST 2020]; root of context hierarchy
+2020-04-30 18:02:35.068  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.xxmlp.web.AboutShowController.about(org.springframework.ui.Model)
+2020-04-30 18:02:35.070  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.071  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.search(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model)
+2020-04-30 18:02:35.071  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.072  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.post(com.xxmlp.po.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.072  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.blogs(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model)
+2020-04-30 18:02:35.072  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.073  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/comment/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:02:35.073  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/comment/{id}/check],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.check(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.073  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/newcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_new(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.074  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/allcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_all(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.074  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/oldcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_old(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.075  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.075  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:02:35.075  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.076  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.img(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:02:35.076  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.uploadImage(org.springframework.web.multipart.MultipartFile,org.springframework.web.servlet.mvc.support.RedirectAttributes,com.xxmlp.po.Img,javax.servlet.http.HttpSession) throws java.lang.Exception
+2020-04-30 18:02:35.076  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/download],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.Download(java.lang.Long,javax.servlet.http.HttpServletResponse,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.076  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.078  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/license],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LicenseController.certificate()
+2020-04-30 18:02:35.078  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/Registered NO],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LicenseController.RegisteredNO()
+2020-04-30 18:02:35.079  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.079  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.loginPage()
+2020-04-30 18:02:35.079  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.080  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.080  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.080  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TagController.post(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.080  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.tags(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.080  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TagController.editPost(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.080  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.081  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.082  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.types(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.082  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.082  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.post(com.xxmlp.po.Type,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.082  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.editPost(com.xxmlp.po.Type,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.082  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.083  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.083  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.083  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.user(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.083  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.UserController.post(com.xxmlp.po.User,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:02:35.084  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.UserController.editPost(com.xxmlp.po.User,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:02:35.084  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.084  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archives],methods=[GET]}" onto public java.lang.String com.xxmlp.web.ArchiveShowController.archives(org.springframework.ui.Model)
+2020-04-30 18:02:35.085  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/messages/{userId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.message(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.085  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.085  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.xxmlp.web.CommentController.post(com.xxmlp.po.Comment,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.085  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/usersmessages/{userId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.usersMessage(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.085  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/messages],methods=[POST]}" onto public java.lang.String com.xxmlp.web.CommentController.postMessage(com.xxmlp.po.Comment,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.086  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.index(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.086  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.IndexController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2020-04-30 18:02:35.086  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/collection/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.collection(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.086  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/thumbs/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.thumbs(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.086  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.blog(java.lang.Long,org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.086  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/attention/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.attention(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.086  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/messages/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.usersMessages(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.087  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.homepage(java.lang.Long,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession,org.springframework.data.domain.Pageable)
+2020-04-30 18:02:35.087  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblog],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.newblogs(org.springframework.ui.Model)
+2020-04-30 18:02:35.087  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/license],methods=[GET]}" onto public java.lang.String com.xxmlp.web.LicenseShowController.certificate()
+2020-04-30 18:02:35.087  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/Registered NO],methods=[GET]}" onto public java.lang.String com.xxmlp.web.LicenseShowController.RegisteredNO()
+2020-04-30 18:02:35.088  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tags/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.TagShowController.tags(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.088  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/types/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.TypeShowController.types(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.088  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/removeCollection/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.CollectionController.remove(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.088  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/collection],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.CollectionController.collections(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:02:35.089  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/homepage],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.index(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.089  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.090  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blog/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.blog(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.090  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/footer/newblog],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.newblogs(org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.092  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.092  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.user(org.springframework.data.domain.Pageable,org.springframework.ui.Model,javax.servlet.http.HttpSession,com.xxmlp.po.User)
+2020-04-30 18:02:35.092  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.InformationController.editPost(com.xxmlp.po.User,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:02:35.092  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.093  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/remove/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.remove(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.093  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/attention/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.attention(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.093  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/fans],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.fans(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:02:35.093  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/friends],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.friends(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:02:35.093  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/follows],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.follows(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:02:35.094  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.094  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.search(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.094  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.094  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.post(com.xxmlp.po.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.095  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.blogs(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.095  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.096  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.096  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:02:35.096  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.096  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.img(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery,javax.servlet.http.HttpSession,com.xxmlp.po.User)
+2020-04-30 18:02:35.096  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.uploadImage(org.springframework.web.multipart.MultipartFile,org.springframework.web.servlet.mvc.support.RedirectAttributes,com.xxmlp.po.Img,javax.servlet.http.HttpSession) throws java.lang.Exception
+2020-04-30 18:02:35.096  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/download],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.Download(java.lang.Long,javax.servlet.http.HttpServletResponse,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.096  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.097  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/registers]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.register(javax.servlet.http.HttpServletRequest,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.097  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.097  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.loginPage()
+2020-04-30 18:02:35.097  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/logout],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.logout(javax.servlet.http.HttpSession)
+2020-04-30 18:02:35.097  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.registPage()
+2020-04-30 18:02:35.098  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.098  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.post(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.098  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.tags(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.098  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.editPost(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.099  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.099  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.types(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:02:35.100  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.input(org.springframework.ui.Model)
+2020-04-30 18:02:35.100  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.post(com.xxmlp.po.Type,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.100  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.editPost(com.xxmlp.po.Type,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:02:35.100  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:02:35.101  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-30 18:02:35.102  INFO 4580 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-30 18:02:35.137  INFO 4580 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:02:35.137  INFO 4580 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:02:35.151  INFO 4580 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-04-30 18:02:35.170  INFO 4580 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:02:35.732  INFO 4580 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-30 18:02:35.775  INFO 4580 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-04-30 18:02:35.775  INFO 4580 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'druidDataSource' has been autodetected for JMX exposure
+2020-04-30 18:02:35.780  INFO 4580 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'druidDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=druidDataSource,type=DruidDataSource]
+2020-04-30 18:02:35.813  INFO 4580 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-04-30 18:02:35.817  INFO 4580 --- [restartedMain] com.xxmlp.BlogApplication                : Started BlogApplication in 18.062 seconds (JVM running for 18.76)
+2020-04-30 18:02:53.612  INFO 4580 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-30 18:02:53.613  INFO 4580 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-30 18:02:53.637  INFO 4580 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2020-04-30 18:02:54.169  WARN 4580 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-30 18:02:54.214  WARN 4580 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-30 18:04:46.848  INFO 12476 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 12476 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-04-30 18:04:46.849 DEBUG 12476 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-04-30 18:04:46.849  INFO 12476 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-04-30 18:04:46.992  INFO 12476 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@14803e44: startup date [Thu Apr 30 18:04:46 CST 2020]; root of context hierarchy
+2020-04-30 18:04:48.882  INFO 12476 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-04-30 18:04:48.890  INFO 12476 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-30 18:04:48.891  INFO 12476 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-04-30 18:04:48.981  INFO 12476 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-30 18:04:48.981  INFO 12476 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1990 ms
+2020-04-30 18:04:49.160  INFO 12476 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-04-30 18:04:49.161  INFO 12476 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-30 18:04:49.163  INFO 12476 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-30 18:04:49.164  INFO 12476 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-30 18:04:49.164  INFO 12476 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-30 18:04:49.164  INFO 12476 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-30 18:04:49.164  INFO 12476 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-04-30 18:04:52.883  INFO 12476 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-04-30 18:04:52.976  INFO 12476 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-04-30 18:04:52.986  INFO 12476 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-04-30 18:04:53.039  INFO 12476 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-04-30 18:04:53.040  INFO 12476 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-04-30 18:04:53.041  INFO 12476 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-04-30 18:04:53.076  INFO 12476 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-04-30 18:04:53.241  INFO 12476 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-04-30 18:04:53.667  INFO 12476 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-04-30 18:05:03.381  INFO 12476 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-30 18:05:03.641  INFO 12476 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-04-30 18:05:04.762  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@14803e44: startup date [Thu Apr 30 18:04:46 CST 2020]; root of context hierarchy
+2020-04-30 18:05:04.834  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.xxmlp.web.AboutShowController.about(org.springframework.ui.Model)
+2020-04-30 18:05:04.837  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.837  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.search(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model)
+2020-04-30 18:05:04.838  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.838  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.post(com.xxmlp.po.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.838  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.838  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.blogs(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model)
+2020-04-30 18:05:04.839  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/comment/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:05:04.840  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/comment/{id}/check],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.check(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.840  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/newcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_new(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.840  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/allcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_all(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.840  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/oldcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_old(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.842  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.842  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:05:04.842  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.842  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.img(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:05:04.843  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.843  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.uploadImage(org.springframework.web.multipart.MultipartFile,org.springframework.web.servlet.mvc.support.RedirectAttributes,com.xxmlp.po.Img,javax.servlet.http.HttpSession) throws java.lang.Exception
+2020-04-30 18:05:04.843  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/download],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.Download(java.lang.Long,javax.servlet.http.HttpServletResponse,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.845  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/Registered NO],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LicenseController.RegisteredNO()
+2020-04-30 18:05:04.845  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/license],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LicenseController.certificate()
+2020-04-30 18:05:04.846  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.846  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.846  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.loginPage()
+2020-04-30 18:05:04.847  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.848  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.848  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.tags(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.848  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TagController.post(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.848  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.848  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TagController.editPost(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.849  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.850  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.850  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.types(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.850  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.post(com.xxmlp.po.Type,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.850  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.850  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.editPost(com.xxmlp.po.Type,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.852  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.852  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.852  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.user(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.852  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.UserController.post(com.xxmlp.po.User,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:05:04.852  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.852  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.UserController.editPost(com.xxmlp.po.User,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:05:04.852  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archives],methods=[GET]}" onto public java.lang.String com.xxmlp.web.ArchiveShowController.archives(org.springframework.ui.Model)
+2020-04-30 18:05:04.854  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/messages/{userId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.message(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.854  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.854  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.xxmlp.web.CommentController.post(com.xxmlp.po.Comment,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.854  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/messages],methods=[POST]}" onto public java.lang.String com.xxmlp.web.CommentController.postMessage(com.xxmlp.po.Comment,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.854  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/usersmessages/{userId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.usersMessage(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.856  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.index(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.856  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.IndexController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2020-04-30 18:05:04.856  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/collection/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.collection(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.856  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.blog(java.lang.Long,org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.856  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/thumbs/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.thumbs(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.856  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/attention/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.attention(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.857  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.homepage(java.lang.Long,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession,org.springframework.data.domain.Pageable)
+2020-04-30 18:05:04.857  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblog],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.newblogs(org.springframework.ui.Model)
+2020-04-30 18:05:04.857  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/messages/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.usersMessages(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.857  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/Registered NO],methods=[GET]}" onto public java.lang.String com.xxmlp.web.LicenseShowController.RegisteredNO()
+2020-04-30 18:05:04.857  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/license],methods=[GET]}" onto public java.lang.String com.xxmlp.web.LicenseShowController.certificate()
+2020-04-30 18:05:04.858  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tags/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.TagShowController.tags(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.858  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/types/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.TypeShowController.types(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.858  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/removeCollection/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.CollectionController.remove(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.858  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/collection],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.CollectionController.collections(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:05:04.859  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/homepage],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.index(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.859  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.860  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blog/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.blog(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.860  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/footer/newblog],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.newblogs(org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.862  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.862  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.user(org.springframework.data.domain.Pageable,org.springframework.ui.Model,javax.servlet.http.HttpSession,com.xxmlp.po.User)
+2020-04-30 18:05:04.862  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.863  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.InformationController.editPost(com.xxmlp.po.User,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:05:04.864  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/remove/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.remove(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.864  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/follows],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.follows(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:05:04.864  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/attention/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.attention(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.864  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/friends],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.friends(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:05:04.864  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/fans],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.fans(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:05:04.866  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.866  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.search(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.866  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.866  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.post(com.xxmlp.po.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.866  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.867  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.blogs(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.868  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.868  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:05:04.869  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.869  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.img(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery,javax.servlet.http.HttpSession,com.xxmlp.po.User)
+2020-04-30 18:05:04.869  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.869  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.uploadImage(org.springframework.web.multipart.MultipartFile,org.springframework.web.servlet.mvc.support.RedirectAttributes,com.xxmlp.po.Img,javax.servlet.http.HttpSession) throws java.lang.Exception
+2020-04-30 18:05:04.869  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/download],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.Download(java.lang.Long,javax.servlet.http.HttpServletResponse,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.870  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/registers]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.register(javax.servlet.http.HttpServletRequest,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.870  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/logout],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.logout(javax.servlet.http.HttpSession)
+2020-04-30 18:05:04.870  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.870  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.loginPage()
+2020-04-30 18:05:04.871  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.registPage()
+2020-04-30 18:05:04.871  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.872  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.tags(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.872  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.post(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.872  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.872  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.editPost(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.874  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.input(org.springframework.ui.Model)
+2020-04-30 18:05:04.874  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.types(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:05:04.874  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.post(com.xxmlp.po.Type,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.874  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:05:04.874  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.editPost(com.xxmlp.po.Type,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:05:04.876  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-30 18:05:04.876  INFO 12476 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-30 18:05:04.940  INFO 12476 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:05:04.940  INFO 12476 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:05:04.960  INFO 12476 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-04-30 18:05:04.987  INFO 12476 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:05:05.702  INFO 12476 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-30 18:05:05.839  INFO 12476 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-04-30 18:05:05.840  INFO 12476 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'druidDataSource' has been autodetected for JMX exposure
+2020-04-30 18:05:05.845  INFO 12476 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'druidDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=druidDataSource,type=DruidDataSource]
+2020-04-30 18:05:05.882  INFO 12476 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-04-30 18:05:05.886  INFO 12476 --- [restartedMain] com.xxmlp.BlogApplication                : Started BlogApplication in 19.392 seconds (JVM running for 21.021)
+2020-04-30 18:05:17.203  INFO 12476 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-30 18:05:17.203  INFO 12476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-30 18:05:17.233  INFO 12476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 30 ms
+2020-04-30 18:05:31.313  WARN 12476 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-30 18:05:31.357  WARN 12476 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-30 18:07:37.908  INFO 12476 --- [Thread-9] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@14803e44: startup date [Thu Apr 30 18:04:46 CST 2020]; root of context hierarchy
+2020-04-30 18:07:37.961  INFO 12476 --- [Thread-9] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-04-30 18:07:37.961  INFO 12476 --- [Thread-9] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2020-04-30 18:07:37.963  INFO 12476 --- [Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-04-30 18:07:37.964  INFO 12476 --- [Thread-9] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-04-30 18:07:37.973  INFO 12476 --- [Thread-9] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-04-30 18:07:37.984  INFO 12476 --- [http-nio-8080-exec-6] o.h.e.internal.DefaultLoadEventListener  : HHH000327: Error performing load command : org.hibernate.SessionException: Session is closed!
+2020-04-30 18:07:41.695  WARN 12476 --- [http-nio-8080-exec-6] o.s.b.a.orm.jpa.DatabaseLookup           : Unable to determine jdbc url from datasource
+
+org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta data; nested exception is org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:339)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:366)
+	at org.springframework.boot.autoconfigure.orm.jpa.DatabaseLookup.getDatabase(DatabaseLookup.java:72)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaProperties.determineDatabase(JpaProperties.java:139)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.jpaVendorAdapter(JpaBaseConfiguration.java:105)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration$$EnhancerBySpringCGLIB$$21c1f0da.CGLIB$jpaVendorAdapter$5(<generated>)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration$$EnhancerBySpringCGLIB$$21c1f0da$$FastClassBySpringCGLIB$$187c6df2.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration$$EnhancerBySpringCGLIB$$21c1f0da.jpaVendorAdapter(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:785)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:785)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:519)
+	at org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors(BeanFactoryUtils.java:310)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.detectPersistenceExceptionTranslators(PersistenceExceptionTranslationInterceptor.java:162)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:145)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy112.findOne(Unknown Source)
+	at com.xxmlp.service.UserServiceImpl.getUser(UserServiceImpl.java:51)
+	at com.xxmlp.service.UserServiceImpl$$FastClassBySpringCGLIB$$8f8d2d67.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.xxmlp.service.UserServiceImpl$$EnhancerBySpringCGLIB$$5698d1a8.getUser(<generated>)
+	at com.xxmlp.web.IndexController.homepage(IndexController.java:89)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:326)
+	... 133 common frames omitted
+Caused by: java.sql.SQLException: null
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:988)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1376)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1372)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:109)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:77)
+	... 134 common frames omitted
+Caused by: java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1302)
+	at java.util.concurrent.CountDownLatch.await(CountDownLatch.java:231)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:963)
+	... 139 common frames omitted
+
+2020-04-30 18:07:41.777 ERROR 12476 --- [http-nio-8080-exec-6] o.s.t.i.TransactionInterceptor           : Application exception overridden by rollback exception
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.boot.autoconfigure.AutoConfigurationPackages': Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:519)
+	at org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors(BeanFactoryUtils.java:310)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.detectPersistenceExceptionTranslators(PersistenceExceptionTranslationInterceptor.java:162)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:145)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy112.findOne(Unknown Source)
+	at com.xxmlp.service.UserServiceImpl.getUser(UserServiceImpl.java:51)
+	at com.xxmlp.service.UserServiceImpl$$FastClassBySpringCGLIB$$8f8d2d67.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.xxmlp.service.UserServiceImpl$$EnhancerBySpringCGLIB$$5698d1a8.getUser(<generated>)
+	at com.xxmlp.web.IndexController.homepage(IndexController.java:89)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.boot.autoconfigure.AutoConfigurationPackages': Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 90 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.boot.autoconfigure.AutoConfigurationPackages': Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.boot.autoconfigure.AutoConfigurationPackages.get(AutoConfigurationPackages.java:75)
+	at org.springframework.boot.autoconfigure.AutoConfigurationPackages.has(AutoConfigurationPackages.java:64)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.getPackagesToScan(JpaBaseConfiguration.java:154)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.entityManagerFactory(JpaBaseConfiguration.java:131)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration$$EnhancerBySpringCGLIB$$21c1f0da.CGLIB$entityManagerFactory$6(<generated>)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration$$EnhancerBySpringCGLIB$$21c1f0da$$FastClassBySpringCGLIB$$187c6df2.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration$$EnhancerBySpringCGLIB$$21c1f0da.entityManagerFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 91 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:92)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:102)
+	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:88)
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:103)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:340)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:298)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:423)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1633)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	... 110 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:687)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1207)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:284)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor.postProcessBeforeInitialization(ConfigurationClassPostProcessor.java:432)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:409)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	... 133 common frames omitted
+
+2020-04-30 18:07:47.232  INFO 3068 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 3068 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-04-30 18:07:47.233 DEBUG 3068 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-04-30 18:07:47.233  INFO 3068 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-04-30 18:07:47.417  INFO 3068 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6b3c06ec: startup date [Thu Apr 30 18:07:47 CST 2020]; root of context hierarchy
+2020-04-30 18:07:49.053  INFO 3068 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-04-30 18:07:49.060  INFO 3068 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-30 18:07:49.060  INFO 3068 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-04-30 18:07:49.151  INFO 3068 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-30 18:07:49.152  INFO 3068 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1735 ms
+2020-04-30 18:07:49.300  INFO 3068 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-04-30 18:07:49.301  INFO 3068 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-30 18:07:49.303  INFO 3068 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-30 18:07:49.304  INFO 3068 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-30 18:07:49.304  INFO 3068 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-30 18:07:49.304  INFO 3068 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-30 18:07:49.304  INFO 3068 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-04-30 18:07:52.791  INFO 3068 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-04-30 18:07:52.866  INFO 3068 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-04-30 18:07:52.876  INFO 3068 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-04-30 18:07:52.922  INFO 3068 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-04-30 18:07:52.923  INFO 3068 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-04-30 18:07:52.924  INFO 3068 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-04-30 18:07:52.953  INFO 3068 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-04-30 18:07:53.102  INFO 3068 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-04-30 18:07:53.459  INFO 3068 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-04-30 18:08:02.754  INFO 3068 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-30 18:08:02.987  INFO 3068 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-04-30 18:08:03.975  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6b3c06ec: startup date [Thu Apr 30 18:07:47 CST 2020]; root of context hierarchy
+2020-04-30 18:08:04.030  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.xxmlp.web.AboutShowController.about(org.springframework.ui.Model)
+2020-04-30 18:08:04.033  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.033  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.search(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model)
+2020-04-30 18:08:04.033  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.034  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.post(com.xxmlp.po.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.034  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.034  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.BlogController.blogs(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model)
+2020-04-30 18:08:04.035  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/comment/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:08:04.035  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/comment/{id}/check],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.check(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.035  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/oldcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_old(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.036  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/newcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_new(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.036  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/allcomment],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.CommentAdminController.comment_all(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.037  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.037  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:08:04.038  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.038  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.img(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:08:04.038  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.038  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img/{id}/download],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.Download(java.lang.Long,javax.servlet.http.HttpServletResponse,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.038  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/img],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.ImgController.uploadImage(org.springframework.web.multipart.MultipartFile,org.springframework.web.servlet.mvc.support.RedirectAttributes,com.xxmlp.po.Img,javax.servlet.http.HttpSession) throws java.lang.Exception
+2020-04-30 18:08:04.040  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/Registered NO],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LicenseController.RegisteredNO()
+2020-04-30 18:08:04.041  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/license],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LicenseController.certificate()
+2020-04-30 18:08:04.041  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.loginPage()
+2020-04-30 18:08:04.041  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.042  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.042  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.043  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.043  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.tags(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.043  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TagController.post(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.043  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.043  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TagController.editPost(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.044  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.044  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.types(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.045  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.045  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.post(com.xxmlp.po.Type,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.045  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.045  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.TypeController.editPost(com.xxmlp.po.Type,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.046  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.046  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.047  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.user(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.047  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.UserController.post(com.xxmlp.po.User,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:08:04.047  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.admin.UserController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.047  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/user/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.admin.UserController.editPost(com.xxmlp.po.User,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:08:04.047  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archives],methods=[GET]}" onto public java.lang.String com.xxmlp.web.ArchiveShowController.archives(org.springframework.ui.Model)
+2020-04-30 18:08:04.049  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/messages/{userId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.message(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.049  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.049  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.xxmlp.web.CommentController.post(com.xxmlp.po.Comment,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.049  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/usersmessages/{userId}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.CommentController.usersMessage(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.050  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/messages],methods=[POST]}" onto public java.lang.String com.xxmlp.web.CommentController.postMessage(com.xxmlp.po.Comment,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.051  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.index(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.051  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.IndexController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2020-04-30 18:08:04.051  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/collection/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.collection(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.051  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.blog(java.lang.Long,org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.051  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/thumbs/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.thumbs(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.051  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblog],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.newblogs(org.springframework.ui.Model)
+2020-04-30 18:08:04.051  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/attention/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.attention(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.051  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.homepage(java.lang.Long,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession,org.springframework.data.domain.Pageable)
+2020-04-30 18:08:04.052  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/messages/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.IndexController.usersMessages(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.052  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/Registered NO],methods=[GET]}" onto public java.lang.String com.xxmlp.web.LicenseShowController.RegisteredNO()
+2020-04-30 18:08:04.052  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/license],methods=[GET]}" onto public java.lang.String com.xxmlp.web.LicenseShowController.certificate()
+2020-04-30 18:08:04.052  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tags/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.TagShowController.tags(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.052  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/types/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.TypeShowController.types(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.053  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/removeCollection/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.CollectionController.remove(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.053  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/collection],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.CollectionController.collections(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:08:04.053  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/homepage],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.index(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.054  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.054  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blog/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.blog(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.054  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/footer/newblog],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.HomePageController.newblogs(org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.056  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.056  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.user(org.springframework.data.domain.Pageable,org.springframework.ui.Model,javax.servlet.http.HttpSession,com.xxmlp.po.User)
+2020-04-30 18:08:04.056  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.InformationController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.056  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/user/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.InformationController.editPost(com.xxmlp.po.User,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2020-04-30 18:08:04.057  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/remove/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.remove(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.057  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/attention/{id}],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.attention(java.lang.Long,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.057  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/follows],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.follows(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:08:04.057  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/friends],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.friends(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:08:04.057  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/fans],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.RelationshipController.fans(org.springframework.data.domain.Pageable,javax.servlet.http.HttpSession,org.springframework.ui.Model)
+2020-04-30 18:08:04.058  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.058  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.search(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.058  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.059  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.post(com.xxmlp.po.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.059  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.059  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/blogs],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserBlogController.blogs(org.springframework.data.domain.Pageable,com.xxmlp.vo.BlogQuery,org.springframework.ui.Model,com.xxmlp.po.User,javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.060  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/delete],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.060  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/search],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery)
+2020-04-30 18:08:04.060  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.060  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.img(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.xxmlp.vo.ImgQuery,javax.servlet.http.HttpSession,com.xxmlp.po.User)
+2020-04-30 18:08:04.060  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.060  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img/{id}/download],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.Download(java.lang.Long,javax.servlet.http.HttpServletResponse,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.060  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/img],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserImgController.uploadImage(org.springframework.web.multipart.MultipartFile,org.springframework.web.servlet.mvc.support.RedirectAttributes,com.xxmlp.po.Img,javax.servlet.http.HttpSession) throws java.lang.Exception
+2020-04-30 18:08:04.061  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/registers]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.register(javax.servlet.http.HttpServletRequest,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.061  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.loginPage()
+2020-04-30 18:08:04.061  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/logout],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.logout(javax.servlet.http.HttpSession)
+2020-04-30 18:08:04.061  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.061  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserLoginController.registPage()
+2020-04-30 18:08:04.062  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.062  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.tags(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.062  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.post(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.063  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.063  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/tags/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTagController.editPost(com.xxmlp.po.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.063  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.types(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2020-04-30 18:08:04.064  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.input(org.springframework.ui.Model)
+2020-04-30 18:08:04.064  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.post(com.xxmlp.po.Type,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.064  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/{id}/input],methods=[GET]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-04-30 18:08:04.064  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/types/{id}],methods=[POST]}" onto public java.lang.String com.xxmlp.web.user.UserTypeController.editPost(com.xxmlp.po.Type,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-04-30 18:08:04.065  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-30 18:08:04.066  INFO 3068 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-30 18:08:04.101  INFO 3068 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:08:04.101  INFO 3068 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:08:04.117  INFO 3068 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-04-30 18:08:04.135  INFO 3068 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-30 18:08:04.731  INFO 3068 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-30 18:08:04.775  INFO 3068 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-04-30 18:08:04.776  INFO 3068 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'druidDataSource' has been autodetected for JMX exposure
+2020-04-30 18:08:04.780  INFO 3068 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'druidDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=druidDataSource,type=DruidDataSource]
+2020-04-30 18:08:04.813  INFO 3068 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-04-30 18:08:04.817  INFO 3068 --- [restartedMain] com.xxmlp.BlogApplication                : Started BlogApplication in 18.001 seconds (JVM running for 18.744)
+2020-04-30 18:08:12.785  INFO 3068 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-30 18:08:12.786  INFO 3068 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-30 18:08:12.807  INFO 3068 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2020-04-30 18:08:13.309  WARN 3068 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-30 18:08:13.351  WARN 3068 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
