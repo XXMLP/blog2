@@ -40,7 +40,7 @@ public class HomePageController {
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
         model.addAttribute("recommendBlogs", blogService.listUserRecommendBlogTop(8,user));
-        model.addAttribute("totalView",userService.totalView(user));
+        model.addAttribute("totalViews",userService.totalViews(user.getId()));
         return "user/homepage";
     }
 

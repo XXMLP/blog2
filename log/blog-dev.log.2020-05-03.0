@@ -1,0 +1,1660 @@
+2020-05-03 14:39:44.044  INFO 12092 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 12092 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 14:39:44.051 DEBUG 12092 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 14:39:44.051  INFO 12092 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 14:39:44.337  INFO 12092 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@350c49d5: startup date [Sun May 03 14:39:44 CST 2020]; root of context hierarchy
+2020-05-03 14:39:47.504  INFO 12092 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 14:39:47.520  INFO 12092 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 14:39:47.521  INFO 12092 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 14:39:47.680  INFO 12092 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 14:39:47.680  INFO 12092 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3343 ms
+2020-05-03 14:39:47.909  INFO 12092 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 14:39:47.912  INFO 12092 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 14:39:47.915  INFO 12092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 14:39:47.915  INFO 12092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 14:39:47.916  INFO 12092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 14:39:47.916  INFO 12092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 14:39:47.916  INFO 12092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 14:39:52.764  INFO 12092 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 14:39:52.903  INFO 12092 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 14:39:52.917  INFO 12092 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 14:39:53.033  INFO 12092 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 14:39:53.034  INFO 12092 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 14:39:53.036  INFO 12092 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 14:39:53.094  INFO 12092 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 14:39:53.538  INFO 12092 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 14:39:54.216  INFO 12092 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 14:40:03.479  INFO 12092 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 14:40:03.523  INFO 12092 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 14:40:03.572 ERROR 12092 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+
+com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 14:40:03.598  WARN 12092 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 14:40:03.598  INFO 12092 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 14:40:03.604  INFO 12092 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 14:40:03.607  INFO 12092 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 14:40:03.626  INFO 12092 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 14:40:03.632 ERROR 12092 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 17, line 1, column 13, token VIEW : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 14:43:21.175  INFO 9348 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 9348 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 14:43:21.176 DEBUG 9348 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 14:43:21.176  INFO 9348 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 14:43:21.423  INFO 9348 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@76847618: startup date [Sun May 03 14:43:21 CST 2020]; root of context hierarchy
+2020-05-03 14:43:23.775  INFO 9348 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 14:43:23.786  INFO 9348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 14:43:23.787  INFO 9348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 14:43:23.932  INFO 9348 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 14:43:23.933  INFO 9348 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2510 ms
+2020-05-03 14:43:24.136  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 14:43:24.138  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 14:43:24.142  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 14:43:24.143  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 14:43:24.143  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 14:43:24.144  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 14:43:24.144  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 14:43:28.868  INFO 9348 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 14:43:29.000  INFO 9348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 14:43:29.015  INFO 9348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 14:43:29.085  INFO 9348 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 14:43:29.086  INFO 9348 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 14:43:29.087  INFO 9348 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 14:43:29.130  INFO 9348 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 14:43:29.369  INFO 9348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 14:43:30.005  INFO 9348 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 14:43:38.693  INFO 9348 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 14:43:38.731  INFO 9348 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 14:43:38.788 ERROR 9348 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+
+com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 14:43:38.808  WARN 9348 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 14:43:38.809  INFO 9348 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 14:43:38.814  INFO 9348 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 14:43:38.817  INFO 9348 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 14:43:38.834  INFO 9348 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 14:43:38.841 ERROR 9348 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 17, line 1, column 13, token VIEW : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 15:11:20.532  INFO 13320 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 13320 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 15:11:20.533 DEBUG 13320 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 15:11:20.534  INFO 13320 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 15:11:20.795  INFO 13320 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@55e18e8b: startup date [Sun May 03 15:11:20 CST 2020]; root of context hierarchy
+2020-05-03 15:11:23.563  INFO 13320 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 15:11:23.576  INFO 13320 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 15:11:23.577  INFO 13320 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 15:11:23.703  INFO 13320 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 15:11:23.704  INFO 13320 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2910 ms
+2020-05-03 15:11:23.938  INFO 13320 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 15:11:23.940  INFO 13320 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 15:11:23.944  INFO 13320 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 15:11:23.945  INFO 13320 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 15:11:23.945  INFO 13320 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 15:11:23.945  INFO 13320 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 15:11:23.945  INFO 13320 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 15:11:28.855  INFO 13320 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 15:11:28.990  INFO 13320 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 15:11:29.005  INFO 13320 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 15:11:29.116  INFO 13320 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 15:11:29.118  INFO 13320 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 15:11:29.119  INFO 13320 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 15:11:29.188  INFO 13320 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 15:11:29.480  INFO 13320 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 15:11:30.116  INFO 13320 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 15:11:32.984 ERROR 13320 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : alter table t_blog add column view integer
+
+com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 15:11:33.010  WARN 13320 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 15:11:33.011  INFO 13320 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 15:11:33.019  INFO 13320 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 15:11:33.022  INFO 13320 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 15:11:33.044  INFO 13320 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 15:11:33.053 ERROR 13320 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [alter table t_blog add column view integer]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 34, line 1, column 30, token VIEW : alter table t_blog add column view integer
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 15:18:12.762  INFO 6560 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 6560 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 15:18:12.764 DEBUG 6560 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 15:18:12.764  INFO 6560 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 15:18:13.042  INFO 6560 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4354eb49: startup date [Sun May 03 15:18:13 CST 2020]; root of context hierarchy
+2020-05-03 15:18:15.960  INFO 6560 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 15:18:15.974  INFO 6560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 15:18:15.976  INFO 6560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 15:18:16.117  INFO 6560 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 15:18:16.117  INFO 6560 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3075 ms
+2020-05-03 15:18:16.339  INFO 6560 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 15:18:16.341  INFO 6560 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 15:18:16.344  INFO 6560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 15:18:16.345  INFO 6560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 15:18:16.346  INFO 6560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 15:18:16.346  INFO 6560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 15:18:16.346  INFO 6560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 15:18:21.137  INFO 6560 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 15:18:21.292  INFO 6560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 15:18:21.307  INFO 6560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 15:18:21.441  INFO 6560 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 15:18:21.442  INFO 6560 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 15:18:21.443  INFO 6560 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 15:18:21.517  INFO 6560 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 15:18:21.857  INFO 6560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 15:18:22.588  INFO 6560 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 15:18:26.148 ERROR 6560 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : alter table t_blog add column view integer
+
+com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 15:18:26.169  WARN 6560 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 15:18:26.169  INFO 6560 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 15:18:26.174  INFO 6560 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 15:18:26.177  INFO 6560 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 15:18:26.198  INFO 6560 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 15:18:26.204 ERROR 6560 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [alter table t_blog add column view integer]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 34, line 1, column 30, token VIEW : alter table t_blog add column view integer
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 17:06:05.823  INFO 1192 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 1192 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 17:06:05.824 DEBUG 1192 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 17:06:05.824  INFO 1192 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 17:06:06.093  INFO 1192 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4354eb49: startup date [Sun May 03 17:06:06 CST 2020]; root of context hierarchy
+2020-05-03 17:06:09.132  INFO 1192 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 17:06:09.146  INFO 1192 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 17:06:09.147  INFO 1192 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 17:06:09.299  INFO 1192 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 17:06:09.300  INFO 1192 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3207 ms
+2020-05-03 17:06:09.522  INFO 1192 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 17:06:09.524  INFO 1192 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 17:06:09.529  INFO 1192 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 17:06:09.530  INFO 1192 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 17:06:09.530  INFO 1192 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 17:06:09.530  INFO 1192 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 17:06:09.530  INFO 1192 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 17:06:14.361  INFO 1192 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 17:06:14.504  INFO 1192 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 17:06:14.519  INFO 1192 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 17:06:14.669  INFO 1192 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 17:06:14.672  INFO 1192 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 17:06:14.674  INFO 1192 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 17:06:14.763  INFO 1192 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 17:06:15.107  INFO 1192 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 17:06:15.868  INFO 1192 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 17:06:18.761 ERROR 1192 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : alter table t_blog add column view integer
+
+com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 17:06:18.790  WARN 1192 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 17:06:18.791  INFO 1192 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 17:06:18.798  INFO 1192 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 17:06:18.802  INFO 1192 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 17:06:18.821  INFO 1192 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 17:06:18.828 ERROR 1192 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [alter table t_blog add column view integer]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 34, line 1, column 30, token VIEW : alter table t_blog add column view integer
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 17:11:07.839  INFO 12636 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 12636 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 17:11:07.841 DEBUG 12636 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 17:11:07.841  INFO 12636 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 17:11:08.127  INFO 12636 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4354eb49: startup date [Sun May 03 17:11:08 CST 2020]; root of context hierarchy
+2020-05-03 17:11:10.492  INFO 12636 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 17:11:10.503  INFO 12636 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 17:11:10.504  INFO 12636 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 17:11:10.636  INFO 12636 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 17:11:10.637  INFO 12636 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2510 ms
+2020-05-03 17:11:10.838  INFO 12636 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 17:11:10.840  INFO 12636 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 17:11:10.843  INFO 12636 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 17:11:10.844  INFO 12636 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 17:11:10.844  INFO 12636 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 17:11:10.845  INFO 12636 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 17:11:10.845  INFO 12636 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 17:11:15.376  INFO 12636 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 17:11:15.508  INFO 12636 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 17:11:15.520  INFO 12636 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 17:11:15.576  INFO 12636 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 17:11:15.578  INFO 12636 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 17:11:15.579  INFO 12636 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 17:11:15.622  INFO 12636 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 17:11:15.824  INFO 12636 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 17:11:16.307  INFO 12636 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 17:11:20.206 ERROR 12636 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : alter table t_blog add column view integer
+
+com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 17:11:20.225  WARN 12636 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 17:11:20.226  INFO 12636 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 17:11:20.230  INFO 12636 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 17:11:20.233  INFO 12636 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 17:11:20.247  INFO 12636 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 17:11:20.253 ERROR 12636 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [alter table t_blog add column view integer]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 34, line 1, column 30, token VIEW : alter table t_blog add column view integer
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 17:13:19.409  INFO 9664 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 9664 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 17:13:19.410 DEBUG 9664 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 17:13:19.410  INFO 9664 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 17:13:19.674  INFO 9664 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@49b119e1: startup date [Sun May 03 17:13:19 CST 2020]; root of context hierarchy
+2020-05-03 17:13:21.934  INFO 9664 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 17:13:21.943  INFO 9664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 17:13:21.944  INFO 9664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 17:13:22.093  INFO 9664 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 17:13:22.094  INFO 9664 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2421 ms
+2020-05-03 17:13:22.301  INFO 9664 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 17:13:22.303  INFO 9664 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 17:13:22.306  INFO 9664 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 17:13:22.307  INFO 9664 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 17:13:22.307  INFO 9664 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 17:13:22.307  INFO 9664 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 17:13:22.307  INFO 9664 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 17:13:27.011  INFO 9664 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 17:13:27.141  INFO 9664 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 17:13:27.154  INFO 9664 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 17:13:27.209  INFO 9664 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 17:13:27.210  INFO 9664 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 17:13:27.211  INFO 9664 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 17:13:27.250  INFO 9664 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 17:13:27.479  INFO 9664 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 17:13:27.959  INFO 9664 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 17:13:31.585 ERROR 9664 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : alter table t_blog add column view integer
+
+com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 17:13:31.608  WARN 9664 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 17:13:31.609  INFO 9664 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 17:13:31.614  INFO 9664 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 17:13:31.617  INFO 9664 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 17:13:31.631  INFO 9664 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 17:13:31.638 ERROR 9664 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [alter table t_blog add column view integer]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:449)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.migrateTable(SchemaMigratorImpl.java:253)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:170)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 34, line 1, column 30, token VIEW : alter table t_blog add column view integer
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 34, line 1, column 30, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlExprParser.parseColumn(MySqlExprParser.java:529)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTableAddColumn(MySqlStatementParser.java:4257)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlterTable(MySqlStatementParser.java:3706)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseAlter(MySqlStatementParser.java:3039)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:290)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 17:18:53.692  INFO 6024 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 6024 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 17:18:53.694 DEBUG 6024 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 17:18:53.694  INFO 6024 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 17:18:53.977  INFO 6024 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@26939cf3: startup date [Sun May 03 17:18:53 CST 2020]; root of context hierarchy
+2020-05-03 17:18:56.768  INFO 6024 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 17:18:56.781  INFO 6024 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 17:18:56.782  INFO 6024 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 17:18:56.955  INFO 6024 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 17:18:56.955  INFO 6024 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2978 ms
+2020-05-03 17:18:57.176  INFO 6024 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 17:18:57.178  INFO 6024 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 17:18:57.181  INFO 6024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 17:18:57.183  INFO 6024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 17:18:57.183  INFO 6024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 17:18:57.183  INFO 6024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 17:18:57.183  INFO 6024 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 17:19:01.772  INFO 6024 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 17:19:01.920  INFO 6024 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 17:19:01.935  INFO 6024 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 17:19:02.045  INFO 6024 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 17:19:02.047  INFO 6024 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 17:19:02.049  INFO 6024 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 17:19:02.111  INFO 6024 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 17:19:02.399  INFO 6024 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 17:19:03.216  INFO 6024 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 17:19:11.312  INFO 6024 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 17:19:11.353  INFO 6024 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 17:19:11.630 ERROR 6024 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+
+com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 17:19:11.655  WARN 6024 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 17:19:11.655  INFO 6024 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 17:19:11.661  INFO 6024 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 17:19:11.664  INFO 6024 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 17:19:11.689  INFO 6024 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 17:19:11.698 ERROR 6024 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 17, line 1, column 13, token VIEW : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 17:20:43.097  INFO 6308 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 6308 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 17:20:43.098 DEBUG 6308 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 17:20:43.098  INFO 6308 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 17:20:43.341  INFO 6308 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@26939cf3: startup date [Sun May 03 17:20:43 CST 2020]; root of context hierarchy
+2020-05-03 17:20:45.605  INFO 6308 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 17:20:45.614  INFO 6308 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 17:20:45.615  INFO 6308 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 17:20:45.762  INFO 6308 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 17:20:45.763  INFO 6308 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2423 ms
+2020-05-03 17:20:45.960  INFO 6308 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 17:20:45.961  INFO 6308 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 17:20:45.964  INFO 6308 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 17:20:45.965  INFO 6308 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 17:20:45.965  INFO 6308 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 17:20:45.965  INFO 6308 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 17:20:45.965  INFO 6308 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 17:20:51.765  INFO 6308 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 17:20:51.907  INFO 6308 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 17:20:51.917  INFO 6308 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 17:20:51.971  INFO 6308 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 17:20:51.973  INFO 6308 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 17:20:51.974  INFO 6308 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 17:20:52.011  INFO 6308 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 17:20:52.197  INFO 6308 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 17:20:52.692  INFO 6308 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 17:21:00.785  INFO 6308 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 17:21:00.826  INFO 6308 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 17:21:00.863 ERROR 6308 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+
+com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 17:21:00.881  WARN 6308 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 17:21:00.881  INFO 6308 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 17:21:00.886  INFO 6308 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 17:21:00.889  INFO 6308 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 17:21:00.909  INFO 6308 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 17:21:00.918 ERROR 6308 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 17, line 1, column 13, token VIEW : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+
+2020-05-03 17:33:14.246  INFO 8904 --- [restartedMain] com.xxmlp.BlogApplication                : Starting BlogApplication on DESKTOP-VROLN35 with PID 8904 (C:\Users\admin\IdeaProjects\blog2\target\classes started by admin in C:\Users\admin\IdeaProjects\blog2)
+2020-05-03 17:33:14.247 DEBUG 8904 --- [restartedMain] com.xxmlp.BlogApplication                : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-05-03 17:33:14.247  INFO 8904 --- [restartedMain] com.xxmlp.BlogApplication                : The following profiles are active: dev
+2020-05-03 17:33:14.526  INFO 8904 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@49078309: startup date [Sun May 03 17:33:14 CST 2020]; root of context hierarchy
+2020-05-03 17:33:16.963  INFO 8904 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-05-03 17:33:16.973  INFO 8904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-03 17:33:16.974  INFO 8904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-05-03 17:33:17.123  INFO 8904 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-03 17:33:17.124  INFO 8904 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2599 ms
+2020-05-03 17:33:17.332  INFO 8904 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2020-05-03 17:33:17.334  INFO 8904 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-05-03 17:33:17.337  INFO 8904 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-05-03 17:33:17.338  INFO 8904 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-05-03 17:33:17.338  INFO 8904 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-05-03 17:33:17.338  INFO 8904 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-05-03 17:33:17.338  INFO 8904 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2020-05-03 17:33:22.653  INFO 8904 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-03 17:33:22.790  INFO 8904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-05-03 17:33:22.806  INFO 8904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-03 17:33:22.920  INFO 8904 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-05-03 17:33:22.923  INFO 8904 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-03 17:33:22.924  INFO 8904 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-05-03 17:33:23.031  INFO 8904 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-05-03 17:33:23.328  INFO 8904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-05-03 17:33:24.047  INFO 8904 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-05-03 17:33:39.358  INFO 8904 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 17:33:39.407  INFO 8904 --- [restartedMain] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: view
+2020-05-03 17:33:39.460 ERROR 8904 --- [restartedMain] c.alibaba.druid.filter.stat.StatFilter   : merge sql error, dbType mysql, druid-1.1.21, sql : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+
+com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:171)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:98)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:81)
+	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:54)
+	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:147)
+	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:648)
+	at com.alibaba.druid.filter.stat.StatFilter.internalBeforeStatementExecute(StatFilter.java:403)
+	at com.alibaba.druid.filter.stat.StatFilter.statementExecuteUpdateBefore(StatFilter.java:331)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:324)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2020-05-03 17:33:39.481  WARN 8904 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2020-05-03 17:33:39.481  INFO 8904 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-05-03 17:33:39.487  INFO 8904 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-05-03 17:33:39.490  INFO 8904 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-03 17:33:39.506  INFO 8904 --- [restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2020-05-03 17:33:39.513 ERROR 8904 --- [restartedMain] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.xxmlp.BlogApplication.main(BlogApplication.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:954)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:882)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Unable to execute schema management to JDBC target [create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))]
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:59)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlString(SchemaMigratorImpl.java:431)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.applySqlStrings(SchemaMigratorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.createTable(SchemaMigratorImpl.java:236)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigrationToTargets(SchemaMigratorImpl.java:167)
+	at org.hibernate.tool.schema.internal.SchemaMigratorImpl.doMigration(SchemaMigratorImpl.java:60)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:134)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:101)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:472)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:444)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:879)
+	... 27 common frames omitted
+Caused by: java.sql.SQLException: sql injection violation, syntax error: error pos 17, line 1, column 13, token VIEW : create table view (user_id bigint not null, blog_id bigint not null, primary key (user_id, blog_id))
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:806)
+	at com.alibaba.druid.wall.WallFilter.check(WallFilter.java:788)
+	at com.alibaba.druid.wall.WallFilter.statement_executeUpdate(WallFilter.java:550)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeUpdate(FilterAdapter.java:2519)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeUpdate(FilterEventAdapter.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeUpdate(FilterChainImpl.java:2896)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeUpdate(StatementProxyImpl.java:235)
+	at com.alibaba.druid.pool.DruidPooledStatement.executeUpdate(DruidPooledStatement.java:325)
+	at org.hibernate.tool.schema.internal.TargetDatabaseImpl.accept(TargetDatabaseImpl.java:56)
+	... 37 common frames omitted
+Caused by: com.alibaba.druid.sql.parser.ParserException: error pos 17, line 1, column 13, token VIEW
+	at com.alibaba.druid.sql.parser.SQLExprParser.name(SQLExprParser.java:1562)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlCreateTableParser.parseCreateTable(MySqlCreateTableParser.java:100)
+	at com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser.parseCreate(MySqlStatementParser.java:415)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:260)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:182)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:793)
+	... 46 common frames omitted
+

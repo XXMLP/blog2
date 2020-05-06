@@ -174,7 +174,6 @@ public class BlogServiceImpl implements BlogService {
         if (blog.getId() == null) {
             blog.setCreateTime(new Date());
             blog.setUpdateTime(new Date());
-            blog.setViews(0);
         } else {
             blog.setUpdateTime(new Date());
         }

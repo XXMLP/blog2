@@ -1,12 +1,7 @@
 package com.xxmlp.web;
 
-import com.xxmlp.dao.BlogRepository;
-import com.xxmlp.po.Collection;
-import com.xxmlp.po.Relationship;
-import com.xxmlp.po.Thumbs;
-import com.xxmlp.po.User;
+import com.xxmlp.po.*;
 import com.xxmlp.service.*;
-import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -46,7 +41,7 @@ public class IndexController {
     private ThumbsService thumbsService;
 
     @Autowired
-    private BlogRepository blogRepository;
+    private ViewsService viewsService;
 
     @GetMapping("/")
     public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
@@ -71,15 +66,14 @@ public class IndexController {
     public String blog(@PathVariable Long id,Model model,HttpSession session) {
         User user=(User) session.getAttribute("user");
         model.addAttribute("blog", blogService.getAndConvert(id));
-        if (session.isNew()){
-            blogRepository.updateViews(id);
-        }
         if (session.getAttribute("user")==null){
             model.addAttribute("collected",null);
             model.addAttribute("thumbs",null);
         }if (session.getAttribute("user")!=null){
             model.addAttribute("collected",collectionService.isCollected(id,user.getId()));
             model.addAttribute("thumbs",thumbsService.isThumbed(id,user.getId()));
+        }if (session.getAttribute("user")!=null && viewsService.isViewsed(id,user.getId())==null){
+            viewsService.saveViews(new Views(user.getId(), id));
         }
         return "blog";
     }
@@ -94,7 +88,7 @@ public class IndexController {
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
         model.addAttribute("recommendBlogs", blogService.listUserRecommendBlogTop(8,user));
-        model.addAttribute("totalView",userService.totalView(user));
+        model.addAttribute("totalViews",userService.totalViews(id));
         if (session.getAttribute("user")!=null &&  relationshipService.isAttention(fans.getId(),id)!=null){
             model.addAttribute("relationship","取消关注");
             model.addAttribute("guanzhu","已关注");

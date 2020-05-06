@@ -27,7 +27,7 @@ public interface UserService {
 
     User updateUser(Long id,User user);
 
-    Integer totalView(User user);
+    Integer totalViews(Long id);
 
     Integer totalBlogs(User user);
 
