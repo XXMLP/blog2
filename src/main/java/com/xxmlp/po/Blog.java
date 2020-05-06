@@ -20,7 +20,6 @@ public class Blog {
     private String content;
     private String firstPicture;
     private String flag;
-    private Integer views;
     private boolean appreciation;
     private boolean shareStatement;
     private boolean commentabled;
@@ -51,8 +50,17 @@ public class Blog {
 
     private Integer collected = 0; //被收藏数
     private Integer thumbs = 0;
+    private Integer views = 0;
 
     public Blog() {
+    }
+
+    public Integer getViews() {
+        return views;
+    }
+
+    public void setViews(Integer views) {
+        this.views = views;
     }
 
     public Integer getThumbs() {
@@ -109,14 +117,6 @@ public class Blog {
 
     public void setFlag(String flag) {
         this.flag = flag;
-    }
-
-    public Integer getViews() {
-        return views;
-    }
-
-    public void setViews(Integer views) {
-        this.views = views;
     }
 
     public boolean isAppreciation() {
@@ -258,7 +258,6 @@ public class Blog {
                 ", content='" + content + '\'' +
                 ", firstPicture='" + firstPicture + '\'' +
                 ", flag='" + flag + '\'' +
-                ", views=" + views +
                 ", appreciation=" + appreciation +
                 ", shareStatement=" + shareStatement +
                 ", commentabled=" + commentabled +

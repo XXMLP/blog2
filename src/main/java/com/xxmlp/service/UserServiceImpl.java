@@ -95,8 +95,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Integer totalView(User user){
-        return userRepository.totalView(user);
+    public Integer totalViews(Long id){
+        return userRepository.totalView(id);
     }
 
     @Override

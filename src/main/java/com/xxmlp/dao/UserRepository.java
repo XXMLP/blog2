@@ -18,8 +18,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query("select u from User u where u.id = ?1")
     Page<User> findUserInformation(Pageable pageable,Long id);
 
-    @Query("select sum(b.views) from Blog b where b.published = true and b.user = ?1")
-    Integer totalView(User user);
+    @Query("select sum(b.views) from Blog b where b.user.id = ?1")
+    Integer totalView(Long id);
 
     @Query("select count(b) from Blog b where b.user = ?1 and b.published = true ")
     Integer totalBlogs(User user);
