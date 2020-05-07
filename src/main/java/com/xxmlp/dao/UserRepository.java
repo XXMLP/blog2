@@ -1,5 +1,6 @@
 package com.xxmlp.dao;
 
+import com.xxmlp.po.Blog;
 import com.xxmlp.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,6 +33,9 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     @Query("select count(b) from Blog b where b.user = ?1 and b.published = true ")
     Integer totalBlogs(User user);
+
+    @Query("select b from User b")
+    List<User> findNewAll(Pageable pageable);
 
     /**
      * 根据id集合查询用户，分页查询

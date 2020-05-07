@@ -50,6 +50,7 @@ public class IndexController {
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
         model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(8));
+        model.addAttribute("recommendUsers", userService.listRecommendUserTop(10));
         return "index";
     }
 
