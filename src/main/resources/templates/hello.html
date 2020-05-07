@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script th:src="@{/js/jquery.min.js}" ></script>
+<body>
+<h1 th:text="${userName}"></h1>
+<div class="login-box-reset-pss">
+    <div class="logbox-right fr">
+        <div class="title">重置密码</div>
+
+        <div class="inputbar">
+            <input type="password" class="form-control-reset-pss" id="new_password" placeholder="确认新密码">
+        </div>
+            <button onclick="update()">修改密码</button>
+    </div>
+</div>
+</body>
+
+<script>
+    function update() {
+        var password= $("#new_password").val();
+        alert(password);
+        $.ajax({
+            url:"http://localhost:9090/updatePassword",
+            type:"GET",
+            dataType:"json",
+            data:{"password":password},
+            success:function (data) {
+                    alert(data);
+                if (data=="success"){
+                    alert("修改密码成功");
+                }
+            }
+        })
+    }
+</script>
+</html>

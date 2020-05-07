@@ -56,6 +56,17 @@ public class UserServiceImpl implements UserService {
     public User getUserByName(String username) {
         return userRepository.findByUsername(username);
     }
+    @Transactional
+    @Override
+    public User getUserByNameOrEmail(String username) {
+        return userRepository.getUserByNameOrEmail(username);
+    }
+
+    @Transactional
+    @Override
+    public User getUserByNameKey(String username,String key) {
+        return userRepository.findByUsernameKey(username,key);
+    }
 
 
     @Transactional
@@ -90,6 +101,27 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
+    public User updateUserInfo(User user) {
+        if (user == null) {
+            throw new NotFoundException("不存在该用户");
+        }
+        BeanUtils.copyProperties(user, MyBeanUtils.getNullPropertyNames(user));
+        return userRepository.save(user);
+    }
+
+    @Transactional
+    @Override
+    public User resetpwd(User user,String pwd) {
+        if (user == null) {
+            throw new NotFoundException("不存在该用户");
+        }
+        user.setPassword(MD5Utils.code(pwd));
+        BeanUtils.copyProperties(user, MyBeanUtils.getNullPropertyNames(user));
+        return userRepository.save(user);
+    }
+
+    @Transactional
+    @Override
     public void deleteUser(Long id) {
         userRepository.delete(id);
     }
@@ -102,6 +134,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer totalBlogs(User user){
         return userRepository.totalBlogs(user);
+    }
+
+    @Override
+    public String findEmailByUsername(String username){
+        return userRepository.findEmailByUsername(username);
     }
 
 

@@ -36,10 +36,11 @@
       </div>
       <div class="ui dropdown item" th:if="${session.user} == null">
         <div class="text">
-          <span><i class="middle user icon"></i>登录</span>
+          <span><i class="middle user icon"></i>登录/注册</span>
         </div>
         <i class="dropdown icon"></i>
       <div class="menu">
+        <a th:href="@{/user/register}" class="item"><i class="small user icon"></i>用户注册</a>
         <a th:href="@{/user}" class="item"><i class="small user icon"></i>用户登录</a>
         <a th:href="@{/admin}" class="item"><i class="small user icon"></i>管理员登录</a>
       </div>

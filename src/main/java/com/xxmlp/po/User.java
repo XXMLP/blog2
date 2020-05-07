@@ -35,8 +35,27 @@ public class User {
     @Transient
     private Integer isFriend = 0;//关系，0表示没有关系，2表示互相关注
 
+    private String validataCode;
+
+    private String registerDate;
 
     public User() {
+    }
+
+    public String getRegisterDate() {
+        return registerDate;
+    }
+
+    public void setRegisterDate(String registerDate) {
+        this.registerDate = registerDate;
+    }
+
+    public String getValidataCode() {
+        return validataCode;
+    }
+
+    public void setValidataCode(String validataCode) {
+        this.validataCode = validataCode;
     }
 
     public Integer getFollowSize() {
