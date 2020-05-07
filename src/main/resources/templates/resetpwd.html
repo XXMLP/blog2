@@ -20,7 +20,7 @@
        <div class="column">
          <h2 class="ui teal image header">
            <div class="content">
-             密码找回
+             验证码验证
            </div>
          </h2>
          <form class="ui large form" method="post" action="#" th:action="@{/reset}">
@@ -45,13 +45,12 @@
                  <i class="lock icon"></i>
                  <input type="password" name="password" placeholder="新的密码">
                </div>
-
              </div>
-             <button class="ui fluid large teal submit button">确认</button>
+             <button class="ui fluid large teal submit button">重置密码</button>
            </div>
 
            <div class="ui error mini message"></div>
-           <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+           <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名错误</div>
 
          </form>
        </div>
