@@ -12,8 +12,17 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     User findByUsernameAndPassword(String username, String password);
 
+    @Query("select u from User u where u.username = ?1 and u.validataCode = ?2")
+    User findByUsernameKey(String username, String key);
+
     @Query("select u from User u where u.username = ?1")
    User findByUsername(String username);
+
+    @Query("select u from User u where u.username = ?1 or u.email = ?1")
+   User getUserByNameOrEmail(String username);
+
+    @Query("select u.email from User u where u.username = ?1")
+   String findEmailByUsername(String username);
 
     @Query("select u from User u where u.id = ?1")
     Page<User> findUserInformation(Pageable pageable,Long id);

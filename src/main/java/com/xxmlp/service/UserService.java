@@ -16,6 +16,7 @@ public interface UserService {
     User getUser(Long id);
 
     User getUserByName(String username);
+    User getUserByNameOrEmail(String username);
 
 
     Page<User> listUser(Pageable pageable);
@@ -27,10 +28,18 @@ public interface UserService {
 
     User updateUser(Long id,User user);
 
+    User resetpwd(User user,String pwd);
+
     Integer totalViews(Long id);
 
     Integer totalBlogs(User user);
 
     void deleteUser(Long id);
+
+   User updateUserInfo(User user);
+
+   User getUserByNameKey(String username,String key);
+
+   String findEmailByUsername(String userName);
 
 }

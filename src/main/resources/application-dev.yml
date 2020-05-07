@@ -1,7 +1,18 @@
 spring:
+  mail:
+    host: smtp.163.com
+    username: xxmlp980123@163.com
+    password: OWJUMTFRQIRSMQNS
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://49.232.25.149:3306/blog?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    url: jdbc:mysql://49.232.25.149:3306/test?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
@@ -41,3 +52,4 @@ logging:
 server:
   session:
     timeout: 86400
+

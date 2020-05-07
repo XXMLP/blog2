@@ -20,33 +20,39 @@
        <div class="column">
          <h2 class="ui teal image header">
            <div class="content">
-             用户后台登录
+             验证码验证
            </div>
          </h2>
-         <form class="ui large form" method="post" action="#" th:action="@{/user/login}">
+         <form class="ui large form" method="post" action="#" th:action="@{/reset}">
            <div class="ui  segment">
              <div class="field">
                <div class="ui left icon input">
                  <i class="user icon"></i>
                  <input type="text" name="username" placeholder="用户名">
                </div>
+
+
+             </div>
+             <div class="field">
+               <div class="ui left icon input">
+                 <i class="key icon"></i>
+                 <input type="text" name="key" placeholder="验证码">
+               </div>
+
              </div>
              <div class="field">
                <div class="ui left icon input">
                  <i class="lock icon"></i>
-                 <input type="password" name="password" placeholder="密码">
+                 <input type="password" name="password" placeholder="新的密码">
                </div>
-               <a th:href="@{/forget}" style="font-size: 14px;display: block;text-align: right;" >忘记密码</a>
              </div>
-             <button class="ui fluid large teal submit button">登   录</button>
+             <button class="ui fluid large teal submit button">重置密码</button>
            </div>
 
            <div class="ui error mini message"></div>
-           <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+           <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名错误</div>
 
          </form>
-
-
        </div>
      </div>
    </div>
@@ -68,6 +74,13 @@
 <script>
   $('.ui.form').form({
     fields : {
+      password : {
+        identifier: 'password',
+        rules: [{
+          type : 'empty',
+          prompt: '请输入密码'
+        }]
+      },
       username : {
         identifier: 'username',
         rules: [{
@@ -75,11 +88,11 @@
           prompt: '请输入用户名'
         }]
       },
-      password : {
-        identifier: 'password',
+      key : {
+        identifier: 'key',
         rules: [{
           type : 'empty',
-          prompt: '请输入密码'
+          prompt: '请输入验证码'
         }]
       }
     }
