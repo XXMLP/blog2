@@ -73,8 +73,12 @@ public class UserController {
     @PostMapping("/user/{id}")
     public String editPost(@Valid User user, BindingResult result, @PathVariable Long id, RedirectAttributes attributes, HttpServletRequest request) {
         User user1 = userService.getUserByName(user.getUsername());
+        User user2 = userService.getUserByNameOrEmail(user.getEmail());
         if (user1 != null && user1.getId()!=user.getId()) {
             result.rejectValue("username","nameError","用户名已存在");
+        }
+        if (user2 !=null && user2.getId()!=user.getId()){
+            result.rejectValue("username","nameError","邮箱已被绑定");
         }
         if (result.hasErrors()) {
             return "admin/user-input";

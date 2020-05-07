@@ -59,9 +59,13 @@ public class UserLoginController {
         String nickname = request.getParameter("nickname");
         String avatar = request.getParameter("avatar");
         String email = request.getParameter("email");
-        String str = "";
         if (password.equals(password1)) {
            User u = userService.getUserByName(username);
+           User u2=userService.getUserByNameOrEmail(email);
+           if (u2!=null){
+               attributes.addFlashAttribute("message","邮箱已被绑定");
+               return "redirect:/user/register";
+           }
             if (u == null) {
                 User user = new User();
                 user.setUsername(username);
