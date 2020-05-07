@@ -2,13 +2,16 @@ package com.xxmlp.service;
 
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.UserRepository;
+import com.xxmlp.po.Blog;
 import com.xxmlp.po.User;
 import com.xxmlp.util.MD5Utils;
 import com.xxmlp.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -141,5 +144,11 @@ public class UserServiceImpl implements UserService {
         return userRepository.findEmailByUsername(username);
     }
 
+    @Override
+    public List<User> listRecommendUserTop(Integer size) {
+        Sort sort = new Sort(Sort.Direction.DESC,"fanSize");
+        Pageable pageable = new PageRequest(0, size, sort);
+        return userRepository.findNewAll(pageable);
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.xxmlp.service;
 
+import com.xxmlp.po.Blog;
 import com.xxmlp.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -41,5 +42,7 @@ public interface UserService {
    User getUserByNameKey(String username,String key);
 
    String findEmailByUsername(String userName);
+
+    List<User> listRecommendUserTop(Integer size);
 
 }
