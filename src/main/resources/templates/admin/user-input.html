@@ -24,7 +24,7 @@
   <!--中间内容-->
   <div  class="m-container-small m-padded-tb-big">
     <div class="ui container">
-      <form action="#" method="post"  th:object="${user}" th:action="*{id}==null ? @{/admin/user} : @{/admin/user/{id}(id=*{id})} "  class="ui form">
+      <form action="#" method="post"  th:object="${user}" th:action="*{id}==null ? @{/admin/user} : @{/admin/user/{id}(id=*{id})} "  class="ui form" id="form">
         <input type="hidden" name="id" th:value="*{id}">
         <div class=" field">
           <div class="ui left labeled input">
@@ -78,6 +78,7 @@
          /*/-->
         <div class="ui right aligned container">
           <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
+          <button type="button" class="ui button" onclick="reset()" >重置</button>
           <button class="ui teal submit button">提交</button>
         </div>
 
@@ -103,6 +104,10 @@
   <!--/*/</th:block>/*/-->
 
   <script>
+    function reset()
+    {
+      document.getElementById("form").reset();
+    }
 
     $('.menu.toggle').click(function () {
       $('.m-item').toggleClass('m-mobile-hide');

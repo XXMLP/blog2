@@ -7,12 +7,34 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/css/me.css">
 </head>
+<style>
+  .code {
+    background-image:url(./static/images/bg.png);
+    font-family:Arial,宋体;
+    font-style:italic;
+    color:green;
+    border:0;
+    padding:2px 3px;
+    letter-spacing:3px;
+    font-weight:bolder;
+  }
+  .unchanged {
+    border:0;
+  }
+
+</style>
 <body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+</nav>
+<br>
+<br>
+<br>
 <!--中间内容-->
 <div  class="m-container-small m-padded-tb-big">
   <div class="ui container">
 
-<form th:action="@{/user/registers}" method="post" class="ui form">
+<form th:action="@{/user/registers}" method="post" class="ui form" id="form">
 
   <div class=" field">
     <div class="ui left labeled input">
@@ -53,25 +75,50 @@
     </div>
     <br>
     <br>
+    <div class="ui left labeled input">
+      <label class="ui teal basic label">验证码</label>
+        <input type="text" id="input1" placeholder="验证码" >
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#" onclick="createCode()">看不清楚？换一张</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button" id="checkCode" class="code" style="width:3px" onclick="createCode()">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <span id="tishi1"></span>
+    <br>
+    <br>
     <div class="ui error message"></div>
 
     <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">内容</div>
   </div>
   <div class="ui right aligned container">
     <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
-    <button class="ui teal submit button">提交</button>
+    <button type="button" class="ui button" onclick="reset()" >重置</button>
+    <button class="ui teal submit button" id="Button1" onclick="validate();">提交</button>
   </div>
 </form>
     </div>
 </div>
 
-
+<br>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
 <!--/*/<th:block th:replace="_fragments :: script">/*/-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
 <!--/*/</th:block>/*/-->
 
 <script>
+  function reset()
+   {
+     document.getElementById("form").reset();
+   }
 
   $('.menu.toggle').click(function () {
     $('.m-item').toggleClass('m-mobile-hide');
@@ -133,6 +180,37 @@
     else {
       document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
       document.getElementById("button").disabled = true;
+    }
+  }
+  var code; //在全局 定义验证码
+  function createCode() {
+    code = new Array();
+    var codeLength = 4; //验证码的长度
+    var checkCode = document.getElementById("checkCode");
+    checkCode.value = "";
+    var selectChar = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+    for (var i = 0; i < codeLength; i++) {
+      var charIndex = Math.floor(Math.random() * 32);
+      code += selectChar[charIndex];
+    }
+    if (code.length != codeLength) {
+      createCode();
+    }
+    checkCode.value = code;
+  }
+
+  function validate() {
+    var inputCode = document.getElementById("input1").value.toUpperCase();
+    if (inputCode.length <= 0) {
+      document.getElementById("tishi1").innerHTML="<font color='red'>请输入验证码</font>";
+      document.getElementById("Button1").disabled = true;
+    } else if (inputCode != code) {
+      document.getElementById("tishi1").innerHTML="<font color='red'>验证码错误</font>";
+      document.getElementById("Button1").disabled = true;
+      createCode();
+    } else {
+      document.getElementById("tishi1").innerHTML="<font color='green'>验证码正确</font>";
+      document.getElementById("Button1").disabled = false;
     }
   }
 </script>

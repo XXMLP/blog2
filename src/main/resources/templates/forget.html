@@ -7,6 +7,22 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/css/me.css">
 </head>
+<style>
+  .code {
+    background-image:url(./static/images/bg.png);
+    font-family:Arial,宋体;
+    font-style:italic;
+    color:green;
+    border:0;
+    padding:2px 3px;
+    letter-spacing:3px;
+    font-weight:bolder;
+  }
+  .unchanged {
+    border:0;
+  }
+
+</style>
 <body>
 <!--导航-->
 <nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
@@ -32,7 +48,17 @@
                </div>
              </div>
 
-             <button class="ui fluid large teal submit button">获取验证码</button>
+             <div class="input-field">
+               <div class="ui left icon input">
+                 <i class="key icon"></i>
+                 <input type="text" id="input1" placeholder="验证码" >
+               </div>
+               <a href="#" onclick="createCode()">看不清楚？换一张</a>
+               <input type="button" id="checkCode" class="code" style="width:60px" onclick="createCode()">
+             </div>
+             <span id="tishi"></span>
+             <br>
+             <button class="ui fluid large teal submit button" id="Button1" onclick="validate();">获取邮箱验证码</button>
            </div>
 
            <div class="ui error mini message"></div>
@@ -69,6 +95,38 @@
       }
     }
   });
+
+  var code; //在全局 定义验证码
+  function createCode() {
+    code = new Array();
+    var codeLength = 4; //验证码的长度
+    var checkCode = document.getElementById("checkCode");
+    checkCode.value = "";
+    var selectChar = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+    for (var i = 0; i < codeLength; i++) {
+      var charIndex = Math.floor(Math.random() * 32);
+      code += selectChar[charIndex];
+    }
+    if (code.length != codeLength) {
+      createCode();
+    }
+    checkCode.value = code;
+  }
+
+  function validate() {
+    var inputCode = document.getElementById("input1").value.toUpperCase();
+    if (inputCode.length <= 0) {
+      document.getElementById("tishi").innerHTML="<font color='red'>请输入验证码</font>";
+      document.getElementById("Button1").disabled = true;
+    } else if (inputCode != code) {
+      document.getElementById("tishi").innerHTML="<font color='red'>验证码错误</font>";
+      document.getElementById("Button1").disabled = true;
+      createCode();
+    } else {
+      document.getElementById("tishi").innerHTML="<font color='green'>验证码正确</font>";
+      document.getElementById("Button1").disabled = false;
+    }
+  }
 </script>
 
 </body>
