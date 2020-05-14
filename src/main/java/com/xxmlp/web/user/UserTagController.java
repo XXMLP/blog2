@@ -29,8 +29,9 @@ public class UserTagController {
 
     @GetMapping("/tags")
     public String tags(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)
-                                    Pageable pageable, Model model) {
-        model.addAttribute("page",tagService.listTag(pageable));
+                                    Pageable pageable, Model model,HttpSession session) {
+        User user=(User) session.getAttribute("user");
+        model.addAttribute("page",tagService.listTag(pageable,user.getId()));
         return "user/tags";
     }
 
@@ -86,6 +87,19 @@ public class UserTagController {
         return "redirect:/user/tags";
     }
 
+    @GetMapping("/tags/{id}/delete")
+    public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+        Integer size = tagService.getTag(id).getBlogs().size();
+        if (size>=1){
+            attributes.addFlashAttribute("message", "此标签已被"+size+"篇博客使用，不可删除");
+            return "redirect:/user/tags";
+        }else if (size==0){
+            tagService.deleteTag(id);
+            attributes.addFlashAttribute("message", "删除成功");
+            return "redirect:/user/tags";
+        }
+        return "redirect:/user/tags";
+    }
 
 
 }

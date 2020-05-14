@@ -29,8 +29,9 @@ public class UserTypeController {
 
     @GetMapping("/types")
     public String types(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)
-                                    Pageable pageable, Model model) {
-        model.addAttribute("page",typeService.listType(pageable));
+                                    Pageable pageable, Model model,HttpSession session) {
+        User user=(User) session.getAttribute("user");
+        model.addAttribute("page",typeService.listType(pageable,user.getId()));
         return "user/types";
     }
 
@@ -86,6 +87,20 @@ public class UserTypeController {
         return "redirect:/user/types";
     }
 
+
+    @GetMapping("/types/{id}/delete")
+    public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+        Integer size=typeService.getType(id).getBlogs().size();
+        if (size>=1){
+            attributes.addFlashAttribute("message", "此类型已被"+size+"篇博客使用，不可删除");
+            return "redirect:/user/types";
+        }else if (size==0){
+            typeService.deleteType(id);
+            attributes.addFlashAttribute("message", "删除成功");
+            return "redirect:/user/types";
+        }
+        return "redirect:/user/types";
+    }
 
 
 }
