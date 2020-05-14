@@ -49,7 +49,13 @@ public class TypeServiceImpl implements TypeService {
 
     @Transactional
     @Override
-    public Page<Type> listType(Pageable pageable) {
+    public Page<Type> listType(Pageable pageable,Long id) {
+        return typeRepository.findByUserId(pageable,id);
+    }
+
+    @Transactional
+    @Override
+    public Page<Type> listAllType(Pageable pageable) {
         return typeRepository.findAll(pageable);
     }
 

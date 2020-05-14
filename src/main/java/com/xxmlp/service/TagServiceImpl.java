@@ -48,7 +48,13 @@ public class TagServiceImpl implements TagService {
 
     @Transactional
     @Override
-    public Page<Tag> listTag(Pageable pageable) {
+    public Page<Tag> listTag(Pageable pageable,Long id) {
+        return tagRepository.findByUserId(pageable,id);
+    }
+
+    @Transactional
+    @Override
+    public Page<Tag> listAllTag(Pageable pageable) {
         return tagRepository.findAll(pageable);
     }
 
