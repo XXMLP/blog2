@@ -33,6 +33,7 @@
           <tr>
             <th></th>
             <th>名称</th>
+            <th>创建人</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -40,6 +41,7 @@
           <tr th:each="type,iterStat : ${page.content}">
             <td th:text="${iterStat.count}">1</td>
             <td th:text="${type.name}">刻意练习清单</td>
+            <td th:text="${type.user.username}">刻意练习清单</td>
             <td>
               <a href="#" th:href="@{/admin/tags/{id}/input(id=${type.id})}" class="ui mini teal basic button">编辑</a>
               <a href="#" th:href="@{/admin/tags/{id}/delete(id=${type.id})}" class="ui mini red basic button">删除</a>

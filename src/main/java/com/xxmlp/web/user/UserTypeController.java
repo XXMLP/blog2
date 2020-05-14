@@ -1,6 +1,7 @@
 package com.xxmlp.web.user;
 
 import com.xxmlp.po.Type;
+import com.xxmlp.po.User;
 import com.xxmlp.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -46,14 +48,16 @@ public class UserTypeController {
 
 
     @PostMapping("/types")
-    public String post(@Valid Type type,BindingResult result, RedirectAttributes attributes) {
+    public String post(@Valid Type type, BindingResult result, RedirectAttributes attributes, HttpSession session) {
         Type type1 = typeService.getTypeByName(type.getName());
+        User user=(User) session.getAttribute("user");
         if (type1 != null) {
             result.rejectValue("name","nameError","不能添加重复的分类");
         }
         if (result.hasErrors()) {
             return "user/types-input";
         }
+        type.setUser(user);
         Type t = typeService.saveType(type);
         if (t == null ) {
             attributes.addFlashAttribute("message", "新增失败");
@@ -68,7 +72,7 @@ public class UserTypeController {
     public String editPost(@Valid Type type, BindingResult result,@PathVariable Long id, RedirectAttributes attributes) {
         Type type1 = typeService.getTypeByName(type.getName());
         if (type1 != null) {
-            result.rejectValue("name","nameError","不能添加重复的分类");
+            result.rejectValue("name","nameError","分类已存在");
         }
         if (result.hasErrors()) {
             return "user/types-input";

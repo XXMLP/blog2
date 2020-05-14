@@ -3,6 +3,7 @@ package com.xxmlp.service;
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.TypeRepository;
 import com.xxmlp.po.Type;
+import com.xxmlp.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -24,6 +26,13 @@ public class TypeServiceImpl implements TypeService {
     @Transactional
     @Override
     public Type saveType(Type type) {
+        if (type.getId()==null){
+            type.setCreateTime(new Date());
+            type.setUpdateTime(new Date());
+        }else{
+            type.setUpdateTime(new Date());
+        }
+
         return typeRepository.save(type);
     }
 
@@ -65,7 +74,8 @@ public class TypeServiceImpl implements TypeService {
         if (t == null) {
             throw new NotFoundException("不存在该类型");
         }
-        BeanUtils.copyProperties(type,t);
+        BeanUtils.copyProperties(type,t, MyBeanUtils.getNullPropertyNames(type));
+        t.setUpdateTime(new Date());
         return typeRepository.save(t);
     }
 
