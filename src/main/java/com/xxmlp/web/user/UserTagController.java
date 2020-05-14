@@ -1,6 +1,7 @@
 package com.xxmlp.web.user;
 
 import com.xxmlp.po.Tag;
+import com.xxmlp.po.User;
 import com.xxmlp.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -27,8 +29,9 @@ public class UserTagController {
 
     @GetMapping("/tags")
     public String tags(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)
-                                    Pageable pageable, Model model) {
-        model.addAttribute("page",tagService.listTag(pageable));
+                                    Pageable pageable, Model model,HttpSession session) {
+        User user=(User) session.getAttribute("user");
+        model.addAttribute("page",tagService.listTag(pageable,user.getId()));
         return "user/tags";
     }
 
@@ -46,14 +49,16 @@ public class UserTagController {
 
 
     @PostMapping("/tags")
-    public String post(@Valid Tag tag,BindingResult result, RedirectAttributes attributes) {
+    public String post(@Valid Tag tag, BindingResult result, RedirectAttributes attributes, HttpSession session) {
         Tag tag1 = tagService.getTagByName(tag.getName());
         if (tag1 != null) {
-            result.rejectValue("name","nameError","不能添加重复的分类");
+            result.rejectValue("name","nameError","不能添加重复的标签");
         }
         if (result.hasErrors()) {
             return "user/tags-input";
         }
+        User user=(User) session.getAttribute("user");
+        tag.setUser(user);
         Tag t = tagService.saveTag(tag);
         if (t == null ) {
             attributes.addFlashAttribute("message", "新增失败");
@@ -68,7 +73,7 @@ public class UserTagController {
     public String editPost(@Valid Tag tag, BindingResult result,@PathVariable Long id, RedirectAttributes attributes) {
         Tag tag1 = tagService.getTagByName(tag.getName());
         if (tag1 != null) {
-            result.rejectValue("name","nameError","不能添加重复的分类");
+            result.rejectValue("name","nameError","标签已存在");
         }
         if (result.hasErrors()) {
             return "user/tags-input";
@@ -82,6 +87,19 @@ public class UserTagController {
         return "redirect:/user/tags";
     }
 
+    @GetMapping("/tags/{id}/delete")
+    public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+        Integer size = tagService.getTag(id).getBlogs().size();
+        if (size>=1){
+            attributes.addFlashAttribute("message", "此标签已被"+size+"篇博客使用，不可删除");
+            return "redirect:/user/tags";
+        }else if (size==0){
+            tagService.deleteTag(id);
+            attributes.addFlashAttribute("message", "删除成功");
+            return "redirect:/user/tags";
+        }
+        return "redirect:/user/tags";
+    }
 
 
 }

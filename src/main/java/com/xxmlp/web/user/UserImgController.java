@@ -37,14 +37,15 @@ public class UserImgController {
         user=(User) session.getAttribute("user");
         img.setUserId(user.getId());
         model.addAttribute("userId",user.getId());
-        model.addAttribute("users", userService.listUser());
         model.addAttribute("page",imgService.listImg(pageable,img));
         return "user/img";
     }
 
     @PostMapping("/img/search")
     public String search(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                         Model model, ImgQuery img) {
+                         Model model, ImgQuery img,HttpSession session) {
+       User user=(User) session.getAttribute("user");
+        img.setUserId(user.getId());
         model.addAttribute("page", imgService.listImg(pageable, img));
         return "user/img :: imgList";
     }

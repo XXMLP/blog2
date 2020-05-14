@@ -101,8 +101,20 @@ public class UserController {
 
     @GetMapping("/user/{id}/delete")
     public String delete(@PathVariable Long id,RedirectAttributes attributes) {
-        userService.deleteUser(id);
-        attributes.addFlashAttribute("message", "删除成功");
+        Integer blogSize = userService.getUser(id).getBlogs().size();
+        Integer imgSize  = userService.getUser(id).getImgs().size();
+        Integer typeSize = userService.getUser(id).getTypes().size();
+        Integer tagSize = userService.getUser(id).getTags().size();
+        if (blogSize>=1||imgSize>=1||tagSize>=1||typeSize>=1){
+            attributes.addFlashAttribute("message",
+                    "此用户创建了"+blogSize+"篇博客"+tagSize+"个标签"+typeSize+"个类型"+",上传了"+imgSize+"个文件，删除此用户前请先清除相关的内容");
+            return "redirect:/admin/user";
+        }
+        if (blogSize==0&&imgSize==0&&tagSize==0&&typeSize==0){
+            userService.deleteUser(id);
+            attributes.addFlashAttribute("message", "删除成功");
+            return "redirect:/admin/user";
+        }
         return "redirect:/admin/user";
     }
 }

@@ -3,6 +3,7 @@ package com.xxmlp.service;
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.TagRepository;
 import com.xxmlp.po.Tag;
+import com.xxmlp.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,6 +26,12 @@ public class TagServiceImpl implements TagService {
     @Transactional
     @Override
     public Tag saveTag(Tag tag) {
+        if (tag.getId()==null){
+            tag.setCreateTime(new Date());
+            tag.setUpdateTime(new Date());
+        }else{
+            tag.setUpdateTime(new Date());
+        }
         return tagRepository.save(tag);
     }
 
@@ -40,7 +48,13 @@ public class TagServiceImpl implements TagService {
 
     @Transactional
     @Override
-    public Page<Tag> listTag(Pageable pageable) {
+    public Page<Tag> listTag(Pageable pageable,Long id) {
+        return tagRepository.findByUserId(pageable,id);
+    }
+
+    @Transactional
+    @Override
+    public Page<Tag> listAllTag(Pageable pageable) {
         return tagRepository.findAll(pageable);
     }
 
@@ -81,7 +95,8 @@ public class TagServiceImpl implements TagService {
         if (t == null) {
             throw new NotFoundException("不存在该标签");
         }
-        BeanUtils.copyProperties(tag,t);
+        BeanUtils.copyProperties(tag,t, MyBeanUtils.getNullPropertyNames(tag));
+        t.setUpdateTime(new Date());
         return tagRepository.save(t);
     }
 

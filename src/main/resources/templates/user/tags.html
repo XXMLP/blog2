@@ -42,6 +42,7 @@
             <td th:text="${type.name}">刻意练习清单</td>
             <td>
               <a href="#" th:href="@{/user/tags/{id}/input(id=${type.id})}" class="ui mini teal basic button">编辑</a>
+              <a href="#" th:href="@{/user/tags/{id}/delete(id=${type.id})}" class="ui mini red basic button">删除</a>
             </td>
           </tr>
         </tbody>

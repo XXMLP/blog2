@@ -30,6 +30,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Img> imgs = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Tag> tags = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Type> types = new ArrayList<>();
+
     private Integer followSize = 0;//关注数
     private Integer fanSize = 0; //粉丝数
     @Transient
@@ -40,6 +46,22 @@ public class User {
     private String registerDate;
 
     public User() {
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public List<Type> getTypes() {
+        return types;
+    }
+
+    public void setTypes(List<Type> types) {
+        this.types = types;
     }
 
     public String getRegisterDate() {
