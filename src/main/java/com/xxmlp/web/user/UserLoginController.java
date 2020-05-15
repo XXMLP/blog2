@@ -42,8 +42,8 @@ public class UserLoginController {
         if (user != null) {
             //user.setPassword(null);
             session.setAttribute("user",user);
-            address.setIp(request.getRemoteAddr());
-            address.setAddress(AddrUtil.getURLContent(request.getRemoteAddr()));
+            address.setIp(IpUtil.getIpAddr(request));
+            address.setAddress(AddrUtil.getURLContent(IpUtil.getIpAddr(request)));
             address.setUser(user);
             adressService.save(address);
             return "user/index";

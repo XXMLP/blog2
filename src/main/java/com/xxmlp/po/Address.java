@@ -19,7 +19,7 @@ public class Address {
     private String ip;
 
 
-    @NotBlank(message = "地址不能为空")
+//    @NotBlank(message = "地址不能为空")
     private String address;
 
 
