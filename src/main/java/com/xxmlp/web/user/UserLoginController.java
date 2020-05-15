@@ -7,6 +7,7 @@ import com.xxmlp.service.UserService;
 import com.xxmlp.util.AddrUtil;
 import com.xxmlp.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -33,14 +34,16 @@ public class UserLoginController {
     @PostMapping("/login")
     public String login(@RequestParam String username,
                         @RequestParam String password,
-                        HttpSession session,Address address,
+                        HttpSession session,
+                        Address address,
+                        HttpServletRequest request,
                         RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
         if (user != null) {
             //user.setPassword(null);
             session.setAttribute("user",user);
-            address.setIp(IpUtil.getIpAddr());
-            address.setAddress(AddrUtil.getURLContent());
+            address.setIp(request.getRemoteAddr());
+            address.setAddress(AddrUtil.getURLContent(request.getRemoteAddr()));
             address.setUser(user);
             adressService.save(address);
             return "user/index";
