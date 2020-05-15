@@ -16,15 +16,16 @@ import java.net.URL;
 public class AddrUtil {
 
         public static void main(String[] args) throws Exception {
-            System.out.println(AddrUtil.getURLContent());
+            String ip = "49.232.25.149";
+            System.out.println(AddrUtil.getURLContent(ip));
         }
 
 
         /**
          * 程序中访问http数据接口
          */
-        public static String getURLContent() {
-            String urlStr="http://whois.pconline.com.cn/ip.jsp";
+        public static String getURLContent(String ip) {
+            String urlStr="http://whois.pconline.com.cn/ip.jsp?ip="+ip;
 
             /** 网络的url地址 */
             URL url = null;
