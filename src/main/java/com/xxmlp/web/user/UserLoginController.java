@@ -1,7 +1,11 @@
 package com.xxmlp.web.user;
 
+import com.xxmlp.po.Address;
 import com.xxmlp.po.User;
+import com.xxmlp.service.AdressService;
 import com.xxmlp.service.UserService;
+import com.xxmlp.util.AddrUtil;
+import com.xxmlp.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +21,8 @@ public class UserLoginController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private AdressService adressService;
 
     @GetMapping
     public String loginPage() {
@@ -27,12 +33,16 @@ public class UserLoginController {
     @PostMapping("/login")
     public String login(@RequestParam String username,
                         @RequestParam String password,
-                        HttpSession session,
+                        HttpSession session,Address address,
                         RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
         if (user != null) {
-            user.setPassword(null);
+            //user.setPassword(null);
             session.setAttribute("user",user);
+            address.setIp(IpUtil.getIpAddr());
+            address.setAddress(AddrUtil.getURLContent());
+            address.setUser(user);
+            adressService.save(address);
             return "user/index";
         } else {
             attributes.addFlashAttribute("message", "用户名或密码错误");
