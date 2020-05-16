@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/user")
@@ -36,13 +37,13 @@ public class UserLoginController {
                         HttpSession session,
                         Address address,
                         HttpServletRequest request,
-                        RedirectAttributes attributes) {
+                        RedirectAttributes attributes) throws IOException {
         User user = userService.checkUser(username, password);
         if (user != null) {
             //user.setPassword(null);
             session.setAttribute("user",user);
-            address.setIp(IPUtil.getIpAddr(request));
-            address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddr(request)));
+            address.setIp(IPUtil.getIpAddress(request));
+            address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
             address.setUser(user);
             adressService.save(address);
             return "user/index";
