@@ -22,6 +22,7 @@ public class Address {
 //    @NotBlank(message = "地址不能为空")
     private String address;
 
+    private String deviceType;
 
     @ManyToOne
     private User user;
@@ -30,6 +31,14 @@ public class Address {
     private Date loginTime;
 
     public Address() {
+    }
+
+    public String getDeviceType() {
+        return deviceType;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
     }
 
     public String getAddress() {

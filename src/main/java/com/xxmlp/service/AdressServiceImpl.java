@@ -55,5 +55,9 @@ public class AdressServiceImpl implements AdressService{
         },pageable);
     }
 
-
+        @Transactional
+        @Override
+        public void deleteAddr(User user) {
+        addressRepository.deleteAddressesByUser(user);
+        }
 }

@@ -6,6 +6,7 @@ import com.xxmlp.service.AdressService;
 import com.xxmlp.service.UserService;
 import com.xxmlp.util.AddrUtil;
 import com.xxmlp.util.IPUtil;
+import com.xxmlp.util.UaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +46,7 @@ public class UserLoginController {
             address.setIp(IPUtil.getIpAddress(request));
             address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
             address.setUser(user);
+            address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
             adressService.save(address);
             return "user/index";
         } else {
