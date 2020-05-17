@@ -33,6 +33,7 @@
             <th></th>
             <th>IP</th>
             <th>地址</th>
+            <th>登录设备</th>
             <th>登录时间</th>
           </tr>
         </thead>
@@ -41,6 +42,7 @@
             <td th:text="${iterStat.count}">1</td>
             <td th:text="${address.ip}">刻意练习清单</td>
             <td th:text="${address.address}">刻意练习清单</td>
+            <td th:text="${address.deviceType}">刻意练习清单</td>
             <td th:text="${address.loginTime}">刻意练习清单</td>
           </tr>
         </tbody>
@@ -51,6 +53,7 @@
                 <a th:href="@{/user/types(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
                 <a th:href="@{/user/types(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
               </div>
+              <a href="#" th:href="@{/user/addr/delete}" class="ui mini right floated teal basic button">清理</a>
             </th>
           </tr>
         </tfoot>

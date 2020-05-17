@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
@@ -31,4 +32,11 @@ public class UserLogController {
         return "user/addr";
     }
 
+    @GetMapping("/addr/delete")
+    public String delete(HttpSession session, User user, RedirectAttributes attributes){
+        user=(User) session.getAttribute("user");
+        adressService.deleteAddr(user);
+        attributes.addFlashAttribute("message", "清理成功");
+        return "redirect:/user/addr";
+    }
 }
