@@ -41,13 +41,14 @@ public class UserLoginController {
                         RedirectAttributes attributes) throws IOException {
         User user = userService.checkUser(username, password);
         if (user != null) {
-            //user.setPassword(null);
             session.setAttribute("user",user);
             address.setIp(IPUtil.getIpAddress(request));
             address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
             address.setUser(user);
             address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
+            address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
             adressService.save(address);
+            user.setPassword(null);
             return "user/index";
         } else {
             attributes.addFlashAttribute("message", "用户名或密码错误");

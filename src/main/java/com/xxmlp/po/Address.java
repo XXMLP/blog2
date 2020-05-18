@@ -24,6 +24,8 @@ public class Address {
 
     private String deviceType;
 
+    private String netType;
+
     @ManyToOne
     private User user;
 
@@ -31,6 +33,14 @@ public class Address {
     private Date loginTime;
 
     public Address() {
+    }
+
+    public String getNetType() {
+        return netType;
+    }
+
+    public void setNetType(String netType) {
+        this.netType = netType;
     }
 
     public String getDeviceType() {
