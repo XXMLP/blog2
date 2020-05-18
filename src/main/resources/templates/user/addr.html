@@ -31,7 +31,6 @@
         <thead>
           <tr>
             <th></th>
-            <th>IP</th>
             <th>地址</th>
             <th>登录设备</th>
             <th>登录时间</th>
@@ -40,7 +39,6 @@
         <tbody>
           <tr th:each="address,iterStat : ${page.content}">
             <td th:text="${iterStat.count}">1</td>
-            <td th:text="${address.ip}">刻意练习清单</td>
             <td th:text="${address.address}">刻意练习清单</td>
             <td th:text="${address.deviceType}">刻意练习清单</td>
             <td th:text="${address.loginTime}">刻意练习清单</td>

@@ -16,8 +16,8 @@ import java.net.URL;
 public class AddrUtil {
 
         public static void main(String[] args) throws Exception {
-            String ip = "192.168.137.215";
-            System.out.println(AddrUtil.getURLContent(ip));
+            String ip = "10.0.2.90";
+            System.out.println(AddrUtil.getNetType(ip));
         }
 
 
@@ -54,5 +54,36 @@ public class AddrUtil {
             String result = sb.toString();
             String address = result.substring(0,result.indexOf(" "));
             return address;
+        }
+        public static String getNetType(String ip) {
+            String urlStr="http://whois.pconline.com.cn/ip.jsp?ip="+ip;
+
+            /** 网络的url地址 */
+            URL url = null;
+            /** http连接 */
+            HttpURLConnection httpConn = null;
+            /**//** 输入流 */
+            BufferedReader in = null;
+            StringBuffer sb = new StringBuffer();
+            try {
+                url = new URL(urlStr);
+                in = new BufferedReader(new InputStreamReader(url.openStream(), "GBk"));
+                String str = null;
+                while ((str = in.readLine()) != null) {
+                    sb.append(str);
+                }
+            } catch (Exception ex) {
+
+            } finally {
+                try {
+                    if (in != null) {
+                        in.close();
+                    }
+                } catch (IOException ex) {
+                }
+            }
+            String result = sb.toString();
+            String net = result.substring(result.indexOf(" "));
+            return net;
         }
     }

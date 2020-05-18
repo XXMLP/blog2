@@ -63,6 +63,7 @@
             <th>IP</th>
             <th>地址</th>
             <th>用户</th>
+            <th>网络</th>
             <th>登录设备</th>
             <th>登录时间</th>
           </tr>
@@ -73,6 +74,7 @@
             <td th:text="${address.ip}">刻意练习清单</td>
             <td th:text="${address.address}">刻意练习清单</td>
             <td th:text="${address.user.username}">刻意练习清单</td>
+            <td th:text="${address.netType}">刻意练习清单</td>
             <td th:text="${address.deviceType}">刻意练习清单</td>
             <td th:text="${address.loginTime}">刻意练习清单</td>
           </tr>
