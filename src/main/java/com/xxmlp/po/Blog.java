@@ -249,7 +249,6 @@ public class Blog {
         }
     }
 
-
     @Override
     public String toString() {
         return "Blog{" +
@@ -271,6 +270,9 @@ public class Blog {
                 ", comments=" + comments +
                 ", tagIds='" + tagIds + '\'' +
                 ", description='" + description + '\'' +
+                ", collected=" + collected +
+                ", thumbs=" + thumbs +
+                ", views=" + views +
                 '}';
     }
 }

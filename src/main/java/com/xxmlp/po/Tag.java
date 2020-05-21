@@ -79,6 +79,10 @@ public class Tag {
         return "Tag{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", user=" + user +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", blogs=" + blogs +
                 '}';
     }
 }

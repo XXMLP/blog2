@@ -2,8 +2,6 @@ package com.xxmlp.service;
 
 import com.xxmlp.dao.AddressRepository;
 import com.xxmlp.po.Address;
-import com.xxmlp.po.Address;
-import com.xxmlp.po.Type;
 import com.xxmlp.po.User;
 import com.xxmlp.vo.AddrQuery;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,5 @@
 package com.xxmlp.service;
 
-import com.xxmlp.po.Blog;
 import com.xxmlp.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +12,8 @@ public interface UserService {
     User saveUser(User user);
 
     User checkUser(String username, String password);
+
+    User checkUserBySessionId(String sessionId, Long id);
 
     User getUser(Long id);
 
@@ -30,6 +31,8 @@ public interface UserService {
     User updateUser(Long id,User user);
 
     User resetpwd(User user,String pwd);
+
+    User resetSessionId(User user,String sessionId);
 
     Integer totalViews(Long id);
 

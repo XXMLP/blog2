@@ -47,4 +47,12 @@ public class Collection {
         result = 31 * result + (blogId != null ? blogId.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Collection{" +
+                "userId=" + userId +
+                ", blogId=" + blogId +
+                '}';
+    }
 }

@@ -38,4 +38,12 @@ public class RelationshipPK implements Serializable {
         result = 31 * result + (toUserId != null ? toUserId.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "RelationshipPK{" +
+                "fromUserId=" + fromUserId +
+                ", toUserId=" + toUserId +
+                '}';
+    }
 }

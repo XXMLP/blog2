@@ -91,5 +91,16 @@ public class Address {
         this.loginTime = loginTime;
     }
 
-
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", ip='" + ip + '\'' +
+                ", address='" + address + '\'' +
+                ", deviceType='" + deviceType + '\'' +
+                ", netType='" + netType + '\'' +
+                ", user=" + user +
+                ", loginTime=" + loginTime +
+                '}';
+    }
 }

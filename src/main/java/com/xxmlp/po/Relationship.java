@@ -47,4 +47,12 @@ public class Relationship {
         result = 31 * result + (toUserId != null ? toUserId.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Relationship{" +
+                "fromUserId=" + fromUserId +
+                ", toUserId=" + toUserId +
+                '}';
+    }
 }

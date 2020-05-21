@@ -45,6 +45,8 @@ public class User {
 
     private String registerDate;
 
+    private String sessionId;
+
     public User() {
     }
 
@@ -201,6 +203,14 @@ public class User {
         this.commentabled = commentabled;
     }
 
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -208,11 +218,22 @@ public class User {
                 ", nickname='" + nickname + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", commentabled=" + commentabled +
                 ", email='" + email + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", type=" + type +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", blogs=" + blogs +
+                ", imgs=" + imgs +
+                ", tags=" + tags +
+                ", types=" + types +
+                ", followSize=" + followSize +
+                ", fanSize=" + fanSize +
+                ", isFriend=" + isFriend +
+                ", validataCode='" + validataCode + '\'' +
+                ", registerDate='" + registerDate + '\'' +
+                ", sessionId='" + sessionId + '\'' +
                 '}';
     }
 }

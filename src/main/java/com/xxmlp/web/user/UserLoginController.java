@@ -1,8 +1,10 @@
 package com.xxmlp.web.user;
 
 import com.xxmlp.po.Address;
+import com.xxmlp.po.Session;
 import com.xxmlp.po.User;
 import com.xxmlp.service.AdressService;
+import com.xxmlp.service.SessionService;
 import com.xxmlp.service.UserService;
 import com.xxmlp.util.AddrUtil;
 import com.xxmlp.util.IPUtil;
@@ -14,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 @Controller
 @RequestMapping("/user")
@@ -25,6 +26,8 @@ public class UserLoginController {
     private UserService userService;
     @Autowired
     private AdressService adressService;
+    @Autowired
+    private SessionService sessionService;
 
     @GetMapping
     public String loginPage() {
@@ -37,17 +40,29 @@ public class UserLoginController {
                         @RequestParam String password,
                         HttpSession session,
                         Address address,
+                        Session userSession,
                         HttpServletRequest request,
-                        RedirectAttributes attributes) throws IOException {
+                        RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
         if (user != null) {
+            String sessionId = session.getId();
             session.setAttribute("user",user);
+            /**将登录日志存入数据库*/
             address.setIp(IPUtil.getIpAddress(request));
             address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
             address.setUser(user);
             address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
             address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
             adressService.save(address);
+            /**设置唯一sessionId,限制同一用户多地登录*/
+            if(sessionService.getSession(user.getId())==null){
+                userSession.setId(user.getId());
+                userSession.setSessionId(sessionId);
+                sessionService.saveSession(userSession);
+            }else{
+                userSession.setSessionId(sessionId);
+                sessionService.updateSession(userSession,user.getId());
+            }
             user.setPassword(null);
             return "user/index";
         } else {
