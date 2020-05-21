@@ -2,6 +2,9 @@ package com.xxmlp.web;
 
 import com.xxmlp.po.*;
 import com.xxmlp.service.*;
+import com.xxmlp.util.AddrUtil;
+import com.xxmlp.util.IPUtil;
+import com.xxmlp.util.UaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -43,14 +47,26 @@ public class IndexController {
     @Autowired
     private ViewsService viewsService;
 
+    @Autowired
+    private AdressService adressService;
+
     @GetMapping("/")
     public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                        Model model) {
+                        Model model,Address address, HttpServletRequest request) {
         model.addAttribute("page",blogService.listBlog(pageable));
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
         model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(8));
         model.addAttribute("recommendUsers", userService.listRecommendUserTop(10));
+        /**将日志存入数据库*/
+        if (request.getSession().isNew()){
+        address.setIp(IPUtil.getIpAddress(request));
+        address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
+        address.setUser(userService.getUserByName("游客"));
+        address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
+        address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
+        adressService.save(address);
+        }
         return "index";
     }
 

@@ -429,11 +429,11 @@
                                 <span >联系方式</span>
                                 <div class="ui teal basic left pointing label" th:text="${session.user.email}">13</div>
                             </a>
-                            <a class="item">
+                            <a class="item" th:href="@{/user/follows}">
                                 <span >关注</span>
                                 <div class="ui teal basic left pointing label" th:text="${session.user.followSize}">13</div>
                             </a>
-                            <a class="item">
+                            <a class="item" th:href="@{/user/fans}">
                                 <span >粉丝</span>
                                 <div class="ui teal basic left pointing label" th:text="${session.user.fanSize}">13</div>
                             </a>

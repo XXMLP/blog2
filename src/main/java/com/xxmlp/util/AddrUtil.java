@@ -16,7 +16,7 @@ import java.net.URL;
 public class AddrUtil {
 
         public static void main(String[] args) throws Exception {
-            String ip = "127.0.0.1";
+                String ip = "117.169.148.41";
             System.out.println(AddrUtil.getNetType(ip));
         }
 
