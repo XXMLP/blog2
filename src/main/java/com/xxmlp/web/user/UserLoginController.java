@@ -1,8 +1,10 @@
 package com.xxmlp.web.user;
 
 import com.xxmlp.po.Address;
+import com.xxmlp.po.Session;
 import com.xxmlp.po.User;
 import com.xxmlp.service.AdressService;
+import com.xxmlp.service.SessionService;
 import com.xxmlp.service.UserService;
 import com.xxmlp.util.AddrUtil;
 import com.xxmlp.util.IPUtil;
@@ -24,6 +26,8 @@ public class UserLoginController {
     private UserService userService;
     @Autowired
     private AdressService adressService;
+    @Autowired
+    private SessionService sessionService;
 
     @GetMapping
     public String loginPage() {
@@ -36,6 +40,7 @@ public class UserLoginController {
                         @RequestParam String password,
                         HttpSession session,
                         Address address,
+                        Session userSession,
                         HttpServletRequest request,
                         RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
@@ -50,7 +55,14 @@ public class UserLoginController {
             address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
             adressService.save(address);
             /**设置唯一sessionId,限制同一用户多地登录*/
-            userService.resetSessionId(user,sessionId);
+            if(sessionService.getSession(user.getId())==null){
+                userSession.setId(user.getId());
+                userSession.setSessionId(sessionId);
+                sessionService.saveSession(userSession);
+            }else{
+                userSession.setSessionId(sessionId);
+                sessionService.updateSession(userSession,user.getId());
+            }
             user.setPassword(null);
             return "user/index";
         } else {
