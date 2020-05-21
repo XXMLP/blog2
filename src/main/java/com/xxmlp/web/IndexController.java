@@ -61,7 +61,7 @@ public class IndexController {
         /**将日志存入数据库*/
         address.setIp(IPUtil.getIpAddress(request));
         address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
-        address.setUser(null);
+        address.setUser(userService.getUserByName("游客"));
         address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
         address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
         adressService.save(address);
