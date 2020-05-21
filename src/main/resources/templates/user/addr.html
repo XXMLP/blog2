@@ -48,8 +48,8 @@
           <tr>
             <th colspan="6" >
               <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-                <a th:href="@{/user/types(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
-                <a th:href="@{/user/types(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
+                <a th:href="@{/user/addr(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
+                <a th:href="@{/user/addr(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
               </div>
               <a href="#" th:href="@{/user/addr/delete}" class="ui mini right floated teal basic button">清理</a>
             </th>

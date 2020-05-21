@@ -83,8 +83,8 @@
           <tr>
             <th colspan="6" >
               <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-                <a th:href="@{/admin/types(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
-                <a th:href="@{/admin/types(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
+                <a th:href="@{/admin/addr(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
+                <a th:href="@{/admin/addr(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
               </div>
             </th>
           </tr>
