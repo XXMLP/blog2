@@ -8,13 +8,16 @@ import com.xxmlp.service.SessionService;
 import com.xxmlp.service.UserService;
 import com.xxmlp.util.AddrUtil;
 import com.xxmlp.util.IPUtil;
+import com.xxmlp.util.MD5Utils;
 import com.xxmlp.util.UaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -42,6 +45,7 @@ public class UserLoginController {
                         Address address,
                         Session userSession,
                         HttpServletRequest request,
+                        HttpServletResponse response,
                         RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
         if (user != null) {
@@ -63,6 +67,11 @@ public class UserLoginController {
                 userSession.setSessionId(sessionId);
                 sessionService.updateSession(userSession,user.getId());
             }
+            /**存cookie自动登录*/
+//            Cookie cookie = new Cookie("auto", username+"_"+ password);
+//            cookie.setMaxAge(60*60*24);//cookie有效时间
+//            cookie.setPath(request.getContextPath()+"/");
+//            response.addCookie(cookie);
             user.setPassword(null);
             return "user/index";
         } else {
