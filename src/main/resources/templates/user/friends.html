@@ -59,8 +59,8 @@
           <tr>
             <th colspan="6" >
               <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-                <a th:href="@{/user/types(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
-                <a th:href="@{/user/types(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
+                <a th:href="@{/user/friends(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
+                <a th:href="@{/user/friends(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
               </div>
             </th>
           </tr>
