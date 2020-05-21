@@ -147,6 +147,7 @@ public class Comment {
                 ", replyComments=" + replyComments +
                 ", parentComment=" + parentComment +
                 ", adminComment=" + adminComment +
+                ", checkComment=" + checkComment +
                 '}';
     }
 }

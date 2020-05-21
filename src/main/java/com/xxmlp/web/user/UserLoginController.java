@@ -14,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 @Controller
 @RequestMapping("/user")
@@ -38,16 +37,20 @@ public class UserLoginController {
                         HttpSession session,
                         Address address,
                         HttpServletRequest request,
-                        RedirectAttributes attributes) throws IOException {
+                        RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
         if (user != null) {
+            String sessionId = session.getId();
             session.setAttribute("user",user);
+            /**将登录日志存入数据库*/
             address.setIp(IPUtil.getIpAddress(request));
             address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
             address.setUser(user);
             address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
             address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
             adressService.save(address);
+            /**设置唯一sessionId,限制同一用户多地登录*/
+            userService.resetSessionId(user,sessionId);
             user.setPassword(null);
             return "user/index";
         } else {

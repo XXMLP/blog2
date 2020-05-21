@@ -105,4 +105,18 @@ public class Img {
         this.user = user;
     }
 
+    @Override
+    public String toString() {
+        return "Img{" +
+                "id=" + id +
+                ", path='" + path + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", size='" + size + '\'' +
+                ", user=" + user +
+                ", descript='" + descript + '\'' +
+                ", uploadTime=" + uploadTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

@@ -47,4 +47,12 @@ public class Thumbs {
         result = 31 * result + (blogId != null ? blogId.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Thumbs{" +
+                "userId=" + userId +
+                ", blogId=" + blogId +
+                '}';
+    }
 }

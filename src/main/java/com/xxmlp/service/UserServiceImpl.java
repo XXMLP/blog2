@@ -47,6 +47,12 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public User checkUserBySessionId(String sessionId, Long id) {
+        User user = userRepository.findBySessionIdAndId(sessionId, id);
+        return user;
+    }
+
 
     @Transactional
     @Override
@@ -119,6 +125,16 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundException("不存在该用户");
         }
         user.setPassword(MD5Utils.code(pwd));
+        BeanUtils.copyProperties(user, MyBeanUtils.getNullPropertyNames(user));
+        return userRepository.save(user);
+    }
+    @Transactional
+    @Override
+    public User resetSessionId(User user,String sessionId) {
+        if (user == null) {
+            throw new NotFoundException("不存在该用户");
+        }
+        user.setSessionId(sessionId);
         BeanUtils.copyProperties(user, MyBeanUtils.getNullPropertyNames(user));
         return userRepository.save(user);
     }

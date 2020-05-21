@@ -38,4 +38,12 @@ public class ThumbsPK implements Serializable {
         result = 31 * result + (blogId != null ? blogId.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "ThumbsPK{" +
+                "userId=" + userId +
+                ", blogId=" + blogId +
+                '}';
+    }
 }

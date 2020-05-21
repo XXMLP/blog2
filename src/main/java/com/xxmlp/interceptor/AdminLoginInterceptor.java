@@ -1,7 +1,6 @@
 package com.xxmlp.interceptor;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

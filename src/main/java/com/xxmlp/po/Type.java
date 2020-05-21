@@ -83,6 +83,10 @@ public class Type {
         return "Type{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", user=" + user +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", blogs=" + blogs +
                 '}';
     }
 }
