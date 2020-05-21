@@ -59,12 +59,14 @@ public class IndexController {
         model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(8));
         model.addAttribute("recommendUsers", userService.listRecommendUserTop(10));
         /**将日志存入数据库*/
+        if (request.getSession().isNew()){
         address.setIp(IPUtil.getIpAddress(request));
         address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
         address.setUser(userService.getUserByName("游客"));
         address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
         address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
         adressService.save(address);
+        }
         return "index";
     }
 
