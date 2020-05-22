@@ -16,8 +16,8 @@ import java.net.URL;
 public class AddrUtil {
 
         public static void main(String[] args) throws Exception {
-                String ip = "117.169.148.41";
-            System.out.println(AddrUtil.getNetType(ip));
+                String ip = "103.50.5.30";
+            System.out.println(AddrUtil.getURLContent(ip));
         }
 
 
@@ -52,9 +52,12 @@ public class AddrUtil {
                 }
             }
             String result = sb.toString();
-            String address = result.substring(0,result.indexOf(" "));
+            String address = result.substring(0);
             return address;
         }
+
+
+        
         public static String getNetType(String ip) {
             String urlStr="http://whois.pconline.com.cn/ip.jsp?ip="+ip;
 

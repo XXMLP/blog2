@@ -3,6 +3,7 @@ package com.xxmlp.web;
 import com.xxmlp.po.*;
 import com.xxmlp.service.*;
 import com.xxmlp.util.AddrUtil;
+import com.xxmlp.util.IP.IPSeeker;
 import com.xxmlp.util.IPUtil;
 import com.xxmlp.util.UaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 
 @Controller
 public class IndexController {
@@ -52,7 +54,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                        Model model,Address address, HttpServletRequest request) {
+                        Model model,Address address, HttpServletRequest request) throws Exception {
         model.addAttribute("page",blogService.listBlog(pageable));
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
@@ -61,10 +63,10 @@ public class IndexController {
         /**将日志存入数据库*/
         if (request.getSession().isNew()){
         address.setIp(IPUtil.getIpAddress(request));
-        address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
+        address.setAddress(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
         address.setUser(userService.getUserByName("游客"));
-        address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
-        address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
+        UaUtil.getDeviceType(request,address);
+        address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
         adressService.save(address);
         }
         return "index";
