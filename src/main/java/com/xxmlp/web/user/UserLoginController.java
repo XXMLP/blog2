@@ -7,6 +7,8 @@ import com.xxmlp.service.AdressService;
 import com.xxmlp.service.SessionService;
 import com.xxmlp.service.UserService;
 import com.xxmlp.util.AddrUtil;
+import com.xxmlp.util.IP.IPEntity;
+import com.xxmlp.util.IP.IPSeeker;
 import com.xxmlp.util.IPUtil;
 import com.xxmlp.util.MD5Utils;
 import com.xxmlp.util.UaUtil;
@@ -19,6 +21,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 
 @Controller
 @RequestMapping("/user")
@@ -46,17 +49,18 @@ public class UserLoginController {
                         Session userSession,
                         HttpServletRequest request,
                         HttpServletResponse response,
-                        RedirectAttributes attributes) {
+                        RedirectAttributes attributes) throws Exception {
         User user = userService.checkUser(username, password);
         if (user != null) {
             String sessionId = session.getId();
             session.setAttribute("user",user);
             /**将登录日志存入数据库*/
             address.setIp(IPUtil.getIpAddress(request));
-            address.setAddress(AddrUtil.getURLContent(IPUtil.getIpAddress(request)));
+            address.setAddress(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
             address.setUser(user);
-            address.setDeviceType(UaUtil.getDeviceType(request.getHeader("User-Agent")));
-            address.setNetType(AddrUtil.getNetType(IPUtil.getIpAddress(request)));
+            UaUtil.getDeviceType(request,address);
+           // address.setDeviceType(UaUtil.getDeviceType(request));
+            address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
             adressService.save(address);
             /**设置唯一sessionId,限制同一用户多地登录*/
             if(sessionService.getSession(user.getId())==null){

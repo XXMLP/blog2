@@ -26,6 +26,16 @@ public class Address {
 
     private String netType;
 
+    private String webName;
+
+    private String webType;
+
+    private String webVersion;
+
+    private String sysName;
+
+    private String Manufacturer;
+
     @ManyToOne
     private User user;
 
@@ -33,6 +43,46 @@ public class Address {
     private Date loginTime;
 
     public Address() {
+    }
+
+    public String getWebName() {
+        return webName;
+    }
+
+    public void setWebName(String webName) {
+        this.webName = webName;
+    }
+
+    public String getWebType() {
+        return webType;
+    }
+
+    public void setWebType(String webType) {
+        this.webType = webType;
+    }
+
+    public String getWebVersion() {
+        return webVersion;
+    }
+
+    public void setWebVersion(String webVersion) {
+        this.webVersion = webVersion;
+    }
+
+    public String getSysName() {
+        return sysName;
+    }
+
+    public void setSysName(String sysName) {
+        this.sysName = sysName;
+    }
+
+    public String getManufacturer() {
+        return Manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        Manufacturer = manufacturer;
     }
 
     public String getNetType() {
@@ -99,6 +149,11 @@ public class Address {
                 ", address='" + address + '\'' +
                 ", deviceType='" + deviceType + '\'' +
                 ", netType='" + netType + '\'' +
+                ", webName='" + webName + '\'' +
+                ", webType='" + webType + '\'' +
+                ", webVersion='" + webVersion + '\'' +
+                ", sysName='" + sysName + '\'' +
+                ", Manufacturer='" + Manufacturer + '\'' +
                 ", user=" + user +
                 ", loginTime=" + loginTime +
                 '}';
