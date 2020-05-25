@@ -15,6 +15,7 @@ public class ServerUtil {
             flg=conn.authenticateWithPassword(userName, userPwd);//认证
             if (flg){
                 System.out.println("认证成功！");
+                conn.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
