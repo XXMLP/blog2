@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="user/_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,multipart/form-data">
+  <title>文件上传</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="user/_fragments :: menu(5)"  class="ui inverted attached segment m-padded-tb-mini m-shadow-small" ></nav>
+<div class="ui attached pointing menu">
+  <div class="ui container">
+    <div class="right menu">
+      <a href="#" th:href="@{/user/img/input}" class="active item">新增</a>
+      <a href="#" th:href="@{/user/img}" class="teal  item">详情</a>
+    </div>
+  </div>
+</div>
+
+<!--中间内容-->
+<div  class="m-container-big m-padded-tb-big">
+  <div class="ui container">
+    <form action="#" method="post"  th:object="${img}" enctype="multipart/form-data" th:action="*{id}==null ? @{/user/img} : @{/user/img/{id}(id=*{id})} "  class="ui form">
+      <input type="hidden" name="id" th:value="*{id}">
+      <div class=" field">
+        <div class="ui left labeled input">
+          <div class="ui selection compact teal basic dropdown label">
+            <input type="hidden" value="文件" name="type" th:value="*{type}" >
+            <i class="dropdown icon"></i>
+            <div class="text">文件格式</div>
+            <div class="menu">
+              <div class="item" data-value="图片">图片</div>
+              <div class="item" data-value="视频">视频</div>
+              <div class="item" data-value="音频">音频</div>
+              <div class="item" data-value="其他">其他</div>
+            </div>
+          </div>
+          <input type="text" name="descript" placeholder="描述" th:value="*{descript}">
+        </div>
+        <br>
+        <br>
+        <div class="ui left labeled input">
+          <label class="ui teal basic label">选择文件</label>
+          <input type="file" name="file" id="file" onchange="fileSelected();" value="请选择不超过100MB的文件">
+
+        </div>
+        <br>
+        <br>
+        <div id="fileName"></div>
+        <br>
+        <div id="fileSize"></div>
+        <br>
+        <div id="fileType"></div>
+        <br>
+        <br>
+
+
+      </div>
+
+      <div class="ui error message"></div>
+      <div class="ui right aligned container">
+        <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
+        <button class="ui teal submit button">提交</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部footer-->
+<footer th:replace="user/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
+
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+
+  $('.menu.toggle').click(function () {
+    $('.m-item').toggleClass('m-mobile-hide');
+  });
+
+  $('.ui.dropdown').dropdown({
+    on : 'hover'
+  });
+
+  $('.ui.form').form({
+    fields : {
+      file : {
+        identifier: 'file',
+        rules: [{
+          type : 'empty',
+          prompt: '请选择文件'
+        }]
+      },
+      descript : {
+        identifier: 'descript',
+        rules: [{
+          type : 'empty',
+          prompt: '请描述文件信息'
+        }]
+      },
+      type : {
+        identifier: 'type',
+        rules: [{
+          type : 'empty',
+          prompt: '请选择文件类型'
+        }]
+      }
+    }
+  });
+
+  function fileSelected() {
+    var file = document.getElementById('file').files[0];
+    if (file) {
+      var fileSize = 0;
+      if (1024 * 1024 * 100 > file.size > 1024 * 1024)
+        fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+      else
+        fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+      document.getElementById('fileName').innerHTML = '文件名: ' + file.name;
+      document.getElementById('fileSize').innerHTML = '文件大小: ' + fileSize;
+      document.getElementById('fileType').innerHTML = '文件类型: ' + file.type;
+      if (file.size > 1024 * 1024 * 100) {
+        fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+        document.getElementById('fileSize').innerHTML = '文件大小' + fileSize + ';' + '文件过大，请选择不超过100MB的文件';
+      }
+    }
+  }
+
+
+</script>
+</body>
+</html>

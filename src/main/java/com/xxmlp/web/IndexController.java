@@ -62,10 +62,10 @@ public class IndexController {
         /**将日志存入数据库*/
         if (request.getSession().isNew()){
         address.setIp(IPUtil.getIpAddress(request));
-        address.setAddress(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
+        address.setAddress(new IPSeeker(new File("/root/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
         address.setUser(userService.getUserByName("游客"));
         UaUtil.getDeviceType(request,address);
-        address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
+        address.setNetType(new IPSeeker(new File("/root/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
         adressService.save(address);
         }
         return "index";
