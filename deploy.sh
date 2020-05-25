@@ -1,57 +1,58 @@
-        #!/bin/sh
+#!/bin/sh
 
 
-    DOCKER_DIR=/root/docker
-    mkdir -p $DOCKER_DIR
-    cd $DOCKER_DIR
+DOCKER_DIR=/root/docker
+mkdir -p $DOCKER_DIR
+cd $DOCKER_DIR
 
-    #如果存在旧的blog文档，则删除
-    if [ -d "$1" ];
-    then
-        echo "rm dir $1"
-        rm -rf $1
-        sleep 10
-        echo "rm over"
-    else
-        echo "dir $1 not exit"
-    fi
 
-    #从远程仓库clone到服务器
-    git clone git@github.com:XXMLP/$1.git
+if [ -d "blog2" ];
+then
+    echo "rm dir blog2"
+	rm -rf blog2
+	sleep 10
+	echo "rm over"
+else
+    echo "dir blog2 not exit"
+fi
 
-    echo "git clone over"
-    #打包
-    cd $DOCKER_DIR/$1
-    mvn package
+git clone git@github.com:XXMLP/blog2.git
 
-    sleep 10
-    echo "package over"
+echo "git clone over"
 
-    cd $DOCKER_DIR
-    #删除原有的文件
-    rm -f Dockerfile
-    rm -f blog-2.0.0.jar
+cd $DOCKER_DIR/blog2
+mvn clean package
 
-    mv $DOCKER_DIR/$1/target/blog-2.0.0.jar .
-    mv $DOCKER_DIR/$1/Dockerfile .
+sleep 10
+echo "package over"
 
-    #删除旧的镜像和容器
-    docker stop blog
-    docker rm blog
-    docker rmi blog:2.0
-    sleep 10
-    #打包成镜像
-    #说明:
-    #  blog   代表要打包成的镜像名称。按照自己实际情况写。
-    #  :1.0   代表版本号，可以不写则默认为latest
-    #  .    代表为当前目录。这就是为什么一直在步骤一文件夹中进行操作,并且Dockerfile在此文件夹中的原因。
-    #
-    #若之前Dockerfile不在步骤一的文件夹中 则需要指定到对应的地址
-    docker build -t blog:2.0 .
-    #启动容器，前提是已开放这个端口
-    docker run --name blog -d -p 8080:8080 -v /uploadFile:/uploadFile blog:2.0
-    #单元测试，动态代码覆盖率的获取
-    #mvn clean verify -f pom_cc.xml
-    #jar -xvf blog-0.0.1-SNAPSHOT.jar
-    #java -javaagent:jacocoagent.jar=includes=*,output=tcpserver,port=2015,address=localhost -jar blog-0.0.1-SNAPSHOT.jar
-    #mvn clean verify -f pom_onthefly.xml
+cd $DOCKER_DIR
+#删除原有的文件
+rm -f Dockerfile
+rm -f blog-2.0.0.jar
+
+mv $DOCKER_DIR/blog2/target/blog-2.0.0.jar .
+mv $DOCKER_DIR/blog2/Dockerfile .
+mv $DOCKER_DIR/blog2/src/main/resources/application-dev.yml .
+mv $DOCKER_DIR/blog2/src/main/java/com/xxmlp/util/IP/qqwry.dat .
+#docker cp blog-0.0.1-SNAPSHOT.jar blog:/
+
+#docker restart blog
+#删除旧的镜像容器
+docker stop blog
+docker rm blog
+docker rmi blog:2.0
+sleep 5
+#打包成镜像
+#说明:
+#  blog   代表要打包成的镜像名称。按照自己实际情况写。
+#  :1.0   代表版本号，可以不写则默认为latest
+#  .    代表为当前目录。这就是为什么一直在步骤一文件夹中进行操作,并且Dockerfile在此文件夹中的原因。
+#
+#若之前Dockerfile不在步骤一的文件夹中 则需要指定到对应的地址
+docker build -t blog:2.0 .
+#启动容器
+docker run --name blog -d -p 8080:8080 -v /uploadFile:/uploadFile -v/root/docker/log:/log  -v /root/docker/application-dev.yml:/application-dev.yml blog:2.0
+
+
+
