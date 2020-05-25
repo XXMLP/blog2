@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+</nav>
+<br>
+<br>
+<br>
+ <div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+   <div class="ur container">
+     <div class="ui middle aligned center aligned grid">
+       <div class="column">
+         <h2 class="ui teal image header">
+           <div class="content">
+             验证码验证
+           </div>
+         </h2>
+         <form class="ui large form" method="post" action="#" th:action="@{/reset}">
+           <div class="ui  segment">
+             <div class="field">
+               <div class="ui left icon input">
+                 <i class="user icon"></i>
+                 <input type="text" name="username" placeholder="用户名" th:value="${username}" >
+
+               </div>
+
+
+             </div>
+             <div class="field">
+               <div class="ui left icon input">
+                 <i class="key icon"></i>
+                 <input type="text" name="key" placeholder="验证码">
+               </div>
+
+             </div>
+             <div class="field">
+               <div class="ui left icon input">
+                 <i class="lock icon"></i>
+                 <input type="password" name="password" placeholder="新的密码">
+               </div>
+             </div>
+             <button class="ui fluid large teal submit button">重置密码</button>
+           </div>
+
+           <div class="ui error mini message"></div>
+           <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名错误</div>
+
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+  $('.ui.form').form({
+    fields : {
+      password : {
+        identifier: 'password',
+        rules: [{
+          type : 'empty',
+          prompt: '请输入密码'
+        }]
+      },
+      username : {
+        identifier: 'username',
+        rules: [{
+          type : 'empty',
+          prompt: '请输入用户名'
+        }]
+      },
+      key : {
+        identifier: 'key',
+        rules: [{
+          type : 'empty',
+          prompt: '请输入验证码'
+        }]
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

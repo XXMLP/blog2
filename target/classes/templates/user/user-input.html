@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="user/_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>更新信息</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+  <!--导航-->
+  <nav th:replace="user/_fragments :: menu(0)"  class="ui inverted attached segment m-padded-tb-mini m-shadow-small" ></nav>
+  <div class="ui attached pointing menu">
+    <div class="ui container">
+      <div class="right menu">
+        <a href="#" th:href="@{/user/user}" class="teal  item">详情</a>
+      </div>
+    </div>
+  </div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+      <form action="#" method="post"  th:object="${user}" th:action="*{id}==null ? @{/user/user} : @{/user/user/{id}(id=*{id})} "  class="ui form" id="form">
+        <input type="hidden" name="id" th:value="*{id}">
+        <div class=" field">
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">用户名</label>
+            <input type="text" name="username" placeholder="用户名" th:value="*{username}" >
+          </div>
+          <br>
+          <br>
+
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">头像</label>
+            <input type="text" name="avatar" placeholder="用户头像" th:value="*{avatar}" >
+          </div>
+          <br>
+          <br>
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">昵称</label>
+            <input type="search" name="nickname" placeholder="用户昵称" th:value="*{nickname}" >
+          </div>
+          <br>
+          <br>
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">密码</label>
+            <input type="password" name="password" placeholder="用户密码" id="pwd" >
+          </div>
+          <br>
+          <br>
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">确认密码</label>
+            <input type="password" name="password1" placeholder="确认密码" id="pwd1" onkeyup="validate()">
+          </div>
+          <span id="tishi"></span>
+          <br>
+          <br>
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">邮箱</label>
+            <input type="email" name="email" placeholder="用户邮箱" th:value="*{email}" >
+          </div>
+          <br>
+          <br>
+
+        </div>
+
+        <div class="ui error message"></div>
+        <!--/*/
+        <div class="ui negative message" th:if="${#fields.hasErrors('username')}"  >
+          <i class="close icon"></i>
+          <div class="header">验证失败</div>
+          <p th:errors="*{username}">提交信息不符合规则</p>
+        </div>
+         /*/-->
+        <div class="ui right aligned container">
+          <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
+          <button type="button" class="ui button" onclick="reset()" >重置</button>
+          <button class="ui teal submit button">提交</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!--底部footer-->
+  <footer th:replace="user/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
+
+
+  <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+  <!--/*/</th:block>/*/-->
+
+  <script>
+    function reset()
+    {
+      document.getElementById("form").reset();
+    }
+
+
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+    $('.ui.form').form({
+      fields : {
+        avatar : {
+          identifier: 'avatar',
+          rules: [{
+            type : 'empty',
+            prompt: '标题：请输入头像图片地址'
+          }]
+        },
+        username : {
+          identifier: 'username',
+          rules: [{
+            type : 'empty',
+            prompt: '标题：请输入用户名'
+          }]
+        },
+        nickname : {
+          identifier: 'nickname',
+          rules: [{
+            type : 'empty',
+            prompt: '标题：请输入昵称'
+          }]
+        },
+        password : {
+          identifier: 'password',
+          rules: [{
+            type : 'empty',
+            prompt: '标题：请输入密码'
+          }]
+        },
+        email : {
+          identifier: 'email',
+          rules: [{
+            type : 'email',
+            prompt: '标题：请填写正确的邮箱地址'
+          }]
+        }
+      }
+    });
+
+
+    function validate() {
+
+      var pwd1 = document.getElementById("pwd").value;
+      var pwd2 = document.getElementById("pwd1").value;
+      <!-- 对比两次输入的密码 -->
+      if(pwd1 == pwd2){
+        document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+        document.getElementById("button").disabled = false;
+      }
+      else {
+        document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+        document.getElementById("button").disabled = true;
+      }
+    }
+  </script>
+</body>
+</html>

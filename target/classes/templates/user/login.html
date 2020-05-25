@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<style>
+  .code {
+    background-image:url(./static/images/bg.png);
+    font-family:Arial,宋体;
+    font-style:italic;
+    color:green;
+    border:0;
+    padding:2px 3px;
+    letter-spacing:3px;
+    font-weight:bolder;
+  }
+  .unchanged {
+    border:0;
+  }
+
+</style>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+</nav>
+<br>
+<br>
+<br>
+ <div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+   <div class="ur container">
+     <div class="ui middle aligned center aligned grid">
+       <div class="column">
+         <h2 class="ui teal image header">
+           <div class="content">
+             用户后台登录
+           </div>
+         </h2>
+         <form class="ui large form" method="post" action="#" th:action="@{/user/login}">
+           <div class="ui  segment">
+             <div class="field">
+               <div class="ui left icon input">
+                 <i class="user icon"></i>
+                 <input type="text" name="username" placeholder="用户名">
+               </div>
+             </div>
+             <div class="field">
+               <div class="ui left icon input">
+                 <i class="lock icon"></i>
+                 <input type="password" name="password" placeholder="密码">
+               </div>
+               <a th:href="@{/forget}" style="font-size: 14px;display: block;text-align: right;" >忘记密码</a>
+             </div>
+             <div class="input-field">
+               <div class="ui left icon input">
+                 <i class="key icon"></i>
+               <input type="text" id="input1" placeholder="验证码" >
+               </div>
+               <a href="#" onclick="createCode()">看不清楚？换一张</a>
+               <input type="button" id="checkCode" class="code" style="width:60px" onclick="createCode()">
+             </div>
+             <span id="tishi"></span>
+             <br>
+             <button class="ui fluid large teal submit button" id="Button1" onclick="validate();">登   录</button>
+           </div>
+
+           <div class="ui error mini message"></div>
+           <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+
+         </form>
+
+
+       </div>
+     </div>
+   </div>
+ </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+  $('.ui.form').form({
+    fields : {
+      username : {
+        identifier: 'username',
+        rules: [{
+          type : 'empty',
+          prompt: '请输入用户名'
+        }]
+      },
+      password : {
+        identifier: 'password',
+        rules: [{
+          type : 'empty',
+          prompt: '请输入密码'
+        }]
+      }
+    }
+  });
+
+  var code; //在全局 定义验证码
+  function createCode() {
+    code = new Array();
+    var codeLength = 4; //验证码的长度
+    var checkCode = document.getElementById("checkCode");
+    checkCode.value = "";
+    var selectChar = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+    for (var i = 0; i < codeLength; i++) {
+      var charIndex = Math.floor(Math.random() * 32);
+      code += selectChar[charIndex];
+    }
+    if (code.length != codeLength) {
+      createCode();
+    }
+    checkCode.value = code;
+  }
+
+  function validate() {
+    var inputCode = document.getElementById("input1").value.toUpperCase();
+    if (inputCode.length <= 0) {
+      document.getElementById("tishi").innerHTML="<font color='red'>请输入验证码</font>";
+      document.getElementById("Button1").disabled = true;
+    } else if (inputCode != code) {
+      document.getElementById("tishi").innerHTML="<font color='red'>验证码错误</font>";
+      document.getElementById("Button1").disabled = true;
+      createCode();
+    } else {
+      document.getElementById("tishi").innerHTML="<font color='green'>验证码正确</font>";
+      document.getElementById("Button1").disabled = false;
+    }
+  }
+</script>
+
+</body>
+</html>

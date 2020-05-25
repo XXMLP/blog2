@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户注册</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<style>
+  .code {
+    background-image:url(./static/images/bg.png);
+    font-family:Arial,宋体;
+    font-style:italic;
+    color:green;
+    border:0;
+    padding:2px 3px;
+    letter-spacing:3px;
+    font-weight:bolder;
+  }
+  .unchanged {
+    border:0;
+  }
+
+</style>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+</nav>
+<br>
+<br>
+<br>
+<!--中间内容-->
+<div  class="m-container-small m-padded-tb-big">
+  <div class="ui container">
+
+<form th:action="@{/user/registers}" method="post" class="ui form" id="form">
+
+  <div class=" field">
+    <div class="ui left labeled input">
+      <label class="ui teal basic label">用户名</label>
+      <input type="text" name="username" placeholder="用户名">
+    </div>
+    <br>
+    <br>
+
+    <div class="ui left labeled input">
+      <label class="ui teal basic label">头像</label>
+      <input type="text" name="avatar" placeholder="用户头像">
+    </div>
+    <br>
+    <br>
+    <div class="ui left labeled input">
+      <label class="ui teal basic label">昵称</label>
+      <input type="search" name="nickname" placeholder="用户昵称">
+    </div>
+    <br>
+    <br>
+    <div class="ui left labeled input">
+      <label class="ui teal basic label">密码</label>
+      <input type="password" name="password" placeholder="用户密码" id="pwd" >
+    </div>
+    <br>
+    <br>
+    <div class="ui left labeled input">
+      <label class="ui teal basic label">确认密码</label>
+      <input type="password" name="password1" placeholder="确认密码" id="pwd1" onkeyup="validate()">
+    </div>
+    <span id="tishi"></span>
+    <br>
+    <br>
+    <div class="ui left labeled input">
+      <label class="ui teal basic label">邮箱</label>
+      <input type="email" name="email" placeholder="用户邮箱">
+    </div>
+    <br>
+    <br>
+    <div class="ui left labeled input">
+      <label class="ui teal basic label">验证码</label>
+        <input type="text" id="input1" placeholder="验证码" >
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#" onclick="createCode()">看不清楚？换一张</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button" id="checkCode" class="code" style="width:3px" onclick="createCode()">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <span id="tishi1"></span>
+    <br>
+    <br>
+    <div class="ui error message"></div>
+
+    <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">内容</div>
+  </div>
+  <div class="ui right aligned container">
+    <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
+    <button type="button" class="ui button" onclick="reset()" >重置</button>
+    <button class="ui teal submit button" id="Button1" onclick="validate();">提交</button>
+  </div>
+</form>
+    </div>
+</div>
+
+<br>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive" />
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+  function reset()
+   {
+     document.getElementById("form").reset();
+   }
+
+  $('.menu.toggle').click(function () {
+    $('.m-item').toggleClass('m-mobile-hide');
+  });
+
+  $('.ui.dropdown').dropdown({
+    on : 'hover'
+  });
+
+  $('.ui.form').form({
+    fields : {
+      avatar : {
+        identifier: 'avatar',
+        rules: [{
+          type : 'empty',
+          prompt: '提示：请输入头像图片地址'
+        }]
+      },
+      username : {
+        identifier: 'username',
+        rules: [{
+          type : 'empty',
+          prompt: '提示：请输入用户名'
+        }]
+      },
+      nickname : {
+        identifier: 'nickname',
+        rules: [{
+          type : 'empty',
+          prompt: '提示：请输入昵称'
+        }]
+      },
+      password : {
+        identifier: 'password',
+        rules: [{
+          type : 'empty',
+          prompt: '提示：请输入密码'
+        }]
+      },
+      email : {
+        identifier: 'email',
+        rules: [{
+          type : 'email',
+          prompt: '提示：请填写正确的邮箱地址'
+        }]
+      }
+    }
+  });
+
+  function validate() {
+
+    var pwd1 = document.getElementById("pwd").value;
+    var pwd2 = document.getElementById("pwd1").value;
+    <!-- 对比两次输入的密码 -->
+    if(pwd1 == pwd2){
+      document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+      document.getElementById("button").disabled = false;
+    }
+    else {
+      document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+      document.getElementById("button").disabled = true;
+    }
+  }
+  var code; //在全局 定义验证码
+  function createCode() {
+    code = new Array();
+    var codeLength = 4; //验证码的长度
+    var checkCode = document.getElementById("checkCode");
+    checkCode.value = "";
+    var selectChar = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+    for (var i = 0; i < codeLength; i++) {
+      var charIndex = Math.floor(Math.random() * 32);
+      code += selectChar[charIndex];
+    }
+    if (code.length != codeLength) {
+      createCode();
+    }
+    checkCode.value = code;
+  }
+
+  function validate() {
+    var inputCode = document.getElementById("input1").value.toUpperCase();
+    if (inputCode.length <= 0) {
+      document.getElementById("tishi1").innerHTML="<font color='red'>请输入验证码</font>";
+      document.getElementById("Button1").disabled = true;
+    } else if (inputCode != code) {
+      document.getElementById("tishi1").innerHTML="<font color='red'>验证码错误</font>";
+      document.getElementById("Button1").disabled = true;
+      createCode();
+    } else {
+      document.getElementById("tishi1").innerHTML="<font color='green'>验证码正确</font>";
+      document.getElementById("Button1").disabled = false;
+    }
+  }
+</script>
+</body>
+</html>
