@@ -9,7 +9,7 @@ RUN echo $TZ > /etc/timezone
 #   /blog.jar：这是自定义的名称。但是注意要有之前的/
 COPY blog-2.0.0.jar /
 COPY application-dev.yml /
-
+COPY qqwry.dat /root/
 #MAINTAINER  作者名称。可以删除不写。
 MAINTAINER xxmlp
 #EXPOSE 项目暴露的端口号

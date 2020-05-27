@@ -33,10 +33,10 @@ public class UserServiceImpl implements UserService {
             user.setUpdateTime(new Date());
             user.setPassword(MD5Utils.code(user.getPassword()));
             user.setType(0);
+            user.setCommentabled(true);
         }else{
             user.setUpdateTime(new Date());
         }
-        user.setCommentabled(true);
         return userRepository.save(user);
 
     }

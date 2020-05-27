@@ -33,8 +33,8 @@
           <tr>
             <th></th>
             <th>host</th>
-            <th>user</th>
-            <th>pwd</th>
+            <th>账号</th>
+            <th>描述</th>
           </tr>
         </thead>
         <tbody>
@@ -42,7 +42,7 @@
             <td th:text="${iterStat.count}">1</td>
             <td th:text="${server.ip}">刻意练习清单</td>
             <td th:text="${server.username}">刻意练习清单</td>
-            <td th:text="${server.password}">刻意练习清单</td>
+            <td th:text="${server.descript}">刻意练习清单</td>
             <td>
               <a href="#" th:href="@{/admin/server/{id}/delete(id=${server.id})}" class="ui mini red basic button">删除</a>
             </td>

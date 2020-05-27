@@ -46,7 +46,7 @@ spring:
 logging:
   level:
     root: info
-    com.xxmlp: debug
+    com.xxmlp: info
   file: log/blog-dev.log
 
 server:
