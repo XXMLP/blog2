@@ -1,4 +1,7 @@
 spring:
+  data:
+    mongodb:
+      uri: mongodb://49.232.25.149:27017/blog
   mail:
     host: smtp.163.com
     username: xxmlp980123@163.com

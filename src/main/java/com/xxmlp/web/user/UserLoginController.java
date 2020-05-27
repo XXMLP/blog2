@@ -52,10 +52,13 @@ public class UserLoginController {
             session.setAttribute("user",user);
             /**将登录日志存入数据库*/
             address.setIp(IPUtil.getIpAddress(request));
-            address.setAddress(new IPSeeker(new File("/root/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
-            address.setUser(user);
+//            address.setAddress(new IPSeeker(new File("/root/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
+            address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
+            address.setUserId(user.getId());
+            address.setUsername(user.getUsername());
             UaUtil.getDeviceType(request,address);
-            address.setNetType(new IPSeeker(new File("/root/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
+//            address.setNetType(new IPSeeker(new File("/root/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
+            address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
             adressService.save(address);
             /**设置唯一sessionId,限制同一用户多地登录*/
             if(sessionService.getSession(user.getId())==null){

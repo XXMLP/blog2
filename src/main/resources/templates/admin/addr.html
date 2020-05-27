@@ -73,7 +73,7 @@
         <tbody>
           <tr th:each="address,iterStat : ${page.content}">
             <td th:text="${iterStat.count}">1</td>
-            <td th:text="${address.user.username}">刻意练习清单</td>
+            <td th:text="${address.username}">刻意练习清单</td>
             <td th:text="${address.ip}">刻意练习清单</td>
             <td th:text="${address.address}">刻意练习清单</td>
             <td th:text="${address.netType}">刻意练习清单</td>

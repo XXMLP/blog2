@@ -11,11 +11,9 @@ import org.springframework.data.domain.Pageable;
 
 public interface AdressService {
 
-    Address save(Address address);
-
-    Page<Address> listAllLog(Pageable pageable);
+    void save(Address address);
 
     Page<Address> listAddress(Pageable pageable, AddrQuery addrQuery);
 
-    void deleteAddr(User user);
+    void deleteAddr(Long userId);
 }
