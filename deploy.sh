@@ -10,7 +10,6 @@ if [ -d "blog2" ];
 then
     echo "rm dir blog2"
 	rm -rf blog2
-	sleep 10
 	echo "rm over"
 else
     echo "dir blog2 not exit"
@@ -23,14 +22,14 @@ echo "git clone over"
 cd $DOCKER_DIR/blog2
 mvn clean package
 
-sleep 10
 echo "package over"
 
 cd $DOCKER_DIR
 #删除原有的文件
 rm -f Dockerfile
 rm -f blog-2.0.0.jar
-
+rm -f application-dev.yml
+rm -f qqwry.dat
 mv $DOCKER_DIR/blog2/target/blog-2.0.0.jar .
 mv $DOCKER_DIR/blog2/Dockerfile .
 mv $DOCKER_DIR/blog2/src/main/resources/application-dev.yml .
@@ -42,7 +41,6 @@ mv $DOCKER_DIR/blog2/src/main/java/com/xxmlp/util/IP/qqwry.dat .
 docker stop blog
 docker rm blog
 docker rmi blog:2.0
-sleep 5
 #打包成镜像
 #说明:
 #  blog   代表要打包成的镜像名称。按照自己实际情况写。
@@ -52,7 +50,7 @@ sleep 5
 #若之前Dockerfile不在步骤一的文件夹中 则需要指定到对应的地址
 docker build -t blog:2.0 .
 #启动容器
-docker run --name blog -d -p 8080:8080 -v /uploadFile:/uploadFile -v/root/docker/log:/log  -v /root/docker/application-dev.yml:/application-dev.yml blog:2.0
+docker run --name blog -d -p 8080:8080 -v /root/docker/uploadFile:/uploadFile -v/root/docker/log:/log  -v /root/docker/application-dev.yml:/application-dev.yml blog:2.0
 
 
 

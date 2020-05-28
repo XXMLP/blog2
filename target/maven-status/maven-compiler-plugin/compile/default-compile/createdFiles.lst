@@ -10,6 +10,7 @@ com\xxmlp\web\admin\ImgController.class
 com\xxmlp\util\MarkdownUtils$1.class
 com\xxmlp\service\CollectionService.class
 com\xxmlp\dao\SessionRepository.class
+com\xxmlp\service\ServerService.class
 com\xxmlp\dao\ThumbsRepository.class
 com\xxmlp\web\user\UserTypeController.class
 com\xxmlp\po\Session.class
@@ -24,6 +25,7 @@ com\xxmlp\web\user\UserLoginController.class
 com\xxmlp\service\TypeService.class
 com\xxmlp\dao\CommentRepository.class
 com\xxmlp\web\user\UserTagController.class
+com\xxmlp\dao\ServerRepository.class
 com\xxmlp\util\MarkdownUtils$CustomAttributeProvider.class
 com\xxmlp\service\ThumbsServiceImpl.class
 com\xxmlp\service\UserService.class
@@ -32,8 +34,10 @@ com\xxmlp\web\admin\BlogController.class
 com\xxmlp\web\user\HomePageController.class
 com\xxmlp\aspect\LogAspect$RequestLog.class
 com\xxmlp\web\ArchiveShowController.class
+com\xxmlp\util\Github.class
 com\xxmlp\BlogApplication.class
 com\xxmlp\service\BlogServiceImpl$2.class
+com\xxmlp\service\ServerServiceImpl.class
 com\xxmlp\service\ViewsServiceImpl.class
 com\xxmlp\po\Img.class
 com\xxmlp\service\ThumbsService.class
@@ -54,6 +58,7 @@ com\xxmlp\service\RelationshipServiceImpl.class
 com\xxmlp\util\IP\SplitAddress.class
 com\xxmlp\web\admin\LicenseController.class
 com\xxmlp\dao\TypeRepository.class
+com\xxmlp\po\Server.class
 com\xxmlp\interceptor\WebConfig.class
 com\xxmlp\util\CookieUitl.class
 com\xxmlp\util\UaUtil.class
@@ -77,6 +82,7 @@ com\xxmlp\util\IP\IPEntity.class
 com\xxmlp\interceptor\AdminLoginInterceptor.class
 com\xxmlp\service\SessionServiceImpl.class
 com\xxmlp\vo\AddrQuery.class
+com\xxmlp\web\admin\ServerController.class
 com\xxmlp\web\user\UserBlogController.class
 com\xxmlp\web\admin\TypeController.class
 com\xxmlp\service\TagService.class
@@ -97,6 +103,7 @@ com\xxmlp\service\ViewsService.class
 com\xxmlp\service\TypeServiceImpl.class
 com\xxmlp\web\user\UserLogController.class
 com\xxmlp\po\Views.class
+com\xxmlp\util\ServerUtil.class
 com\xxmlp\po\Relationship.class
 com\xxmlp\interceptor\UserLoginInterceptor.class
 com\xxmlp\NotFoundException.class

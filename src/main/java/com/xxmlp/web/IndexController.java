@@ -53,7 +53,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                        Model model,Address address, HttpServletRequest request,Demo demo) throws Exception {
+                        Model model,Address address, HttpServletRequest request) throws Exception {
         model.addAttribute("page",blogService.listBlog(pageable));
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("tags", tagService.listTagTop(10));
@@ -62,13 +62,13 @@ public class IndexController {
         /**将日志存入数据库*/
         if (request.getSession().isNew()){
         address.setIp(IPUtil.getIpAddress(request));
-        //address.setAddress(new IPSeeker(new File("/root/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
-        address.setAddress(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
+        address.setAddress(new IPSeeker(new File("/root/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
+        //address.setAddress(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
         address.setUserId(userService.getUserByName("游客").getId());
         address.setUsername("游客");
         UaUtil.getDeviceType(request,address);
-        //address.setNetType(new IPSeeker(new File("/root/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
-        address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
+        address.setNetType(new IPSeeker(new File("/root/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
+        //address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
         adressService.save(address);
         }
         return "index";
