@@ -1,19 +1,22 @@
 package com.xxmlp.po;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name = "t_addr")
-public class Address {
+//@Entity
+//@Table(name = "t_addr")
+@Document(collection = "address")
+public class Address implements Serializable {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+//    @Id
+//    @GeneratedValue
+//    private Long id;
 
     @NotBlank(message = "IP不能为空")
     private String ip;
@@ -36,14 +39,12 @@ public class Address {
 
     private String Manufacturer;
 
-    @ManyToOne
-    private User user;
+    private Long userId;
+
+    private String username;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date loginTime;
-
-    public Address() {
-    }
 
     public String getWebName() {
         return webName;
@@ -109,14 +110,6 @@ public class Address {
         this.address = address;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getIp() {
         return ip;
     }
@@ -125,12 +118,12 @@ public class Address {
         this.ip = ip;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public Date getLoginTime() {
@@ -141,11 +134,18 @@ public class Address {
         this.loginTime = loginTime;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         return "Address{" +
-                "id=" + id +
-                ", ip='" + ip + '\'' +
+                "ip='" + ip + '\'' +
                 ", address='" + address + '\'' +
                 ", deviceType='" + deviceType + '\'' +
                 ", netType='" + netType + '\'' +
@@ -154,7 +154,8 @@ public class Address {
                 ", webVersion='" + webVersion + '\'' +
                 ", sysName='" + sysName + '\'' +
                 ", Manufacturer='" + Manufacturer + '\'' +
-                ", user=" + user +
+                ", userId=" + userId +
+                ", username='" + username + '\'' +
                 ", loginTime=" + loginTime +
                 '}';
     }

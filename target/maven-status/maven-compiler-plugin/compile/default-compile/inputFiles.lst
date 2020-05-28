@@ -4,6 +4,7 @@ C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\dao\ImgRepository.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\BlogServiceImpl.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\LicenseShowController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\dao\AddressRepository.java
+C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\admin\ServerController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\user\UserBlogController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\AdressServiceImpl.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\CollectionService.java
@@ -36,6 +37,7 @@ C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\interceptor\AdminLogin
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\dao\CollectionRepository.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\dao\UserRepository.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\CookieUitl.java
+C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\ServerUtil.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\po\Comment.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\CollectionServiceImpl.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\UserService.java
@@ -57,6 +59,7 @@ C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\RandomUtils.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\admin\ImgController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\po\ThumbsPK.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\admin\TagController.java
+C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\ServerService.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\admin\LoginController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\ImgService.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\BlogApplication.java
@@ -84,6 +87,7 @@ C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\ArchiveShowControl
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\user\HomePageController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\user\UserImgController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\RelationshipServiceImpl.java
+C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\ServerServiceImpl.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\IP\IPSeeker.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\IPUtil.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\dao\SessionRepository.java
@@ -93,9 +97,12 @@ C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\ThumbsServiceI
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\admin\BlogController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\IndexController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\CommentController.java
+C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\dao\ServerRepository.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\SessionServiceImpl.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\user\UserTypeController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\interceptor\DruidConfig.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\aspect\SpringDaoMethodAspect.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\vo\ImgQuery.java
+C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\po\Server.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\dao\TypeRepository.java
+C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\Github.java

@@ -20,7 +20,7 @@
   </div>
 
   <!--中间内容-->
-  <div  class="m-container-small m-padded-tb-big">
+  <div  class="m-container-big m-padded-tb-big">
     <div class="ui container">
       <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
         <i class="close icon"></i>
@@ -73,7 +73,7 @@
         <tbody>
           <tr th:each="address,iterStat : ${page.content}">
             <td th:text="${iterStat.count}">1</td>
-            <td th:text="${address.user.username}">刻意练习清单</td>
+            <td th:text="${address.username}">刻意练习清单</td>
             <td th:text="${address.ip}">刻意练习清单</td>
             <td th:text="${address.address}">刻意练习清单</td>
             <td th:text="${address.netType}">刻意练习清单</td>

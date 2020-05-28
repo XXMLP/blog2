@@ -35,7 +35,7 @@ public class UserLogController {
     @GetMapping("/addr/delete")
     public String delete(HttpSession session, User user, RedirectAttributes attributes){
         user=(User) session.getAttribute("user");
-        adressService.deleteAddr(user);
+        adressService.deleteAddr(user.getId());
         attributes.addFlashAttribute("message", "清理成功");
         return "redirect:/user/addr";
     }

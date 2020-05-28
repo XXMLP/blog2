@@ -64,7 +64,7 @@
     <br>
     <div class="ui left labeled input">
       <label class="ui teal basic label">确认密码</label>
-      <input type="password" name="password1" placeholder="确认密码" id="pwd1" onkeyup="validate()">
+      <input type="password" name="password1" placeholder="确认密码" id="pwd1">
     </div>
     <span id="tishi"></span>
     <br>
@@ -168,20 +168,6 @@
     }
   });
 
-  function validate() {
-
-    var pwd1 = document.getElementById("pwd").value;
-    var pwd2 = document.getElementById("pwd1").value;
-    <!-- 对比两次输入的密码 -->
-    if(pwd1 == pwd2){
-      document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
-      document.getElementById("button").disabled = false;
-    }
-    else {
-      document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
-      document.getElementById("button").disabled = true;
-    }
-  }
   var code; //在全局 定义验证码
   function createCode() {
     code = new Array();
