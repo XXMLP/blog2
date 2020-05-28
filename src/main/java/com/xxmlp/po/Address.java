@@ -1,6 +1,7 @@
 package com.xxmlp.po;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
@@ -45,6 +46,10 @@ public class Address implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date loginTime;
+
+    //过期时间为1000秒
+    @Indexed(expireAfterSeconds=108000)
+    private String ttl;
 
     public String getWebName() {
         return webName;
@@ -140,6 +145,14 @@ public class Address implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getTtl() {
+        return ttl;
+    }
+
+    public void setTtl(String ttl) {
+        this.ttl = ttl;
     }
 
     @Override
