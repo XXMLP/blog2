@@ -19,7 +19,7 @@ public class SpringDaoMethodAspect {
     @Scope("prototype")
     public JdkRegexpMethodPointcut druidStatPointcut() {
         JdkRegexpMethodPointcut pointcut = new JdkRegexpMethodPointcut();
-        pointcut.setPattern("com.lrm.dao.*");
+        pointcut.setPattern("com.xxmlp.dao.*");
         return pointcut;
     }
 
