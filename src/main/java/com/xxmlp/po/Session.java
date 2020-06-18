@@ -1,14 +1,17 @@
 package com.xxmlp.po;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "t_session")
-public class Session {
+public class Session implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    private String redisKey;//redis中的key
     @Id
     private Long id;
     private String sessionId;
@@ -31,6 +34,14 @@ public class Session {
 
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
+    }
+
+    public String getRedisKey() {
+        return redisKey;
+    }
+
+    public void setRedisKey(String redisKey) {
+        this.redisKey = redisKey;
     }
 
     @Override
