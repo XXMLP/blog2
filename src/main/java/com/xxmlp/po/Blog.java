@@ -1,14 +1,17 @@
 package com.xxmlp.po;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "t_blog")
-public class Blog {
+public class Blog implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue
     private Long id;

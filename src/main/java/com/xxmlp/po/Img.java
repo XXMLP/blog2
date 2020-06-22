@@ -1,11 +1,15 @@
 package com.xxmlp.po;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "t_img")
-public class Img {
+public class Img implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue
     private Long id;
