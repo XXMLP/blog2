@@ -40,6 +40,8 @@ public class UserLoginController {
     @PostMapping("/login")
     public String login(@RequestParam String username,
                         @RequestParam String password,
+                        @RequestParam String code,
+                        @RequestParam String code2,
                         HttpSession session,
                         Address address,
                         Session userSession,
@@ -47,33 +49,32 @@ public class UserLoginController {
                         HttpServletResponse response,
                         RedirectAttributes attributes) throws Exception {
         User user = userService.checkUser(username, password);
-        if (user != null) {
+        if (!code.equals(code2)){
+            attributes.addFlashAttribute("message", "验证码错误");
+            return "redirect:/user";
+        }
+        if (user != null && code.equals(code2)) {
             String sessionId = session.getId();
             session.setAttribute("user",user);
             /**将登录日志存入数据库*/
             address.setIp(IPUtil.getIpAddress(request));
-            address.setAddress(new IPSeeker(new File("/root/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));
-            //address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
+            address.setAddress(new IPSeeker(new File("/root/qqwry.dat")).getCountry(IPUtil.getIpAddress(request)));//服务器路径
+            //address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));//本地路径
             address.setUserId(user.getId());
             address.setUsername(user.getUsername());
             UaUtil.getDeviceType(request,address);
-            address.setNetType(new IPSeeker(new File("/root/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
-            //address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));
+            address.setNetType(new IPSeeker(new File("/root/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));//服务器路径
+            //address.setNetType(new IPSeeker(new File("src/main/java/com/xxmlp/util/IP/qqwry.dat")).getIsp(IPUtil.getIpAddress(request)));//本地路径
             adressService.save(address);
             /**设置唯一sessionId,限制同一用户多地登录*/
             if(sessionService.getSession(user.getId())==null){
-                userSession.setId(user.getId());
+                userSession.setUserId(user.getId());
                 userSession.setSessionId(sessionId);
                 sessionService.saveSession(userSession);
             }else{
                 userSession.setSessionId(sessionId);
                 sessionService.updateSession(userSession,user.getId());
             }
-            /**存cookie自动登录*/
-//            Cookie cookie = new Cookie("auto", username+"_"+ password);
-//            cookie.setMaxAge(60*60*24);//cookie有效时间
-//            cookie.setPath(request.getContextPath()+"/");
-//            response.addCookie(cookie);
             user.setPassword(null);
             return "user/index";
         } else {
@@ -84,6 +85,8 @@ public class UserLoginController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        sessionService.delete(user.getId());
         session.removeAttribute("user");
         return "redirect:/user";
     }

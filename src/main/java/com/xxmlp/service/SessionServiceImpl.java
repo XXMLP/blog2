@@ -26,7 +26,7 @@ public class SessionServiceImpl implements SessionService {
     @Cacheable(value="sessionCache") //缓存,这里没有指定key.
     @Override
     public Session getSession(Long id){
-        return sessionRepository.findOne(id);
+        return sessionRepository.findByUserId(id);
     }
     
     @Transactional
@@ -36,7 +36,7 @@ public class SessionServiceImpl implements SessionService {
     public void saveSession(Session session){
         sessionRepository.save(session);
         if(session.getRedisKey()==null||"".equals(session.getRedisKey().trim())){
-            session.setRedisKey(session.getId().toString());
+            session.setRedisKey(session.getUserId().toString());
             sessionRepository.save(session);
         }
         sessionRedisService.put(session.getRedisKey(), session, 86400);
@@ -47,33 +47,28 @@ public class SessionServiceImpl implements SessionService {
     @CacheEvict(value="sessionCache", allEntries=true)
     @Override
     public void updateSession(Session session, Long id){
-        Session t = sessionRepository.findOne(id);
+        Session t = sessionRepository.findByUserId(id);
         if (t == null) {
-            throw new NotFoundException("不存在该标签");
+            throw new NotFoundException("Sesison不存在");
         }
         BeanUtils.copyProperties(session,t, MyBeanUtils.getNullPropertyNames(session));
-        sessionRepository.save(session);
-        if(session.getRedisKey()==null||"".equals(session.getRedisKey().trim())){
-            session.setRedisKey(session.getId().toString());
-            sessionRepository.save(session);
-        }
-        sessionRedisService.put(session.getRedisKey(), session, 86400);
+        saveSession(session);
     }
 
     @Transactional
     @Cacheable(value="sessionCache") //缓存,这里没有指定key.
     @Override
     public Session getSessionById(Long id,String sessionId){
-        return sessionRepository.findBySessionIdAndId(sessionId,id);
+        return sessionRepository.findBySessionIdAndUserId(sessionId,id);
     }
 
     //allEntries 清空缓存所有属性 确保更新后缓存刷新
-//    @CacheEvict(value="sessionCache", allEntries=true)
-//    @Override
-//    public void delete(Integer id) {
-//        // TODO Auto-generated method stub
-//        Session session=sessionRepository.findOne(id);
-//        sessionRedisService.remove(session.getRedisKey());
-//        sessionRepository.delete(id);
-//    }
+    @Transactional
+    @CacheEvict(value="sessionCache", allEntries=true)
+    @Override
+    public void delete(Long id) {
+        Session session =sessionRepository.findByUserId(id);
+        sessionRedisService.remove(session.getRedisKey());
+        sessionRepository.delete(session.getId());
+    }
 }

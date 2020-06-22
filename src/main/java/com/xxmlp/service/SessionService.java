@@ -7,4 +7,5 @@ public interface SessionService {
     void saveSession(Session session);
     void updateSession(Session session, Long id);
     Session getSessionById(Long id,String sessionId);
+    void delete(Long id);
 }
