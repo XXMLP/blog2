@@ -1,9 +1,10 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.dao.BlogRepository;
 import com.xxmlp.dao.ViewsRepository;
 import com.xxmlp.po.Blog;
 import com.xxmlp.po.Views;
+import com.xxmlp.service.ViewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ public class ViewsServiceImpl implements ViewsService {
         //更新点赞数
         updateViewsSize(views.getBlogId());
     }
+
     @Override
     public void updateViewsSize(Long blogId) {
         Blog blog = blogRepository.findOne(blogId);

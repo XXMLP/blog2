@@ -1,8 +1,9 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.TagRepository;
 import com.xxmlp.po.Tag;
+import com.xxmlp.service.TagService;
 import com.xxmlp.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,6 @@ public class TagServiceImpl implements TagService {
         return tagRepository.findTop(pageable);
     }
 
-
     @Override
     public List<Tag> listTag(String ids) { //1,2,3
         return tagRepository.findAll(convertToList(ids));
@@ -87,7 +87,6 @@ public class TagServiceImpl implements TagService {
         return list;
     }
 
-
     @Transactional
     @Override
     public Tag updateTag(Long id, Tag tag) {
@@ -99,8 +98,6 @@ public class TagServiceImpl implements TagService {
         t.setUpdateTime(new Date());
         return tagRepository.save(t);
     }
-
-
 
     @Transactional
     @Override

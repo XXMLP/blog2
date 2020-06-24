@@ -1,9 +1,10 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.UserRepository;
 import com.xxmlp.po.Blog;
 import com.xxmlp.po.User;
+import com.xxmlp.service.UserService;
 import com.xxmlp.util.MD5Utils;
 import com.xxmlp.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
@@ -38,7 +39,6 @@ public class UserServiceImpl implements UserService {
             user.setUpdateTime(new Date());
         }
         return userRepository.save(user);
-
     }
 
     @Override
@@ -46,13 +46,6 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByUsernameAndPassword(username, MD5Utils.code(password));
         return user;
     }
-
-    @Override
-    public User checkUserBySessionId(String sessionId, Long id) {
-        User user = userRepository.findBySessionIdAndId(sessionId, id);
-        return user;
-    }
-
 
     @Transactional
     @Override
@@ -77,7 +70,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsernameKey(username,key);
     }
 
-
     @Transactional
     @Override
     public Page<User> listUser(Pageable pageable) {
@@ -94,7 +86,6 @@ public class UserServiceImpl implements UserService {
     public List<User> listUser() {
         return userRepository.findAll();
     }
-
 
     @Transactional
     @Override
@@ -125,16 +116,6 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundException("不存在该用户");
         }
         user.setPassword(MD5Utils.code(pwd));
-        BeanUtils.copyProperties(user, MyBeanUtils.getNullPropertyNames(user));
-        return userRepository.save(user);
-    }
-    @Transactional
-    @Override
-    public User resetSessionId(User user,String sessionId) {
-        if (user == null) {
-            throw new NotFoundException("不存在该用户");
-        }
-        user.setSessionId(sessionId);
         BeanUtils.copyProperties(user, MyBeanUtils.getNullPropertyNames(user));
         return userRepository.save(user);
     }

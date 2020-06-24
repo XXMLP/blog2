@@ -10,7 +10,6 @@ public interface ThumbsRepository extends JpaRepository<Thumbs, ThumbsPK> {
     @Query("select u from Thumbs u where u.blogId = ?1 and u.userId = ?2")
     Thumbs isThumbed(Long blogId, Long userId);
 
-
     Integer countByBlogId(Long blogId);
 
 }

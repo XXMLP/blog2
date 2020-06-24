@@ -1,4 +1,4 @@
-package com.xxmlp.service;
+package com.xxmlp.service.redis;
 
 import java.util.List;
 import java.util.Set;

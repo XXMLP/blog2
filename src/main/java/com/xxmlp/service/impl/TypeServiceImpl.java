@@ -1,8 +1,9 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.TypeRepository;
 import com.xxmlp.po.Type;
+import com.xxmlp.service.TypeService;
 import com.xxmlp.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,14 +65,12 @@ public class TypeServiceImpl implements TypeService {
         return typeRepository.findAll();
     }
 
-
     @Override
     public List<Type> listTypeTop(Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC,"blogs.size");
         Pageable pageable = new PageRequest(0,size,sort);
         return typeRepository.findTop(pageable);
     }
-
 
     @Transactional
     @Override
@@ -84,8 +83,6 @@ public class TypeServiceImpl implements TypeService {
         t.setUpdateTime(new Date());
         return typeRepository.save(t);
     }
-
-
 
     @Transactional
     @Override

@@ -1,7 +1,8 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.dao.CommentRepository;
 import com.xxmlp.po.Comment;
+import com.xxmlp.service.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -130,8 +131,6 @@ public class CommentServiceImpl implements CommentService {
     public void checkComment(Long id){
         commentRepository.check(id);
     }
-
-
 
     @Transactional
     @Override

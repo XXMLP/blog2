@@ -11,12 +11,8 @@ public interface CollectionRepository extends JpaRepository<Collection, Collecti
     @Query("select u from Collection u where u.blogId = ?1 and u.userId = ?2")
     Collection isCollected(Long blogId, Long userId);
 
-
     @Query("select blogId from Collection where userId =:userId")
     List<Integer> findByUserId(@Param("userId") Long userId);
-
-
-
 
     Integer countByBlogId(Long blogId);
 

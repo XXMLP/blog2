@@ -1,4 +1,4 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.dao.BlogRepository;
 import com.xxmlp.dao.CollectionRepository;
@@ -8,6 +8,7 @@ import com.xxmlp.po.Blog;
 import com.xxmlp.po.Collection;
 import com.xxmlp.po.Relationship;
 import com.xxmlp.po.User;
+import com.xxmlp.service.CollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Service
 public class CollectionServiceImpl implements CollectionService {
+
     @Autowired
     private CollectionRepository collectionRepository;
 
@@ -54,6 +56,5 @@ public class CollectionServiceImpl implements CollectionService {
       Collection  collection=collectionRepository.isCollected(blogId,userId);
         return collection;
     }
-
 
 }

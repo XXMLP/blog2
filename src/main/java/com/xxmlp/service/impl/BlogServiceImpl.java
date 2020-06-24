@@ -1,11 +1,11 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.BlogRepository;
 import com.xxmlp.po.Blog;
-import com.xxmlp.po.Tag;
 import com.xxmlp.po.Type;
 import com.xxmlp.po.User;
+import com.xxmlp.service.BlogService;
 import com.xxmlp.util.MarkdownUtils;
 import com.xxmlp.util.MyBeanUtils;
 import com.xxmlp.vo.BlogQuery;
@@ -25,12 +25,8 @@ import java.util.*;
 @Service
 public class BlogServiceImpl implements BlogService {
 
-
     @Autowired
     private BlogRepository blogRepository;
-
-    @Autowired
-    private CollectionService collectionService;
 
     @Override
     public Blog getBlog(Long id) {

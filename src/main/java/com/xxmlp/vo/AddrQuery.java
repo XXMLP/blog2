@@ -3,6 +3,7 @@ package com.xxmlp.vo;
 public class AddrQuery {
 
     private Long userId;
+
     private String address;
 
     public AddrQuery() {

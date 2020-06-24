@@ -13,13 +13,11 @@ public interface UserService {
 
     User checkUser(String username, String password);
 
-    User checkUserBySessionId(String sessionId, Long id);
-
     User getUser(Long id);
 
     User getUserByName(String username);
-    User getUserByNameOrEmail(String username);
 
+    User getUserByNameOrEmail(String username);
 
     Page<User> listUser(Pageable pageable);
 
@@ -27,12 +25,9 @@ public interface UserService {
 
     Page<User> listUserInformation(Pageable pageable,Long id);
 
-
     User updateUser(Long id,User user);
 
     User resetpwd(User user,String pwd);
-
-    User resetSessionId(User user,String sessionId);
 
     Integer totalViews(Long id);
 
@@ -40,11 +35,11 @@ public interface UserService {
 
     void deleteUser(Long id);
 
-   User updateUserInfo(User user);
+    User updateUserInfo(User user);
 
-   User getUserByNameKey(String username,String key);
+    User getUserByNameKey(String username,String key);
 
-   String findEmailByUsername(String userName);
+    String findEmailByUsername(String userName);
 
     List<User> listRecommendUserTop(Integer size);
 

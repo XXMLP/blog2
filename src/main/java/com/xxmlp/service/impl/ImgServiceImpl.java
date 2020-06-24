@@ -1,8 +1,9 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.dao.ImgRepository;
 import com.xxmlp.po.Img;
 import com.xxmlp.po.User;
+import com.xxmlp.service.ImgService;
 import com.xxmlp.vo.ImgQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

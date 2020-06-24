@@ -10,20 +10,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Entity
-//@Table(name = "t_addr")
 @Document(collection = "address")
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-//    @Id
-//    @GeneratedValue
-//    private Long id;
-
     @NotBlank(message = "IP不能为空")
     private String ip;
-
 
 //    @NotBlank(message = "地址不能为空")
     private String address;

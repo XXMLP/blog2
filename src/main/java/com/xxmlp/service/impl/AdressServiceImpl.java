@@ -1,64 +1,23 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.po.Address;
-import com.xxmlp.po.User;
+import com.xxmlp.service.AdressService;
 import com.xxmlp.vo.AddrQuery;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import javax.persistence.criteria.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Service
 @Component
-public class AdressServiceImpl implements AdressService{
-//
-//    @Autowired
-//    private AddressRepository addressRepository;
-//
-//    @Transactional
-//    @Override
-//    public Address save(Address address) {
-//            address.setLoginTime(new Date());
-//        return addressRepository.save(address);
-//    }
-//
-//    @Override
-//    public Page<Address> listAddress(Pageable pageable, AddrQuery address) {
-//        return addressRepository.findAll(new Specification<Address>() {
-//            @Override
-//            public Predicate toPredicate(Root<Address> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
-//                List<Predicate> predicates = new ArrayList<>();
-//                if (!"".equals(address.getAddress()) && address.getAddress() != null) {
-//                    predicates.add(cb.like(root.<String>get("address"), "%"+address.getAddress()+"%"));
-//                }
-//                if (address.getUserId() != null) {
-//                    predicates.add(cb.equal(root.<User>get("user").get("id"), address.getUserId()));
-//                }
-//                cq.where(predicates.toArray(new Predicate[predicates.size()]));
-//                return null;
-//            }
-//        },pageable);
-//    }
-//
-//        @Transactional
-//        @Override
-//        public void deleteAddr(User user) {
-//        addressRepository.deleteAddressesByUser(user);
-//        }
+public class AdressServiceImpl implements AdressService {
 
     @Resource
     private MongoTemplate mongoTemplate;

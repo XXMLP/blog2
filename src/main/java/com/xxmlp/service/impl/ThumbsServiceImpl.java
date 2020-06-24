@@ -1,9 +1,10 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.dao.BlogRepository;
 import com.xxmlp.dao.ThumbsRepository;
 import com.xxmlp.po.Blog;
 import com.xxmlp.po.Thumbs;
+import com.xxmlp.service.ThumbsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +27,7 @@ public class ThumbsServiceImpl implements ThumbsService {
         //更新点赞数
         updateThumbsSize(thumbs.getBlogId());
     }
+
     @Override
     public void removeThumbs(Thumbs thumbs) {
         //删除关系
@@ -33,6 +35,7 @@ public class ThumbsServiceImpl implements ThumbsService {
         //更新点赞数
         updateThumbsSize(thumbs.getBlogId());
     }
+
     @Override
     public void updateThumbsSize(Long blogId) {
         Blog blog = blogRepository.findOne(blogId);

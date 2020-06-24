@@ -1,21 +1,17 @@
-package com.xxmlp.service;
+package com.xxmlp.service.impl;
 
 import com.xxmlp.NotFoundException;
 import com.xxmlp.dao.ServerRepository;
 import com.xxmlp.po.Server;
-import com.xxmlp.po.Server;
+import com.xxmlp.service.ServerService;
 import com.xxmlp.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,7 +19,6 @@ public class ServerServiceImpl implements ServerService {
 
     @Autowired
     private ServerRepository serverRepository;
-
 
     @Transactional
     @Override
@@ -48,11 +43,6 @@ public class ServerServiceImpl implements ServerService {
         return serverRepository.findAll(pageable);
     }
 
-    @Override
-    public List<Server> listServer() {
-        return serverRepository.findAll();
-    }
-
     @Transactional
     @Override
     public Server updateServer(Long id, Server server) {
@@ -63,8 +53,6 @@ public class ServerServiceImpl implements ServerService {
         BeanUtils.copyProperties(server,t, MyBeanUtils.getNullPropertyNames(server));
         return serverRepository.save(t);
     }
-
-
 
     @Transactional
     @Override

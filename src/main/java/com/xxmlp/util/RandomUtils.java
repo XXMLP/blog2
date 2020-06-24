@@ -1,8 +1,5 @@
 package com.xxmlp.util;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 public class RandomUtils {
 
     public static String code(){
@@ -23,7 +20,7 @@ public class RandomUtils {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(code());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(code());
+//    }
 }
