@@ -33,7 +33,7 @@ public class AdressServiceImpl implements AdressService {
         Address address=new Address();
         if (addrQuery.getUserId()!=null){
             address.setUserId(addrQuery.getUserId());
-        }if (addrQuery.getAddress()!=null){
+        }if (addrQuery.getAddress()!=null && !addrQuery.getAddress().equals("")){
             address.setAddress(addrQuery.getAddress());
         }
         Example<Address> example=Example.of(address);

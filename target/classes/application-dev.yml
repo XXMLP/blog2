@@ -1,4 +1,22 @@
 spring:
+  redis:
+    ##默认redis客户端连接为0 可修改
+    database: 0
+    host: 49.232.25.149
+    ##连接端口号 默认是6379 可修改
+    port: 6379
+    password: 123456
+    pool:
+      ##连接池最大空闲连接
+      max-idle: 8
+      ##连接池最小空闲连接
+      min-idle: 0
+      ##连接池最大连接数
+      max-active: 8
+      ##连接池最大等待时间
+      max-wait: 1
+    ##连接超时时间
+    timeout: 5000
   data:
     mongodb:
       uri: mongodb://49.232.25.149:27017/blog
@@ -46,6 +64,38 @@ spring:
   devtools:
     restart:
       enabled: true
+
+#  elasticsearch:
+#    bboss:
+#      elasticUser: elastic
+#      elasticPassword: elastic
+#      elasticsearch:
+#        rest:
+#          hostNames: 49.232.25.149:9200
+#          ##hostNames: 192.168.8.25:9200,192.168.8.26:9200,192.168.8.27:9200  ##集群地址配置
+#        dateFormat: yyyy.MM.dd
+#        timeZone: Asia/Shanghai
+#        showTemplate: true
+#        discoverHost: false
+#      dslfile:
+#        refreshInterval: -1
+#      http:
+#        timeoutConnection: 5000
+#        timeoutSocket: 5000
+#        connectionRequestTimeout: 5000
+#        retryTime: 1
+#        maxLineLength: -1
+#        maxHeaderCount: 200
+#        maxTotal: 400
+#        defaultMaxPerRoute: 200
+#        soReuseAddress: false
+#        soKeepAlive: false
+#        timeToLive: 3600000
+#        keepAlive: 3600000
+#        keystore:
+#        keyPassword:
+#        hostnameVerifier:
+
 logging:
   level:
     root: info
@@ -55,4 +105,3 @@ logging:
 server:
   session:
     timeout: 86400
-

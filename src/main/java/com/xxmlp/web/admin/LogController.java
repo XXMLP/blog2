@@ -28,7 +28,7 @@ public class LogController {
     public String addr(@PageableDefault(size = 10,sort = {"loginTime"},direction = Sort.Direction.DESC)
                                     Pageable pageable, Model model,AddrQuery addrQuery) {
         model.addAttribute("users", userService.listUser());
-        model.addAttribute("page",adressService.listAddress(pageable, addrQuery));
+        model.addAttribute("page",adressService.listAddress(pageable,addrQuery));
         return "admin/addr";
     }
 
