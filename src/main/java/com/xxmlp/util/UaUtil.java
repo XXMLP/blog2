@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 
 public class UaUtil {
 
-    public static void main(String[] args) {
-    }
-
 
     public static Address getDeviceType(HttpServletRequest request, Address address) {
         String agent=request.getHeader("User-Agent");

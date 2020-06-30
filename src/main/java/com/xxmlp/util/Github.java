@@ -24,7 +24,7 @@ public class Github {
         return json.toString();
     }
 
-    public static void main(String[] args) {
-       System.out.println(new Github().getJson("https://api.github.com/users/XXMLP/repos"));
-    }
+//    public static void main(String[] args) {
+//       System.out.println(new Github().getJson("https://api.github.com/users/XXMLP/repos"));
+//    }
 }

@@ -10,6 +10,5 @@ public interface ViewsService {
      */
     void updateViewsSize(Long userId);
 
-
     Views isViewsed(Long blogId, Long userId);
 }

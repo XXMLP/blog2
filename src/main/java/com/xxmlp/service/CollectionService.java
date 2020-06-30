@@ -2,8 +2,6 @@ package com.xxmlp.service;
 
 import com.xxmlp.po.Blog;
 import com.xxmlp.po.Collection;
-import com.xxmlp.po.Relationship;
-import com.xxmlp.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -14,13 +12,14 @@ public interface CollectionService {
      * @return
      */
     Page<Blog> listCollection(Long userId, Pageable pageable);
+
     void saveCollection(Collection collection);
+
     void removeCollection(Collection collection);
     /**
      * 更新关注数
      */
     void updateCollectionSize(Long userId);
-
 
     Collection isCollected(Long blogId, Long userId);
 }

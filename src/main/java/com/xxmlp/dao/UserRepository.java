@@ -36,9 +36,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query("select b from User b")
     List<User> findNewAll(Pageable pageable);
 
-    @Query("select u from User u where u.sessionId = ?1 and u.id = ?2")
-    User findBySessionIdAndId(String sessionId,Long id);
-
     /**
      * 根据id集合查询用户，分页查询
      *
@@ -46,11 +43,4 @@ public interface UserRepository extends JpaRepository<User,Long> {
      * @return
      */
     Page<User> findByIdIn(List<Integer> ids, Pageable pageable);
-    /**
-     * 根据id集合查询用户，不分页
-     *
-     * @param ids
-     * @return
-     */
-    List<User> findByIdIn(List<Integer> ids);
 }

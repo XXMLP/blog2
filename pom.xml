@@ -138,6 +138,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.bbossgroups.plugins</groupId>
+			<artifactId>bboss-elasticsearch-spring-boot-starter</artifactId>
+			<version>6.1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.bbossgroups.plugins</groupId>
+			<artifactId>bboss-elasticsearch-rest-jdbc</artifactId>
+			<version>6.1.7</version>
+		</dependency>
     </dependencies>
 
 	<build>

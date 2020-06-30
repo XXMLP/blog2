@@ -57,10 +57,11 @@
              <div class="input-field">
                <div class="ui left icon input">
                  <i class="key icon"></i>
-               <input type="text" id="input1" placeholder="验证码" >
+               <input type="text" id="input1" name="code" placeholder="验证码" >
                </div>
                <a href="#" onclick="createCode()">看不清楚？换一张</a>
                <input type="button" id="checkCode" class="code" style="width:60px" onclick="createCode()">
+               <input type="text" id="input2" name="code2" style="display:none" />
              </div>
              <span id="tishi"></span>
              <br>
@@ -101,6 +102,13 @@
           prompt: '请输入用户名'
         }]
       },
+      code : {
+        identifier: 'code',
+        rules: [{
+          type : 'empty',
+          prompt: '请输入验证码'
+        }]
+      },
       password : {
         identifier: 'password',
         rules: [{
@@ -116,7 +124,9 @@
     code = new Array();
     var codeLength = 4; //验证码的长度
     var checkCode = document.getElementById("checkCode");
+    var c = document.getElementById("input2");
     checkCode.value = "";
+    c.value = "";
     var selectChar = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
     for (var i = 0; i < codeLength; i++) {
       var charIndex = Math.floor(Math.random() * 32);
@@ -126,20 +136,16 @@
       createCode();
     }
     checkCode.value = code;
+    c.value = code;
   }
 
   function validate() {
     var inputCode = document.getElementById("input1").value.toUpperCase();
-    if (inputCode.length <= 0) {
-      document.getElementById("tishi").innerHTML="<font color='red'>请输入验证码</font>";
-      document.getElementById("Button1").disabled = true;
-    } else if (inputCode != code) {
+    if (inputCode != code) {
       document.getElementById("tishi").innerHTML="<font color='red'>验证码错误</font>";
-      document.getElementById("Button1").disabled = true;
       createCode();
     } else {
       document.getElementById("tishi").innerHTML="<font color='green'>验证码正确</font>";
-      document.getElementById("Button1").disabled = false;
     }
   }
 </script>

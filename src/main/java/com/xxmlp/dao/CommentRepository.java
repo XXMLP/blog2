@@ -19,6 +19,7 @@ public interface CommentRepository extends JpaRepository<Comment,Long>{
 
     @Query("select b from Comment b where b.checkComment = false")
     Page<Comment> findByNewComment(Pageable pageable);
+
     @Query("select b from Comment b where b.checkComment = true")
     Page<Comment> findByOldComment(Pageable pageable);
 
