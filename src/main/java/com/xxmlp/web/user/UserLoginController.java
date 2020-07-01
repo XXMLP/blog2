@@ -49,11 +49,11 @@ public class UserLoginController {
                         HttpServletResponse response,
                         RedirectAttributes attributes) throws Exception {
         User user = userService.checkUser(username, password);
-        if (!code.equals(code2)){
+        if (!code.equalsIgnoreCase(code2)){
             attributes.addFlashAttribute("message", "验证码错误");
             return "redirect:/user";
         }
-        if (user != null && code.equals(code2)) {
+        if (user != null && code.equalsIgnoreCase(code2)) {
             String sessionId = session.getId();
             session.setAttribute("user",user);
             /**将登录日志存入数据库*/
