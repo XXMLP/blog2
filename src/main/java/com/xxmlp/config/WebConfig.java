@@ -1,5 +1,7 @@
-package com.xxmlp.interceptor;
+package com.xxmlp.config;
 
+import com.xxmlp.interceptor.AdminLoginInterceptor;
+import com.xxmlp.interceptor.UserLoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

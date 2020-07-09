@@ -1,4 +1,4 @@
-package com.xxmlp.interceptor;
+package com.xxmlp.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;

@@ -45,19 +45,6 @@ public class SessionServiceImpl implements SessionService {
     }
     
     @Transactional
-    //allEntries 清空缓存所有属性 确保更新后缓存刷新
-    @CacheEvict(value="sessionCache", allEntries=true)
-    @Override
-    public void updateSession(Session session, Long id){
-        Session t = sessionRepository.findByUserId(id);
-        if (t == null) {
-            throw new NotFoundException("Sesison不存在");
-        }
-        BeanUtils.copyProperties(session,t, MyBeanUtils.getNullPropertyNames(session));
-        saveSession(session);
-    }
-
-    @Transactional
     @Cacheable(value="sessionCache") //缓存,这里没有指定key.
     @Override
     public Session getSessionById(Long id,String sessionId){
@@ -70,7 +57,10 @@ public class SessionServiceImpl implements SessionService {
     @Override
     public void delete(Long id) {
         Session session =sessionRepository.findByUserId(id);
-        sessionRedisService.remove(session.getRedisKey());
-        sessionRepository.delete(session.getId());
+        if (session != null) {
+            sessionRedisService.remove(session.getRedisKey());
+            sessionRepository.delete(session.getId());
+        }
+
     }
 }
