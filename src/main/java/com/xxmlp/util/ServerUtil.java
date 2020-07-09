@@ -24,6 +24,5 @@ public class ServerUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(new ServerUtil().login("49.232.25.149","root",""));
     }
 }

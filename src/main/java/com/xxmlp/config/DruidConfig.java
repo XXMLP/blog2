@@ -1,4 +1,4 @@
-package com.xxmlp.interceptor;
+package com.xxmlp.config;
 
 
 import com.alibaba.druid.pool.DruidDataSource;

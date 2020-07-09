@@ -47,8 +47,10 @@ public class LoginController {
                 userSession.setSessionId(sessionId);
                 sessionService.saveSession(userSession);
             }else{
+                sessionService.delete(user.getId());
+                userSession.setUserId(user.getId());
                 userSession.setSessionId(sessionId);
-                sessionService.updateSession(userSession,user.getId());
+                sessionService.saveSession(userSession);
             }
             user.setPassword(null);
             return "admin/index";
