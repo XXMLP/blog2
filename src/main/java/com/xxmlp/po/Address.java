@@ -29,8 +29,6 @@ public class Address implements Serializable {
 
     private String webType;
 
-    private String webVersion;
-
     private String sysName;
 
     private String Manufacturer;
@@ -60,14 +58,6 @@ public class Address implements Serializable {
 
     public void setWebType(String webType) {
         this.webType = webType;
-    }
-
-    public String getWebVersion() {
-        return webVersion;
-    }
-
-    public void setWebVersion(String webVersion) {
-        this.webVersion = webVersion;
     }
 
     public String getSysName() {
@@ -159,7 +149,6 @@ public class Address implements Serializable {
                 ", netType='" + netType + '\'' +
                 ", webName='" + webName + '\'' +
                 ", webType='" + webType + '\'' +
-                ", webVersion='" + webVersion + '\'' +
                 ", sysName='" + sysName + '\'' +
                 ", Manufacturer='" + Manufacturer + '\'' +
                 ", userId=" + userId +

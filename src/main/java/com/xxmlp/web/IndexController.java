@@ -3,7 +3,7 @@ package com.xxmlp.web;
 import com.xxmlp.po.*;
 import com.xxmlp.service.*;
 import com.xxmlp.util.IP.IPSeeker;
-import com.xxmlp.util.IPUtil;
+import com.xxmlp.util.IP.IPUtil;
 import com.xxmlp.util.UaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -74,7 +74,6 @@ public class IndexController {
         return "index";
     }
 
-
     @PostMapping("/search")
     public String search(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String query, Model model) {
@@ -98,6 +97,7 @@ public class IndexController {
         }
         return "blog";
     }
+
     @GetMapping("/users/{id}")
     public String homepage(@PathVariable Long id, Model model, User user,HttpSession session,
                            @PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable) {
@@ -155,6 +155,7 @@ public class IndexController {
         }
         return "redirect:/users/"+ id;
     }
+
     @GetMapping("/collection/{id}")
     public String collection(@PathVariable Long id, HttpSession session, RedirectAttributes attributes){
         User user=(User) session.getAttribute("user");
@@ -170,6 +171,7 @@ public class IndexController {
         }
         return "redirect:/blog/"+ id;
     }
+    
     @GetMapping("/thumbs/{id}")
     public String thumbs(@PathVariable Long id, HttpSession session, RedirectAttributes attributes){
         User user=(User) session.getAttribute("user");

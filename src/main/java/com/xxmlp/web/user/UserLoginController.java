@@ -7,7 +7,7 @@ import com.xxmlp.service.AdressService;
 import com.xxmlp.service.SessionService;
 import com.xxmlp.service.UserService;
 import com.xxmlp.util.IP.IPSeeker;
-import com.xxmlp.util.IPUtil;
+import com.xxmlp.util.IP.IPUtil;
 import com.xxmlp.util.UaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
