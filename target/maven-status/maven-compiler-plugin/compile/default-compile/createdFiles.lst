@@ -34,6 +34,7 @@ com\xxmlp\web\admin\BlogController.class
 com\xxmlp\web\user\HomePageController.class
 com\xxmlp\aspect\LogAspect$RequestLog.class
 com\xxmlp\web\ArchiveShowController.class
+com\xxmlp\util\IP\IPUtil.class
 com\xxmlp\util\Github.class
 com\xxmlp\BlogApplication.class
 com\xxmlp\config\RedisConfig.class
@@ -71,7 +72,6 @@ com\xxmlp\dao\ImgRepository.class
 com\xxmlp\po\RelationshipPK.class
 com\xxmlp\po\ViewsPK.class
 com\xxmlp\po\CollectionPK.class
-com\xxmlp\util\IPUtil.class
 com\xxmlp\web\MailController.class
 com\xxmlp\util\IP\IPSeeker.class
 com\xxmlp\web\admin\TagController.class

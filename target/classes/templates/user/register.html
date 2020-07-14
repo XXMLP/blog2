@@ -14,7 +14,7 @@
     font-style:italic;
     color:green;
     border:0;
-    padding:2px 3px;
+    padding:1px 1px 1px 1px;
     letter-spacing:3px;
     font-weight:bolder;
   }
@@ -77,7 +77,7 @@
     <br>
     <div class="ui left labeled input">
       <label class="ui teal basic label">验证码</label>
-        <input type="text" id="input1" placeholder="验证码" >
+        <input type="text" name="code" id="input1" placeholder="验证码" >
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="#" onclick="createCode()">看不清楚？换一张</a>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -88,9 +88,9 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
-    <span id="tishi1"></span>
+    <input type="text" id="input2" name="code2" style="display:none" />
     <br>
     <br>
     <div class="ui error message"></div>
@@ -158,6 +158,13 @@
           prompt: '提示：请输入密码'
         }]
       },
+      code : {
+        identifier: 'code',
+        rules: [{
+          type : 'empty',
+          prompt: '提示：请输入验证码'
+        }]
+      },
       email : {
         identifier: 'email',
         rules: [{
@@ -173,7 +180,9 @@
     code = new Array();
     var codeLength = 4; //验证码的长度
     var checkCode = document.getElementById("checkCode");
+    var c = document.getElementById("input2");
     checkCode.value = "";
+    c.value = "";
     var selectChar = new Array(2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
     for (var i = 0; i < codeLength; i++) {
       var charIndex = Math.floor(Math.random() * 32);
@@ -183,21 +192,7 @@
       createCode();
     }
     checkCode.value = code;
-  }
-
-  function validate() {
-    var inputCode = document.getElementById("input1").value.toUpperCase();
-    if (inputCode.length <= 0) {
-      document.getElementById("tishi1").innerHTML="<font color='red'>请输入验证码</font>";
-      document.getElementById("Button1").disabled = true;
-    } else if (inputCode != code) {
-      document.getElementById("tishi1").innerHTML="<font color='red'>验证码错误</font>";
-      document.getElementById("Button1").disabled = true;
-      createCode();
-    } else {
-      document.getElementById("tishi1").innerHTML="<font color='green'>验证码正确</font>";
-      document.getElementById("Button1").disabled = false;
-    }
+    c.value = code;
   }
 </script>
 </body>

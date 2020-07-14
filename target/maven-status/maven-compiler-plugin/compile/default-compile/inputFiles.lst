@@ -20,6 +20,7 @@ C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\impl\ThumbsSer
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\redis\SessionRedisServiceImpl.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\po\Views.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\vo\BlogQuery.java
+C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\IP\IPUtil.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\impl\ImgServiceImpl.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\po\Thumbs.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\user\CollectionController.java
@@ -95,7 +96,6 @@ C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\impl\Collectio
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\web\user\UserImgController.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\config\WebConfig.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\IP\IPSeeker.java
-C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\util\IPUtil.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\dao\SessionRepository.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\service\ViewsService.java
 C:\Users\admin\IdeaProjects\blog2\src\main\java\com\xxmlp\po\Type.java
