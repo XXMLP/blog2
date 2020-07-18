@@ -7,7 +7,7 @@ import com.xxmlp.service.AdressService;
 import com.xxmlp.service.SessionService;
 import com.xxmlp.service.UserService;
 import com.xxmlp.util.IP.IPSeeker;
-import com.xxmlp.util.IPUtil;
+import com.xxmlp.util.IP.IPUtil;
 import com.xxmlp.util.UaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -106,11 +106,17 @@ public class UserLoginController {
         String nickname = request.getParameter("nickname");
         String avatar = request.getParameter("avatar");
         String email = request.getParameter("email");
+        String code = request.getParameter("code");
+        String code2 = request.getParameter("code2");
         if (password.equals(password1)) {
            User u = userService.getUserByName(username);
            User u2=userService.getUserByNameOrEmail(email);
            if (u2!=null){
                attributes.addFlashAttribute("message","邮箱已被绑定");
+               return "redirect:/user/register";
+           }
+           if (!code.equalsIgnoreCase(code2)){
+               attributes.addFlashAttribute("message","验证码错误");
                return "redirect:/user/register";
            }
             if (u == null) {

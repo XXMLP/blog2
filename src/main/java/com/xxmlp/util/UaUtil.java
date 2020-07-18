@@ -35,7 +35,7 @@ public class UaUtil {
         address.setManufacturer(operatingSystem.getManufacturer().toString());
         address.setSysName(operatingSystem.getName());
         address.setWebName(browser.getName());
-        address.setWebVersion(userAgent.getBrowserVersion().toString());
+        //address.setWebVersion(userAgent.getBrowserVersion().toString());
         address.setWebType(browser.getBrowserType().toString());
         return address;
     }

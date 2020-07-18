@@ -1,6 +1,6 @@
 package com.xxmlp.aspect;
 
-import com.xxmlp.util.IPUtil;
+import com.xxmlp.util.IP.IPUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.xxmlp.util;
+package com.xxmlp.util.IP;
 
 import org.apache.log4j.Logger;
 
