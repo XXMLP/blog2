@@ -16,4 +16,4 @@ MAINTAINER xxmlp
 EXPOSE 8080
 
 #/blog.jar此处的名称要和ADD命令后面的一样。
-ENTRYPOINT ["java","-jar","/blog-2.0.0.jar","--spring.config.location=/application-dev.yml"]
+ENTRYPOINT ["java","-jar","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8080","/blog-2.0.0.jar","--spring.config.location=/application-dev.yml"]
